@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>م. عبدالرحمن عمرو | سفير الذكاء الاصطناعي</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Tajawal:wght@400;700;800&family=Outfit:wght@400;700;900&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <h1 class="logo" data-i18n-logo="true"><i class="fas fa-microchip"></i> عبدالرحمن <span>عمرو</span></h1>
+            <nav class="nav-links">
+                <a href="#about" data-i18n="nav-about">عني</a>
+                <a href="#honors" data-i18n="nav-honors">التكريمات</a>
+                <a href="#services" data-i18n="nav-services">الخدمات</a>
+                <a href="#products" data-i18n="nav-products">الأنظمة الجاهزة</a>
+                <a href="#portfolio" data-i18n="nav-portfolio">سابقة الأعمال</a>
+                <a href="#contact" class="btn btn-primary" data-i18n="nav-contact">تواصل معي</a>
+                <button id="lang-toggle" class="btn btn-outline" style="padding: 8px 15px;">English</button>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge" data-i18n="hero-badge">رؤية مصر 2030</span>
+                <h2 data-i18n="hero-title">م. عبدالرحمن عمرو</h2>
+                <p class="tagline" data-i18n="hero-tagline">مدرب دولي سفيراً للحوكمة، الذكاء الاصطناعي، والبصمة الكربونية.</p>
+                <p class="description" data-i18n="hero-desc">أقود التحول الرقمي بخبرات متراكمة في إدارة مشاريع تقنية المعلومات لتقديم حلول
+                    مبتكرة وبناء أنظمة مؤسسية متكاملة.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-primary-gradient" data-i18n="hero-btn-services">اكتشف خدماتي <i class="fas fa-arrow-left"></i></a>
+                    <a href="#contact" class="btn btn-outline" data-i18n="hero-btn-contact">تواصل الآن</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Using a placeholder for his Tuxedo photo from Facebook -->
+                <div class="image-frame">
+                    <img src="./assets/honor_3.jpg" alt="م. عبدالرحمن عمرو" id="profile-pic">
+                    <div class="floating-card c1">
+                        <i class="fas fa-robot"></i>
+                        <span data-i18n="hero-floating">سفير الذكاء الاصطناعي</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honors & Roles Section -->
+    <section class="honors section" id="honors">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="honors-title">التكريمات والمناصب القيادية</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="honors-grid">
+                <div class="honor-card">
+                    <div class="icon-wrapper"><i class="fas fa-brain"></i></div>
+                    <h3 data-i18n="honor-1-title">سفير الذكاء الاصطناعي</h3>
+                    <p data-i18n="honor-1-desc">المساهمة في نشر الوعي وبناء قدرات المجتمع في مجالات وتطبيقات الذكاء الاصطناعي.</p>
+                </div>
+
+                <div class="honor-card">
+                    <div class="icon-wrapper"><i class="fas fa-network-wired"></i></div>
+                    <h3 data-i18n="honor-2-title">سفير الحوكمة والتحول الرقمي</h3>
+                    <p data-i18n="honor-2-desc">قيادة مبادرات رقمنة المؤسسات لضمان حوكمة الأنظمة وتوافقها مع رؤية 2030.</p>
+                </div>
+
+                <div class="honor-card">
+                    <div class="icon-wrapper"><i class="fas fa-leaf"></i></div>
+                    <h3 data-i18n="honor-3-title">سفير البصمة الكربونية</h3>
+                    <p data-i18n="honor-3-desc">خريج الدفعة الأولى وتسخير التكنولوجيا لتحقيق الاستدامة البيئية.</p>
+                </div>
+
+                <div class="honor-card">
+                    <div class="icon-wrapper"><i class="fas fa-plane"></i></div>
+                    <h3 data-i18n="honor-4-title">مدير مشروع تقنية المعلومات</h3>
+                    <p data-i18n="honor-4-desc">مطار القاهرة الدولي - إدارة مشاريع حيوية وتطوير الأنظمة التقنية.</p>
+                </div>
+
+                <div class="honor-card">
+                    <div class="icon-wrapper"><i class="fas fa-x-ray"></i></div>
+                    <h3 data-i18n="honor-5-title">Senior Pacs/Ris</h3>
+                    <p data-i18n="honor-5-desc">مستشفيات جامعة عين شمس - خبير في أنظمة الأشعة الرقمية وتكنولوجيا السحابة الطبية.</p>
+                </div>
+
+                <div class="honor-card">
+                    <div class="icon-wrapper"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 data-i18n="honor-6-title">مدرب دولي معتمد</h3>
+                    <p data-i18n="honor-6-desc">تخطيط وتقديم برامج تدريبية متقدمة في التحول الرقمي وتكنولوجيا المعلومات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honors Gallery Section -->
+    <section class="honors section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="gallery-title">معرض الشهادات والتكريمات</h2>
+                <div class="divider"></div>
+                <p class="subtitle" data-i18n="gallery-subtitle">جانب من الشهادات والتكريمات المستحقة لعام 2025.</p>
+            </div>
+
+            <!-- Swiper Carousel -->
+            <div class="swiper gallery-swiper" dir="ltr">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./assets/513030140_23909311908760342_5327265467108048974_n.jpg"
+                            alt="حدث 1"></div>
+                    <div class="swiper-slide"><img src="./assets/564667525_24832938713064319_7902166221299437990_n.jpg"
+                            alt="حدث 2"></div>
+                    <div class="swiper-slide"><img src="./assets/580841047_25091568703867984_8324318571320689622_n.jpg"
+                            alt="حدث 3"></div>
+                    <div class="swiper-slide"><img src="./assets/580990168_25080370314987823_447296764789533060_n.jpg"
+                            alt="حدث 4"></div>
+                    <div class="swiper-slide"><img src="./assets/616687927_25644340181924164_3190738172448057512_n.jpg"
+                            alt="حدث 5"></div>
+                    <div class="swiper-slide"><img src="./assets/617513729_25644340008590848_5458310193270951135_n.jpg"
+                            alt="حدث 6"></div>
+                    <div class="swiper-slide"><img src="./assets/617538895_25680909151600600_78896517860581570_n.jpg"
+                            alt="حدث 7"></div>
+                    <div class="swiper-slide"><img src="./assets/617743033_25644340015257514_819365971753303457_n.jpg"
+                            alt="حدث 8"></div>
+                    <div class="swiper-slide"><img src="./assets/617832698_25644340005257515_6012570446740427118_n.jpg"
+                            alt="حدث 9"></div>
+                    <div class="swiper-slide"><img src="./assets/639675848_25938875175803995_4760527086004995393_n.jpg"
+                            alt="حدث 10"></div>
+                    <div class="swiper-slide"><img src="./assets/648185504_945580921322743_3234485411351673525_n.jpg"
+                            alt="حدث 11"></div>
+                    <div class="swiper-slide"><img src="./assets/671760122_26475785438779630_5858943505297597701_n.jpg"
+                            alt="حدث 12"></div>
+                    <div class="swiper-slide"><img src="./assets/671965477_26508199185538255_8925245696719083280_n.jpg"
+                            alt="حدث 13"></div>
+                    <div class="swiper-slide"><img src="./assets/672336894_26508147115543462_86640065594452061_n.jpg"
+                            alt="حدث 14"></div>
+                    <div class="swiper-slide"><img src="./assets/674114589_26508147135543460_5889744363428740986_n.jpg"
+                            alt="حدث 15"></div>
+                    <div class="swiper-slide"><img src="./assets/honor_1.jpg" alt="شهادة 1"></div>
+                    <div class="swiper-slide"><img src="./assets/honor_2.jpg" alt="شهادة 2"></div>
+                    <div class="swiper-slide"><img src="./assets/honor_3.jpg" alt="تكريم 3"></div>
+                    <div class="swiper-slide"><img src="./assets/honor_4.jpg" alt="تكريم 4"></div>
+                    <div class="swiper-slide"><img src="./assets/honor_5.jpg" alt="تكريم 5"></div>
+                    <div class="swiper-slide"><img src="./assets/honor_6.jpg" alt="تكريم 6"></div>
+                </div>
+                <!-- Navigation arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Press Section -->
+    <section class="news section" id="news" style="background: var(--clr-bg-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="news-title">التغطية الإعلامية</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-content">
+                    <span class="news-date" data-i18n="news-badge">تغطية صحفية حديثة</span>
+                    <h3 data-i18n="news-headline">المهندس عبدالرحمن عمرو سفيراً للذكاء الاصطناعي</h3>
+                    <p data-i18n="news-desc">أبرزت صحيفة "تحيا مصر" خبراً مفصلاً يتناول المهندس عبدالرحمن عمرو كواحد من أبرز الوجوه في منصب
+                        سفير الذكاء الاصطناعي ودوره الفعال في دفع مسيرة التحول الرقمي وفقاً لرؤية مصر 2030.</p>
+                    <a href="https://ta7iamasr.com/%D8%A7%D9%84%D9%85%D9%87%D9%86%D8%AF%D8%B3-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86-%D8%B3%D9%81%D9%8A%D8%B1%D8%A7%D9%8B-%D9%84%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%B5%D9%86/"
+                        target="_blank" class="btn btn-outline" data-i18n="news-btn">اقرأ المقال كاملاً في موقع تحيا مصر <i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="services-title">خدماتنا الرقمية</h2>
+                <div class="divider"></div>
+                <p class="subtitle" data-i18n="services-subtitle">حلول تقنية مبتكرة مصممة لدعم الأفراد والشركات في رحلة التحول الرقمي.</p>
+            </div>
+
+            <div class="services-wrapper">
+                <!-- Service 1 -->
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="تصميم مواقع">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="srv-1-title">إنشاء وتطوير مواقع إلكترونية احترافية</h3>
+                        <p data-i18n="srv-1-desc">تصميم وبرمجة مواقع ويب حديثة، متجاوبة مع جميع الشاشات بمظهر فخم يعكس هوية عملك ويجلب لك
+                            المزيد من العملاء.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-1-f1">تصميم مخصص وجذاب</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-1-f2">توافق مع الهواتف</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-1-f3">تحسين محركات البحث SEO</span></li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="location.href='#contact'" data-i18n="srv-btn">احجز الخدمة</button>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-box reverse">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="التحول الرقمي">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="srv-2-title">سيستم للتحول من ورقي إلى رقمي</h3>
+                        <p data-i18n="srv-2-desc">بناء نظام أرشيف رقمي وإدارة معلومات متكامل للتخلص من المعاملات الورقية، متبوعاً بتدريب مكثف
+                            للموظفين لضمان الاستخدام الأمثل.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-2-f1">أرشفة آمنة وسريعة</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-2-f2">لوحة تحكم إدارية كاملة</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-2-f3">تدريب طاقم العمل</span></li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="location.href='#contact'" data-i18n="srv-btn">احجز الخدمة</button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="مشاريع صغيرة">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-i18n="srv-3-title">صفحات تعريفية للأنشطة الصغيرة</h3>
+                        <p data-i18n="srv-3-desc">إطلاق صفحة تعريفية سريعة ومبهرة لنشاطك التجاري الصغير (بدومين خاص أو بدونه) لتسهيل وصول
+                            العملاء لمنتجاتك.</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-3-f1">تكلفة اقتصادية</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-3-f2">تصميم سريع التنفيذ</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="srv-3-f3">ربط بوسائل التواصل</span></li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="location.href='#contact'" data-i18n="srv-btn">احجز الخدمة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products / SaaS Section -->
+    <section class="products section" id="products" style="background: var(--clr-bg-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="products-title">الأنظمة والمنتجات البرمجية (SaaS)</h2>
+                <div class="divider"></div>
+                <p class="subtitle" data-i18n="products-subtitle">أنظمة ذكية ومنصات متكاملة جاهزة للتركيب فوراً لخدمة مؤسستك مع إمكانية التخصيص الكامل لهويتك.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CIPT">
+                        <span class="badge">SaaS Ready</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>منصة CIPT</h3>
+                        <p>منصة اختبارات احترافية للطلاب، مزودة بأدوات تحليلية متقدمة لتتبع مستوى التقدم.</p>
+                        <div class="product-actions">
+                            <a href="./CIPT/index.html" target="_blank" class="btn btn-outline btn-sm">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20نظام%20CIPT" target="_blank" class="btn btn-primary-gradient btn-sm">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carbon Footprint Platform">
+                        <span class="badge">Eco System</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>منصة حساب البصمة الكربونية</h3>
+                        <p>منصة ذكية لحساب وتحليل البصمة الكربونية لمؤسستك لتحقيق أهداف الاستدامة البيئية.</p>
+                        <div class="product-actions">
+                            <a href="./carbon-footprint-platform-main/dist/index.html" target="_blank" class="btn btn-outline btn-sm">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20نظام%20حساب%20البصمة%20الكربونية" target="_blank" class="btn btn-primary-gradient btn-sm">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carbon Results">
+                        <span class="badge">Analytics</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>منصة نتائج الطلاب</h3>
+                        <p>بوابة إلكترونية متخصصة في عرض وإدارة نتائج الطلاب الأكاديمية بطريقة تفاعلية ومؤمنة بالكامل.</p>
+                        <div class="product-actions">
+                            <a href="./Carbon-Footprint-Results-main/index.html" target="_blank" class="btn btn-outline btn-sm">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20نظام%20نتائج%20الطلاب" target="_blank" class="btn btn-primary-gradient btn-sm">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Flashcards Game">
+                        <span class="badge">Education</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>لعبة البطاقات التعليمية (Flashcards)</h3>
+                        <p>منصة لمراجعة دروس الطلاب وتكرارها بشكل ممتع، مخصصة للمراكز التعليمية والمدرسين.</p>
+                        <div class="product-actions">
+                            <a href="./flashcards-game-main/index.html" target="_blank" class="btn btn-outline btn-sm">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20لعبة%20البطاقات%20التعليمية" target="_blank" class="btn btn-primary-gradient btn-sm">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Altahera Management">
+                        <span class="badge">ERP System</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>نظام إدارة المراكز الطبية</h3>
+                        <p>سيستم إداري شامل ومتكامل لضبط وتنظيم سير العمل وحجز المواعيد وإدارة المرضى داخل المراكز الطبية.</p>
+                        <div class="product-actions">
+                            <a href="./Altahera-Management-System/index.html" target="_blank" class="btn btn-outline btn-sm">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20نظام%20إدارة%20المراكز%20الطبية" target="_blank" class="btn btn-primary-gradient btn-sm">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Radiance RIS">
+                        <span class="badge">Medical RIS</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>نظام حجز الأشعة بالمراكز (RIS)</h3>
+                        <p>نظام طبي متقدم لحجز الأشعة بالمراكز وتسجيل وإدارة تقارير وصور الأشعة الرقمية بكل كفاءة.</p>
+                        <div class="product-actions">
+                            <a href="./radiance-ris-main/dist/index.html" target="_blank" class="btn btn-outline btn-sm">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20نظام%20حجز%20الأشعة%20RIS" target="_blank" class="btn btn-primary-gradient btn-sm">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio & Case Studies Section -->
+    <section class="portfolio section" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="portfolio-title">سابقة الأعمال والعملاء</h2>
+                <div class="divider"></div>
+                <p class="subtitle" data-i18n="portfolio-subtitle">مجموعة من المواقع والتطبيقات التي تم تطويرها خصيصاً لتلبية احتياجات عملائنا وتحقيق أهدافهم.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Case 1 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dr. Medhat">
+                    <div class="case-content">
+                        <h3>د. مدحت (مدرب كورسات)</h3>
+                        <p>موقع تعريفي احترافي لمدرب كورسات لتقديم المحتوى التعليمي للطلاب بشكل عصري وجذاب.</p>
+                        <a href="./drmedhat/index.html" target="_blank" class="case-link">استعرض المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Altahera">
+                    <div class="case-content">
+                        <h3>مؤسسة الطاهرة</h3>
+                        <p>بوابة إلكترونية متكاملة لمؤسسة الطاهرة تعكس هويتها وخدماتها بشكل تقني حديث.</p>
+                        <a href="./AlTahera-Feedback/index.html" target="_blank" class="case-link">استعرض المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Agent Law">
+                    <div class="case-content">
+                        <h3>مكتب المحامية سمر سمير</h3>
+                        <p>موقع رسمي لمكتب محاماة، يبرز الخدمات القانونية ويتيح للعملاء حجز الاستشارات وتتبع القضايا.</p>
+                        <a href="./samar samier/dist/index.html" target="_blank" class="case-link">استعرض المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bab El Louq">
+                    <div class="case-content">
+                        <h3>باب اللوق (Bab ELlouq)</h3>
+                        <p>موقع تجاري احترافي يعرض المنتجات والخدمات بتصميم متجاوب وتجربة مستخدم مميزة.</p>
+                        <a href="./Bab ELlouq/index.html" target="_blank" class="case-link">استعرض المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- Case 5 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mida Salon">
+                    <div class="case-content">
+                        <h3>صالون ميدا (Mida)</h3>
+                        <p>موقع تعريفي لصالون تجميل راقي، يتيح استعراض الخدمات وأحدث الصيحات مع إمكانية الحجز.</p>
+                        <a href="./mida/index.html" target="_blank" class="case-link">استعرض المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <!-- Case 6 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elkhalej">
+                    <div class="case-content">
+                        <h3>الخليج (Elkhalej)</h3>
+                        <p>منصة رقمية لشركة الخليج لتعزيز تواجدها الرقمي وإبراز مشاريعها لعملائها.</p>
+                        <a href="./elkhalej/index.html" target="_blank" class="case-link">استعرض المشروع <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer class="footer" id="contact">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h2 class="logo" data-i18n-logo="true"><i class="fas fa-microchip"></i> عبدالرحمن <span>عمرو</span></h2>
+                <p data-i18n="footer-desc">مستعد لبدء رحلة نجاحك الرقمية؟ تواصل معي الآن لنحول أفكارك إلى واقع تكنولوجي ملموس.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/bedo.shetos" target="_blank" class="social-btn"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/abdelrhman-amr1/" target="_blank" class="social-btn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/201128007078" target="_blank" class="social-btn"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://twitter.com/dobe20" target="_blank" class="social-btn"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-form">
+                <h3 data-i18n="form-title">اطلب استشارة أو خدمة</h3>
+                <form action="#" id="contactForm">
+                    <input type="text" id="userName" placeholder="الاسم الكريم" data-i18n-placeholder="form-name" required>
+                    <input type="text" id="userContact" placeholder="البريد الإلكتروني أو الهاتف" data-i18n-placeholder="form-contact" required>
+                    <select id="userService">
+                        <option data-i18n="form-opt-def">اختر الخدمة...</option>
+                        <option data-i18n="form-opt-1">موقع إلكتروني</option>
+                        <option data-i18n="form-opt-2">سيستم تحول رقمي وتدريب</option>
+                        <option data-i18n="form-opt-3">صفحة تعريفية</option>
+                        <option data-i18n="form-opt-4">استشارة ذكاء اصطناعي</option>
+                    </select>
+                    <textarea id="userDetails" rows="4" placeholder="تفاصيل طلبك..." data-i18n-placeholder="form-details"></textarea>
+                    <button type="submit" class="btn btn-primary-gradient w-100" data-i18n="form-btn">إرسال الطلب عبر واتساب <i
+                            class="fab fa-whatsapp"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyrights">
+            <p>&copy; <span id="year"></span> <span data-i18n="copyright">م. عبدالرحمن عمرو. جميع الحقوق محفوظة.</span></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

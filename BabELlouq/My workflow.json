@@ -1,0 +1,214 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        16,
+        -496
+      ],
+      "id": "36dd3e5d-3215-4954-a4c0-ce2800ff68a0",
+      "name": "Send a text message",
+      "webhookId": "89c38dde-afa5-46a8-9724-5fd9d426b1cd",
+      "credentials": {
+        "telegramApi": {
+          "id": "Z5j2e3PgXdqLfxtW",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -384,
+        -304
+      ],
+      "id": "2dd4df5e-46a0-475d-b15a-bc224a89258f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "HbnnR1sVcNqLBAKv",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -608,
+        -512
+      ],
+      "id": "369a0912-18ff-4a42-9ee8-f029f4acdccd",
+      "name": "Telegram Trigger",
+      "webhookId": "279acd43-f181-48fe-9922-24e1c42bae71",
+      "credentials": {
+        "telegramApi": {
+          "id": "Z5j2e3PgXdqLfxtW",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "ممتاز جداً يا هندسة. تفضل، ده الـ System Prompt المتكامل والمعدل. كل اللي عليك تعمله هو إنك تاخده (Copy) وتحطه (Paste) مباشرة في إعدادات عقدة الـ AI Agent في n8n:\n\nأنت مساعد مبيعات ودعم فني ذكي لمركز خدمات المهندس عبدالرحمن والمهندس بكر.\nمهمتك: مساعدة العملاء في شراء المنتجات من قاعدة البيانات أو توجيههم للدعم الفني.\n\nقواعد التعامل مع المنتجات (قواعد صارمة جداً يجب الالتزام بها):\n\nالبحث المباشر: عند سؤال العميل عن منتج، استخدم أداة البحث في الشيت (Google Sheets Tool) للبحث عن المنتج المطلوب.\n\nممنوع التأليف أو الاستنتاج: اعرض فقط اسم المنتج (ProductName) والسعر (Price) كما هو موجود في قاعدة البيانات بالضبط. لا تسأل العميل أبدًا عن ألوان، أطوال، مقاسات، أو أي خيارات غير مكتوبة صراحة في اسم المنتج.\n\nالكمية: افترض دائماً أن العميل يريد قطعة واحدة ولا تسأله \"عايز كام قطعة؟\". إذا أراد أكثر سيخبرك هو بذلك من تلقاء نفسه.\n\nالبيع السريع والمركز (إغلاق البيع): بمجرد إيجاد المنتج وتوفره، قل للعميل مباشرة وبدون أي أسئلة إضافية: \"المنتج (اسم المنتج) متاح وسعره (السعر). لتأكيد الحجز وشحن المنتج، يرجى إرسال: الاسم بالكامل، عنوان التوصيل، ورقم الموبايل.\"\n\nعرض الصور: إذا كان هناك رابط صورة في عمود img pro (مثل Products_Images/1.jpg)، قم بعرضه للعميل في المحادثة.\n\nدورة إتمام البيع:\nعندما يرسل العميل بياناته (الاسم، العنوان، الموبايل)، قم فوراً باستخدام أداة إضافة البيانات (Append Row) لتسجيل طلب الشراء في الشيت، ثم اشكره وأخبره أنه سيتم التواصل معه قريباً لتأكيد الشحن.\n\nدورة الدعم الفني:\nإذا كان طلب العميل متعلقاً بمشكلة فنية أو يحتاج التحدث مع المهندس عبدالرحمن أو المهندس بكر، اطلب منه وصف المشكلة أو إرسال صورة لها. ثم أخبره: \"تم تسجيل المشكلة، وسيتم تحويلك فوراً للمهندس للرد عليك.\" (عند هذه النقطة يجب تفعيل أداة التحويل والإشعار على الواتساب).\n\nاللغة والأسلوب:\nتحدث بلهجة مصرية مهذبة، احترافية، ومختصرة جداً. ركز فقط على إتمام البيع أو تقديم الدعم."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -352,
+        -528
+      ],
+      "id": "2e0a9ce2-a24e-4026-b2e2-aeaac3c33760",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "1481660470",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -224,
+        -288
+      ],
+      "id": "714a3c4a-3991-430c-962d-a43daac016a5",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "استخدم هذه الأداة للبحث عن المنتجات، الأسعار، ابحث باستخدام اسم المنتج أو الفئة. متبعتش الكميه الموجوده للعميل انت بتيع قطاعى مش جمله خلى العميل يبعت رقم موبيله واسمه واحنا هتبعتلك الحاجه لحد عندك",
+        "documentId": {
+          "__rl": true,
+          "value": "1Y56qr-jym0hVSishaO-2sZ-4cBHXNzNu8DFfq9b3MhE",
+          "mode": "list",
+          "cachedResultName": "n8n Products",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y56qr-jym0hVSishaO-2sZ-4cBHXNzNu8DFfq9b3MhE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 265026130,
+          "mode": "list",
+          "cachedResultName": "Products",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y56qr-jym0hVSishaO-2sZ-4cBHXNzNu8DFfq9b3MhE/edit#gid=265026130"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -96,
+        -320
+      ],
+      "id": "29587567-14cd-407f-b130-e73e2adec442",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "vm4hafSbW4AG08vQ",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3bea017c-c6b9-401b-89a5-957d3094ebfc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2e71dfca6786883689441dd415bb68067f0c978e5454cb8ddbe9d094fb1c969e"
+  },
+  "id": "VJh7qmRaB4jGuFAC",
+  "tags": []
+}

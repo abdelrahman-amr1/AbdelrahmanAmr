@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاختبار النهائي - تحدي كبسولة CIPT</title>
+    <style>
+        :root { --primary: #1a2b4c; --accent: #27ae60; --bg: #f0f4f8; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        .logos { display: flex; justify-content: center; gap: 15px; padding: 15px; background: white; border-radius: 10px; width: 100%; max-width: 600px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); flex-wrap: wrap; }
+        .logos img { height: 50px; object-fit: contain; }
+        .card { background: white; width: 100%; max-width: 600px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; margin-bottom: 30px; }
+        .header { background: var(--primary); color: white; padding: 20px; text-align: center; }
+        .screen { padding: 30px; display: none; min-height: 350px;}
+        .screen.active { display: block; animation: fadeIn 0.4s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .btn { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 10px; transition: 0.3s;}
+        .btn:hover { background: #0d172a; }
+        .option { display: block; width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #e2e8f0; border-radius: 8px; text-align: right; background: white; cursor: pointer; transition: 0.2s; font-size: 16px; font-weight: bold; color: #334155; }
+        .option:hover { border-color: var(--primary); background: #f8fafc; }
+        
+        /* ألوان الإجابات الصحيحة والخاطئة */
+        .option.correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724 !important; }
+        .option.wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24 !important; }
+        
+        /* تنسيق تقرير الأخطاء */
+        .review-box { text-align: right; background: #f8fafc; padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px solid #e2e8f0; }
+        .review-q { color: var(--primary); font-weight: bold; margin-bottom: 8px; margin-top: 0; line-height: 1.4;}
+        .review-ans { color: #dc3545; font-size: 14px; margin: 5px 0; text-decoration: line-through;}
+        .review-correct { color: #28a745; font-size: 15px; margin: 5px 0; font-weight: bold;}
+
+        .timer { font-size: 24px; color: #ffeb3b; font-weight: bold; margin: 10px 0; }
+        input { width: 100%; padding: 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 18px; text-align: center; margin-bottom: 15px; box-sizing: border-box; }
+        .badge { background: #eef2f7; padding: 15px; border-radius: 10px; border-right: 5px solid var(--accent); margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="logos">
+        <h2 style="color: var(--primary); margin: 0; padding: 10px; font-weight: 900; letter-spacing: 1px;">⚙️ YourLogo</h2>
+    </div>
+
+    <div class="card">
+        <div class="header">
+            <h3 style="margin: 0;">الاختبار النهائي الشامل</h3>
+            <div id="timer" class="timer" style="display:none">15:00</div>
+        </div>
+
+        <div class="screen active" id="login">
+            <h3 style="text-align:center">تحقق من بيانات التسجيل</h3>
+            <p style="text-align:center; color: #64748b; font-size: 14px;">أدخل رقم الواتساب المسجل في الحضور لتفعيل الاختبار</p>
+            <input type="tel" id="mob" placeholder="مثال: 01142751397" maxlength="11">
+            <button class="btn" onclick="check()" id="checkBtn">تحقق من البيانات</button>
+            <p id="msg" style="color:red; text-align:center; font-weight:bold; margin-top:10px;"></p>
+        </div>
+
+        <div class="screen" id="welcome">
+            <div class="badge">
+                <p>الاسم: <strong id="trainee-name" style="color: var(--primary);"></strong></p>
+                <p>كود المتدرب: <strong id="trainee-code" style="color: var(--primary);"></strong></p>
+            </div>
+            <p style="line-height:1.6">لديك <strong>20 سؤالاً</strong> تدريبياً شاملاً. الوقت المتاح: <strong>15 دقيقة</strong>.</p>
+            <button class="btn" onclick="start()">ابدأ التحدي الآن</button>
+        </div>
+
+        <div class="screen" id="quiz">
+            <p id="progress" style="color:#64748b; font-weight:bold"></p>
+            <h3 id="q-text" style="line-height:1.5; color: var(--primary);"></h3>
+            <div id="opts"></div>
+        </div>
+
+        <div class="screen" id="finish">
+            <h2 style="text-align:center; color: var(--primary);">انتهى التحدي! 🎉</h2>
+            <div style="background: #f8fafc; border: 2px dashed #cbd5e1; padding: 20px; text-align: center; border-radius: 10px; margin: 20px 0;">
+                <h1 id="score" style="color:var(--accent); font-size: 48px; margin: 0;"></h1>
+                <p style="margin: 5px 0; color: #64748b;">نقاط من أصل 20</p>
+            </div>
+            <p id="status" style="text-align:center; color:#64748b; font-weight:bold; margin-bottom: 20px;">جاري حفظ النتيجة ووقت الإرسال...</p>
+            
+            <div id="review-section"></div>
+        </div>
+    </div>
+
+    <p style="text-align:center; font-size:14px; font-weight:bold; color:var(--primary); margin-top:10px; margin-bottom:30px;">
+        &copy; تم التطوير بواسطة م. عبدالرحمن عمرو | نسخة عرض (Demo)
+    </p>
+
+    <!-- Theme Switcher -->
+    <div id="theme-switcher" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 10px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; gap: 10px; z-index: 1000; align-items: center;">
+        <span style="font-size: 12px; font-weight: bold; color: #333; margin-left: 5px;">تخصيص:</span>
+        <button onclick="setTheme('#1a2b4c', '#27ae60')" style="background: #1a2b4c; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+        <button onclick="setTheme('#8b0000', '#ff4500')" style="background: #8b0000; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+        <button onclick="setTheme('#4b0082', '#9370db')" style="background: #4b0082; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+        <button onclick="setTheme('#0056b3', '#00c3ff')" style="background: #0056b3; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+    </div>
+
+
+    <script>
+        // الرابط الجديد الخاص بك للمحاضرة الثالثة
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzuZU5VFtJ8pn3fJgOc5yECQyYqwDPoKsiIXpChZ1yC71Aq25KT9uPdIIaXJ2ZxMZ2j/exec';
+        
+        let current = 0, score = 0, timer, sec = 900, user = {};
+        let userAnswers = []; 
+
+        const questions = [
+            { q: "ما هي القاعدة الذهبية في تقسيم وقت التدريب الاحترافي؟", a: ["70% عملي و 30% نظري", "50% عملي و 50% نظري", "30% عملي و 70% نظري"], c: 0 },
+            { q: "يقاس النجاح في جوهر التدريب بـ:", a: ["كثرة المعلومات المقدمة", "التغيير الحقيقي في العقلية والسلوك", "قدرة المدرب على الإبهار المستمر"], c: 1 },
+            { q: "يركز نموذج ASK في العملية التدريبية على تغيير:", a: ["المعارف والمهارات والسلوكيات", "الأفكار والمعلومات فقط", "الحالة البدنية للمتدربين"], c: 0 },
+            { q: "حسب نظرية تعليم الكبار (Andragogy)، يعتبر المدرب:", a: ["ملقناً للمعلومات", "موجهاً وميسراً", "مراقباً وسلطة عليا"], c: 1 },
+            { q: "حسب هرم التعلم لإدغار ديل، ما هي نسبة التذكر من 'الممارسة العملية'؟", a: ["50%", "70%", "90%"], c: 2 },
+            { q: "في مستويات الأداء الشخصي، ما هو المستوى الذي يعبر عن التميز؟", a: ["الإتقان", "الدقة", "الكفاية"], c: 2 },
+            { q: "يهدف 'تحليل الاحتياجات التدريبية' (TNA) بشكل أساسي إلى:", a: ["زيادة أرباح المؤسسة", "سد الفجوة بين الوضع الحالي والمأمول", "تقييم أداء المدرب"], c: 1 },
+            { q: "تنص قاعدة ألبرت مهربيان للتواصل على أن تأثير 'لغة الجسد' يمثل نسبة:", a: ["7%", "38%", "55%"], c: 2 },
+            { q: "النسبة المخصصة لـ 'نبرة الصوت' في قاعدة مهربيان هي:", a: ["7%", "38%", "55%"], c: 1 },
+            { q: "أي من المدارس التالية تعتبر أن التعلم يحدث نتيجة 'مثير واستجابة'؟", a: ["المدرسة المعرفية", "المدرسة السلوكية", "المدرسة البنائية"], c: 1 },
+            { q: "المدرسة التي تشبه عقل الإنسان بـ 'الكمبيوتر' في معالجة المعلومات هي:", a: ["المدرسة السلوكية", "المدرسة المعرفية", "المدرسة البنائية"], c: 1 },
+            { q: "من الوضعيات الإيجابية للغة الجسد التي تدل على الثقة في العرض:", a: ["تربيع اليدين", "الظهر مفرود واليدان مفتوحتان", "وضع اليد في الجيب"], c: 1 },
+            { q: "واحدة من 'الوقفات الست' (فن الصمت) تستخدم لـ:", a: ["لفت الانتباه قبل الكلام", "إخفاء التوتر", "زيادة وقت العرض"], c: 0 },
+            { q: "هيكل العرض التقديمي يتكون من ثلاثة أجزاء رئيسية هي:", a: ["المقدمة والموضوع والخاتمة", "التمهيد والمفاجأة والإغلاق", "كسر الجليد والصور والتلخيص"], c: 0 },
+            { q: "من الأخطاء القاتلة أثناء التحدث أمام الجمهور:", a: ["التبسيط", "الرتابة الصوتية وضعف التحضير", "أنسنة المواد"], c: 1 },
+            { q: "فلسفة 'حصان طروادة' في التحدث تعني:", a: ["الهجوم على آراء المتدربين", "الدخول الطوعي لوعي المتلقي واستخدام القصة", "إخفاء المعلومات عن الجمهور"], c: 1 },
+            { q: "من مكونات الحقيبة التدريبية الأساسية:", a: ["دليل المتدرب، دليل المدرب، دليل التطبيقات", "جهاز العرض المحمول", "السيرة الذاتية للمدرب فقط"], c: 0 },
+            { q: "من جاذبات الانتباه في تصميم المحتوى:", a: ["القصص الهادفة والأمثلة الواقعية", "الرتابة في العرض وتزاحم الشرائح", "تجنب طرح الأسئلة"], c: 0 },
+            { q: "حسب قاعدة 'الثوابت والمتغيرات' في تصميم المحتوى، تعتبر 'القيم والأخلاق':", a: ["متغيرة حسب الجمهور", "ثوابت قاطعة لا تتغير", "تحتاج لتحديث مستمر"], c: 1 },
+            { q: "من مزايا استخدام الذكاء الاصطناعي في التدريب:", a: ["توفير الوقت والجهد مع ضرورة التدقيق البشري", "الاستغناء التام عن التدقيق البشري والمراجعة", "إلغاء بصمة شخصية المدرب"], c: 0 }
+        ];
+
+        function setTheme(primary, accent) {
+            document.documentElement.style.setProperty('--primary', primary);
+            document.documentElement.style.setProperty('--accent', accent);
+        }
+
+        async function check() {
+            const m = document.getElementById('mob').value.trim();
+            if(!m) { document.getElementById('msg').innerText = "يرجى إدخال أي رقم للدخول"; return; }
+            document.getElementById('checkBtn').innerText = "جاري التحقق...";
+            document.getElementById('checkBtn').disabled = true;
+            
+            // Dummy Data Simulation
+            setTimeout(() => {
+                user = { mobile: m, name: "طالب تجريبي (Demo)", code: "DEMO-1234" };
+                document.getElementById('trainee-name').innerText = user.name;
+                document.getElementById('trainee-code').innerText = user.code;
+                show('welcome');
+                document.getElementById('checkBtn').innerText = "تحقق من البيانات"; 
+                document.getElementById('checkBtn').disabled = false;
+            }, 800);
+        }
+
+        function start() {
+            show('quiz');
+            document.getElementById('timer').style.display = 'block';
+            timer = setInterval(() => {
+                sec--;
+                let min = Math.floor(sec/60), s = sec%60;
+                document.getElementById('timer').innerText = min + ":" + (s<10?"0":"") + s;
+                if(sec <= 0) end();
+            }, 1000);
+            load();
+        }
+
+        function load() {
+            const q = questions[current];
+            document.getElementById('progress').innerText = "السؤال " + (current+1) + " من 20";
+            document.getElementById('q-text').innerText = q.q;
+            const o = document.getElementById('opts'); 
+            o.innerHTML = '';
+            
+            let answered = false;
+
+            q.a.forEach((opt, i) => {
+                const b = document.createElement('button');
+                b.className = 'option';
+                b.innerText = opt;
+                
+                b.onclick = () => { 
+                    if(answered) return; 
+                    answered = true;
+                    
+                    userAnswers.push({
+                        question: q.q,
+                        selectedAnswer: opt,
+                        correctAnswer: q.a[q.c],
+                        isCorrect: i === q.c
+                    });
+
+                    if(i === q.c) {
+                        b.classList.add('correct');
+                        score++; 
+                    } else {
+                        b.classList.add('wrong');
+                        o.children[q.c].classList.add('correct');
+                    }
+
+                    current++; 
+                    
+                    setTimeout(() => {
+                        if(current < 20) load(); else end(); 
+                    }, 1500);
+                };
+                o.appendChild(b);
+            });
+        }
+
+        function end() {
+            clearInterval(timer);
+            show('finish');
+            document.getElementById('score').innerText = score + " / 20";
+            
+            let reviewHTML = "";
+            let wrongAnswers = userAnswers.filter(ans => !ans.isCorrect);
+            
+            if(wrongAnswers.length > 0) {
+                reviewHTML += `<h3 style='text-align:center; color:#e74c3c; margin-top: 30px; border-top: 2px dashed #e2e8f0; padding-top: 20px;'>مراجعة الأخطاء 📋</h3>`;
+                wrongAnswers.forEach(ans => {
+                    reviewHTML += `
+                    <div class='review-box'>
+                        <p class='review-q'>${ans.question}</p>
+                        <p class='review-ans'>إجابتك: ${ans.selectedAnswer}</p>
+                        <p class='review-correct'>✓ الإجابة الصحيحة: ${ans.correctAnswer}</p>
+                    </div>`;
+                });
+            } else {
+                reviewHTML += `<h3 style='text-align:center; color:#27ae60; margin-top: 30px;'>رائع! لم تخطئ في أي سؤال 🏆</h3>`;
+            }
+            document.getElementById('review-section').innerHTML = reviewHTML;
+
+            // Disabled API post for Demo
+            setTimeout(() => {
+                document.getElementById('status').innerText = "✅ تم حفظ نتيجتك (نسخة تجريبية).";
+                document.getElementById('status').style.color = "var(--accent)";
+            }, 1000);
+        }
+
+        function show(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>

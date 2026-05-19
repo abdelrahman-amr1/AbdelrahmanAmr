@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Elkhalej Rental</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-car-side"></i> Elkhalej Admin
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" id="nav-cars" onclick="switchTab('cars')"><i
+                        class="fa-solid fa-car"></i> Manage Cars</a>
+                <a href="#" class="nav-item" id="nav-drivers" onclick="switchTab('drivers')"><i
+                        class="fa-solid fa-id-card"></i> Manage Drivers</a>
+                <a href="#" class="nav-item" onclick="alert('Demo Only')"><i class="fa-solid fa-chart-line"></i>
+                    Statistics</a>
+                <a href="index.html" class="nav-item"><i class="fa-solid fa-globe"></i> View Site</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Cars Section -->
+            <div id="section-cars" class="dashboard-section active-section">
+                <header class="top-header">
+                    <h2>Cars Fleet Management</h2>
+                    <button class="btn-primary" onclick="openCarModal()"><i class="fa-solid fa-plus"></i> Add New
+                        Car</button>
+                </header>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Car Name</th>
+                                <th>Category</th>
+                                <th>Driver</th>
+                                <th>Price / Day</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Drivers Section -->
+            <div id="section-drivers" class="dashboard-section" style="display:none;">
+                <header class="top-header">
+                    <h2>Drivers Management</h2>
+                    <button class="btn-primary" onclick="openDriverModal()"><i class="fa-solid fa-plus"></i> Add New
+                        Driver</button>
+                </header>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Driver Name</th>
+                                <th>Phone</th>
+                                <th>Rating</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="driversTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Add/Edit Car Modal -->
+    <div id="carModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Car</h3>
+                <button class="close-modal" onclick="closeCarModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="carForm">
+                <input type="hidden" id="carId">
+                <input type="hidden" id="carImageUrl">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Car Name</label>
+                        <input type="text" id="carName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Type Category</label>
+                        <select id="carType" required>
+                            <option value="رفاهية VIP">رفاهية VIP</option>
+                            <option value="عائلية">عائلية</option>
+                            <option value="اقتصادي">اقتصادي</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Assign Driver</label>
+                        <select id="carDriver" required>
+                            <!-- populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Car Image File</label>
+                        <input type="file" id="carImageFile" accept="image/*">
+                        <span style="font-size: 11px; color:#aaa;" id="carImageStatus">Leave empty to keep existing
+                            image. Uploading saves to Google Drive.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price / Day ($)</label>
+                        <input type="number" id="carPrice" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Engine (e.g. 5.2L V10)</label>
+                        <input type="text" id="carEngine" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Car Color</label>
+                        <input type="text" id="carColor" placeholder="e.g. Black / White">
+                    </div>
+                    <div class="form-group">
+                        <label>Plate Number</label>
+                        <input type="text" id="carPlate" placeholder="e.g. ABC 123">
+                    </div>
+                    <div class="form-group">
+                        <label>Top Speed (e.g. 320 km/h)</label>
+                        <input type="text" id="carSpeed" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Seats</label>
+                        <input type="number" id="carSeats" min="1" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating (1.0 - 5.0)</label>
+                        <input type="number" id="carRating" step="0.1" min="1" max="5" required>
+                    </div>
+                </div>
+                <button type="submit" id="carSubmitBtn" class="btn-primary full-width" style="margin-top: 25px;">Save
+                    Car Details</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Driver Modal -->
+    <div id="driverModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="driverModalTitle">Add New Driver</h3>
+                <button class="close-modal" onclick="closeDriverModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="driverForm">
+                <input type="hidden" id="driverId">
+                <input type="hidden" id="driverImageUrl">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Driver Name</label>
+                        <input type="text" id="driverName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number (WhatsApp)</label>
+                        <input type="text" id="driverPhone" placeholder="+966 5..." required>
+                    </div>
+                    <div class="form-group full-width-span">
+                        <label>Driver Photo (File)</label>
+                        <input type="file" id="driverImageFile" accept="image/*">
+                        <span style="font-size: 11px; color:#aaa;" id="driverImageStatus">Leave empty to keep existing
+                            format.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating (1.0 - 5.0)</label>
+                        <input type="number" id="driverRating" step="0.1" min="1" max="5" required>
+                    </div>
+                </div>
+                <button type="submit" id="driverSubmitBtn" class="btn-primary full-width" style="margin-top: 25px;">Save
+                    Driver</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Logic -->
+    <script src="competitor_data.js"></script>
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

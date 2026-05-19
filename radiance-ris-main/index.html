@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RadiologyRIS | نسخة عرض (Demo)</title>
+    <meta name="description" content="Comprehensive Radiology Information System for managing patient registration, scheduling, worklist, reporting, and billing in healthcare facilities." />
+    <meta name="author" content="RadiologyRIS" />
+    <meta name="keywords" content="radiology, RIS, healthcare, medical imaging, PACS, patient management, scheduling, reporting" />
+
+    <meta property="og:title" content="RadiologyRIS - Modern Radiology Information System" />
+    <meta property="og:description" content="Comprehensive Radiology Information System for managing patient registration, scheduling, worklist, reporting, and billing in healthcare facilities." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@RadiologyRIS" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  
+  <!-- Theme Switcher -->
+  <div id="theme-switcher" style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; gap: 10px; z-index: 9999; align-items: center; border: 1px solid rgba(0,0,0,0.1); direction: rtl;">
+      <span style="font-size: 12px; font-weight: bold; color: #333; margin-left: 5px;">تخصيص:</span>
+      <button onclick="setTheme('168 76% 36%', '186 76% 45%')" style="background: hsl(168, 76%, 36%); width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+      <button onclick="setTheme('220 80% 50%', '200 80% 60%')" style="background: hsl(220, 80%, 50%); width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+      <button onclick="setTheme('340 70% 50%', '320 70% 60%')" style="background: hsl(340, 70%, 50%); width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+      <button onclick="setTheme('120 60% 40%', '100 60% 50%')" style="background: hsl(120, 60%, 40%); width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+  </div>
+
+  <script>
+      function setTheme(primary, accent) {
+          document.documentElement.style.setProperty('--primary', primary);
+          document.documentElement.style.setProperty('--accent', accent);
+          document.documentElement.style.setProperty('--sidebar-primary', primary);
+          document.documentElement.style.setProperty('--ring', primary);
+      }
+  </script>
+</html>

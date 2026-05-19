@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الكاشير (POS) - باب اللوق</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Tajawal:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- POS Specific Styles -->
+    <link rel="stylesheet" href="./css/pos.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <h1 class="logo glow-text">نظام POS</h1>
+            <nav class="nav-links">
+                <a href="./index.html" class="btn btn-outline"><i class="fa-solid fa-house"></i> العودة للموقع</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container pos-layout fade-in mt-navbar">
+        <!-- Add Product Form Side -->
+        <section class="add-product-panel glass-panel">
+            <h2><i class="fa-solid fa-plus-circle accent-color"></i> إضافة منتج جديد</h2>
+            <form id="posForm" class="mt-2">
+                <div class="form-group">
+                    <label for="productName">اسم المنتج</label>
+                    <input type="text" id="productName" placeholder="مثال: سماعة P9" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">القسم</label>
+                    <select id="productCategory" required>
+                        <option value="" disabled selected>اختر القسم...</option>
+                        <option value="smartwatch">ساعات ذكية</option>
+                        <option value="headphones">سماعات</option>
+                        <option value="accessories">شواحن و وصلات</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">السعر (ج.م)</label>
+                    <input type="number" id="productPrice" placeholder="0.00" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="productStock">الكمية المتاحة (المخزون)</label>
+                    <input type="number" id="productStock" placeholder="0" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">إضافة للمخزون <i
+                        class="fa-solid fa-check"></i></button>
+            </form>
+        </section>
+
+        <!-- Inventory List Side -->
+        <section class="inventory-panel glass-panel">
+            <div class="inventory-header">
+                <h2><i class="fa-solid fa-boxes-stacked accent-color"></i> المنتجات المضافة</h2>
+                <button id="clearInventory" class="btn btn-secondary btn-sm" title="مسح جمیع المنتجات"><i
+                        class="fa-solid fa-trash-can"></i> مسح الكل</button>
+            </div>
+            <div class="table-container mt-2">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th>القسم</th>
+                            <th>السعر</th>
+                            <th>المخزون</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryList">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="emptyState" class="empty-state text-center" style="display: none;">
+                <i class="fa-solid fa-box-open fa-3x"></i>
+                <p>لا توجد منتجات حالياً. أضف منتجك الأول من القائمة.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/products-data.js"></script>
+    <script src="./js/pos.js"></script>
+</body>
+
+</html>

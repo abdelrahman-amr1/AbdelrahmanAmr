@@ -1,0 +1,320 @@
+.tracking-page {
+  padding: 4rem 0;
+  min-height: calc(100vh - 80px);
+}
+
+.tracking-header {
+  margin-bottom: 3rem;
+}
+
+.tracking-header .text-muted {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+}
+
+.tracking-search-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.search-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.error-message {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.5);
+  color: #ff6b6b;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.case-details-card {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+}
+
+.case-header {
+  background-color: rgba(212, 175, 55, 0.1);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.case-header h3 {
+  margin: 0;
+  color: var(--color-accent);
+}
+
+.status-badge {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.case-info-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-label {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.info-value.highlight {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.update-box {
+  background-color: var(--color-primary-dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-right: 4px solid var(--color-accent);
+  margin-top: 1rem;
+}
+
+.update-text {
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .case-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .case-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .header-actions {
+    flex-direction: column;
+  }
+}
+
+/* Print Styles for PDF Export */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.print-btn {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.print-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+/* Hide print elements on screen */
+.print-only {
+  display: none;
+}
+
+@media print {
+  /* Hide unnecessary UI elements to prevent blank pages */
+  .navbar-container, 
+  header, 
+  footer, 
+  .footer,
+  .tracking-header, 
+  .tracking-search-wrapper, 
+  .error-message,
+  .print-btn {
+    display: none !important;
+  }
+  
+  /* Reset container heights and padding */
+  body, html {
+    height: auto !important;
+    background: white !important;
+  }
+  
+  .tracking-page, .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    background: white !important;
+  }
+
+  /* Show print-only elements */
+  .print-only {
+    display: flex !important;
+  }
+  .print-watermark {
+    display: block !important;
+  }
+
+  @page {
+    margin: 10mm;
+  }
+
+  .case-details-card {
+    position: relative !important;
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Print Header Styles */
+  .print-header {
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .print-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .print-logo-text h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: bold;
+  }
+  .print-logo-text span {
+    color: #444;
+    font-size: 1rem;
+  }
+  .print-doc-info {
+    text-align: left;
+  }
+  .print-doc-info p {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000;
+  }
+  .print-doc-info small {
+    color: #555;
+  }
+
+  /* Watermark Styles */
+  .print-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    z-index: 0;
+    pointer-events: none;
+    color: #000;
+    max-height: 80%;
+    max-width: 80%;
+  }
+
+  /* Case Data adjustments to sit above watermark */
+  .case-header, .case-info-grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Print Footer Styles */
+  .print-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ccc;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  .print-footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .print-footer-content span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .print-btn {
+    display: none !important;
+  }
+  .case-header {
+    background-color: transparent !important;
+    border-bottom: 2px solid #000;
+  }
+  .case-header h3 {
+    color: #000 !important;
+  }
+  .status-badge {
+    border: 1px solid #000;
+    color: #000 !important;
+    background-color: transparent !important;
+  }
+  .info-label {
+    color: #666 !important;
+  }
+  .info-value, .update-text {
+    color: #000 !important;
+  }
+  .update-box {
+    background-color: transparent !important;
+    border-right: 4px solid #000;
+  }
+  .text-gold {
+    color: #000 !important;
+  }
+}

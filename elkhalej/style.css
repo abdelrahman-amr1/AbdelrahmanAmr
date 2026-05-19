@@ -1,0 +1,559 @@
+:root {
+    --bg-dark: #121212;
+    --surface: #1E1E1E;
+    --surface-light: #2A2A2A;
+    --text-main: #FFFFFF;
+    --text-sub: #A0A0A0;
+    --accent-start: #FFB75E;
+    --accent-end: #ED8F03;
+    --accent-glow: rgba(237, 143, 3, 0.4);
+    --border-rad: 20px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+}
+
+/* App Container */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    animation: fadeIn 0.4s ease forwards;
+    padding-bottom: 50px;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#splash {
+    transform: translateX(0);
+    background: #000;
+}
+
+.splash-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1544839655-32e7c3b889eb?auto=format&fit=crop&q=80') center/cover no-repeat;
+    opacity: 0.6;
+}
+
+.splash-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, #121212 10%, transparent 100%);
+}
+
+.splash-content {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    z-index: 2;
+    text-align: center;
+}
+
+.brand-logo-splash {
+    max-width: 200px;
+    margin: 0 auto 30px;
+    display: block;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+}
+
+.splash-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.splash-subtitle {
+    color: var(--text-sub);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.circular-btn {
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    border: none;
+    border-radius: 50px;
+    padding: 18px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px var(--accent-glow);
+    transition: var(--transition);
+}
+
+.circular-btn i {
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    margin-left: 15px;
+}
+
+/* Home / Discover Screen */
+#discover {
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-logo {
+    height: 50px;
+    object-fit: contain;
+}
+
+/* --- Top Navigation Bar --- */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 5%;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.top-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.top-nav a {
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.top-nav a:hover,
+.top-nav a.active {
+    color: var(--accent-start);
+}
+
+/* --- Service Hero Section --- */
+.hero-service {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    border-radius: var(--border-rad);
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: #000;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    max-width: 600px;
+    text-align: right;
+}
+
+.hero-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.hero-overlay p {
+    color: var(--text-sub);
+    font-size: 1rem;
+}
+
+/* --- Cars Grid --- */
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.car-card {
+    background: var(--surface);
+    border-radius: var(--border-rad);
+    padding: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+    background: var(--surface-light);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.car-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-start);
+}
+
+.period {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+.small-book-btn {
+    background: linear-gradient(45deg, var(--accent-start), var(--accent-end));
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Details Screen --- */
+#details {
+    background: var(--bg-dark);
+}
+
+.details-header {
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.back-btn,
+.share-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+}
+
+.details-hero {
+    width: 100%;
+    height: 40vh;
+    min-height: 300px;
+    position: relative;
+    background: #000;
+}
+
+.panoramic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.details-content {
+    padding: 30px 5%;
+    background: var(--bg-dark);
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+    position: relative;
+    z-index: 5;
+    padding-bottom: 120px;
+}
+
+.car-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.detail-h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.badge {
+    background: rgba(237, 143, 3, 0.2);
+    color: var(--accent-start);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.spec-item {
+    background: var(--surface);
+    padding: 20px 10px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.spec-item i {
+    color: var(--accent-start);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.spec-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: block;
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    color: var(--text-sub);
+}
+
+/* --- Sticky Booking Dock --- */
+.sticky-dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 15px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1100;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+#details.active .sticky-dock {
+    transform: translateY(0);
+}
+
+.dock-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dock-price .amount {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-start);
+}
+
+.glow-btn {
+    background: linear-gradient(45deg, var(--accent-start), var(--accent-end));
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.glow-btn.full-width {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--surface);
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+.form-group input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .detail-h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-service {
+        height: 200px;
+    }
+}

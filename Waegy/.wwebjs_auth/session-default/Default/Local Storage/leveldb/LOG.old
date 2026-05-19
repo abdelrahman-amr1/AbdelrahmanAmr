@@ -1,0 +1,6 @@
+2026/02/10-01:03:04.031 4148 Reusing MANIFEST C:\Users\pc\Downloads\api\Waegy\.wwebjs_auth\session-default\Default\Local Storage\leveldb/MANIFEST-000001
+2026/02/10-01:03:04.042 4148 Recovering log #3
+2026/02/10-01:03:04.048 4148 Reusing old log C:\Users\pc\Downloads\api\Waegy\.wwebjs_auth\session-default\Default\Local Storage\leveldb/000003.log 
+2026/02/10-01:05:07.470 2100 Level-0 table #5: started
+2026/02/10-01:05:07.474 2100 Level-0 table #5: 23970 bytes OK
+2026/02/10-01:05:07.476 2100 Delete type=0 #3

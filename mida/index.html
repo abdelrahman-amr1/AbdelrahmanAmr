@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="كوافير ميده - صالون حلاقة رجالي احترافي في مصر">
+    <title>Mida Men Salon | كوافير ميده</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.jpg" alt="Mida Men Salon Logo" class="logo-img">
+                <span>Mida Men Salon</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#booking">حجز موعد</a></li>
+                <li><a href="#reviews">آراء العملاء</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="fade-in-up">صالون ميده للرجال</h1>
+            <p class="fade-in-up delay-1">تجربة حلاقة احترافية، لأن مظهرك يعكس شخصيتك.</p>
+            <a href="#booking" class="btn btn-primary fade-in-up delay-2">احجز موعدك الآن <i
+                    class="fas fa-calendar-alt"></i></a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">خدمـــاتنـــا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-cut service-icon"></i>
+                    <h3>قص وتصفيف الشعر</h3>
+                    <p>أحدث القصات العصرية الكلاسيكية والحديثة بخبرة استثنائية.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-tie service-icon"></i>
+                    <h3>العناية بالذقن</h3>
+                    <p>تهذيب، وتحديد الذقن باحترافية مع استخدام أفضل المنتجات.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-spa service-icon"></i>
+                    <h3>العناية بالبشرة</h3>
+                    <p>تنظيف وتفتيح البشرة، ماسكات طبيعية لطلة مشرقة.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-magic service-icon"></i>
+                    <h3>تجهيز عرسان</h3>
+                    <p>باقة متكاملة لتجهيز العريس ليظهر بأفضل صورة يوم الزفاف.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <h2 class="section-title">احجز موعدك الآن</h2>
+            <div class="booking-wrapper">
+                <form id="whatsappForm" class="booking-form">
+                    <p class="booking-desc">أرسل تفاصيل حجزك وسنتواصل معك لتأكيد الموعد عبر الواتساب.</p>
+                    <div class="form-group">
+                        <label for="customerName">اسمك الكريم</label>
+                        <input type="text" id="customerName" placeholder="أدخل اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceType">المناسبة / الخدمة</label>
+                        <select id="serviceType" required>
+                            <option value="" disabled selected>اختر الخدمة المطلوبة...</option>
+                            <option value="حلاقة وتصفيف شعر (عادي)">حلاقة وتصفيف شعر (عادي)</option>
+                            <option value="تجهيز عريس (فرح)">تجهيز عريس (فرح)</option>
+                            <option value="خدمة العناية المتكاملة (VIP)">خدمة العناية المتكاملة (VIP)</option>
+                            <option value="مناسبة خاصة">مناسبة خاصة أخرى</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">تأكيد الحجز عبر واتساب
+                        <i class="fab fa-whatsapp" style="font-size: 1.2rem; margin-right: 5px;"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Featured Photo (Animated Marquee) -->
+    <section class="gallery-section">
+        <h2 class="section-title">معرض الصور</h2>
+        <div class="gallery-marquee">
+            <div class="gallery-track">
+                <!-- Slide 1 -->
+                <div class="gallery-slide">
+                    <div class="gallery-item">
+                        <img src="assets/image1.jpg" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>قصات عصرية</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>عناية بالذقن</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=600&auto=format&fit=crop" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>تجهيز عرسان</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600&auto=format&fit=crop" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>عناية بالبشرة</span></div>
+                    </div>
+                </div>
+                <!-- Slide 2 (Duplicate for seamless scroll) -->
+                <div class="gallery-slide">
+                    <div class="gallery-item">
+                        <img src="assets/image1.jpg" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>قصات عصرية</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>عناية بالذقن</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=600&auto=format&fit=crop" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>تجهيز عرسان</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600&auto=format&fit=crop" alt="Mida Men Salon Work">
+                        <div class="item-overlay"><span>عناية بالبشرة</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Gallery / Celebrities -->
+    <section class="gallery-section vip-gallery">
+        <h2 class="section-title">ميدا مع النجوم</h2>
+        <div class="gallery-marquee">
+            <div class="gallery-track reverse-track">
+                <!-- Slide 1 -->
+                <div class="gallery-slide">
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/101066925_2565715877001544_5623310860001738752_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/101951311_2565715927001539_6999237511977369600_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/102581896_2565715887001543_8636123039668371456_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/106134337_2588099451429853_7980025885743457349_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/106512451_2588099704763161_8980677143162593167_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/106700613_2588099301429868_8201028746883952133_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="gallery-slide">
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/101066925_2565715877001544_5623310860001738752_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/101951311_2565715927001539_6999237511977369600_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/102581896_2565715887001543_8636123039668371456_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/106134337_2588099451429853_7980025885743457349_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/106512451_2588099704763161_8980677143162593167_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                    <div class="gallery-item vip-item">
+                        <img src="ميدا/106700613_2588099301429868_8201028746883952133_n.jpg" alt="Mida with Celebrities">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="reviews-slider">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"ماشاء الله بجد اول مادخلت لقيت المكان جميل اوى ومنظم وبشكر صحابى اللى قالولى على المكان..."</p>
+                    <h4>- Hossam Elden</h4>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"المكان جميل اوى والناس اللى فيه اجمل وماشاء الله محترفيين بجد يعنى خمس نجوم وانصحكو تروحو تشوفو
+                        بنفسكو"</p>
+                    <h4>- Essam Eldeen</h4>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"حلاق متميز ونظيف جدا ويحب شغله بصراحه من افضل الحلاقين واسعاره جدا مناسبه ومافي كلام يوصف
+                        الشخصية الحلوه ميدا العالمي ❤️"</p>
+                    <h4>- Faisal Al Saife</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>العنوان</h4>
+                            <p>6 الجرجاوي، الدقي أ، قسم الدقي، محافظة الجيزة 3750310</p>
+                        </div>
+                    </div>
+                    <div class="info-item social-links">
+                        <i class="fas fa-share-alt"></i>
+                        <div>
+                            <h4>تابعنا على منصات التواصل</h4>
+                            <a href="https://www.facebook.com/MidaMenSalon" target="_blank"
+                                class="social-btn facebook"><i class="fab fa-facebook-f"></i> Mida Men Salon</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-google"></i>
+                        <div>
+                            <h4>خرائط جوجل</h4>
+                            <a href="https://www.google.com/maps/place/%D9%83%D9%88%D8%A7%D9%81%D9%8A%D8%B1+%D9%85%D9%8A%D8%AF%D9%87%E2%80%AD/data=!4m2!3m1!1s0x0:0xb5fc1d64a1c811ea?sa=X&ved=1t:2428&ictx=111"
+                                target="_blank" class="social-btn google-maps"><i class="fas fa-map-marked-alt"></i> عرض
+                                الموقع والتقييمات</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mida Men Salon. جميع الحقوق محفوظة.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--primary-color);">تطوير م. عبدالرحمن عمرو
+                01128007078</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

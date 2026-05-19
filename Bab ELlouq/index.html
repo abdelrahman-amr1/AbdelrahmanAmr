@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>باب اللوق | للخدمات التكنولوجية والذكاء الاصطناعي</title>
+    <meta name="description"
+        content="فريق من خبراء الذكاء الاصطناعي لمساعدة الأفراد والشركات على تحسين الأداء وزيادة المبيعات من خلال أحدث الأدوات.">
+    <!-- Google Fonts: Cairo & Tajawal for Arabic typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Tajawal:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar fade-in">
+        <div class="container nav-content">
+            <h1 class="logo glow-text">باب اللوق</h1>
+            <nav class="nav-links">
+                <a href="#about">من نحن</a>
+                <a href="#services">الخدمات</a>
+                <a href="#products">المنتجات</a>
+                <a href="#contact">تواصل معنا</a>
+                <a href="./pos.html" class="btn btn-outline" target="_blank">نظام الكاشير (POS) <i
+                        class="fa-solid fa-cash-register"></i></a>
+            </nav>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero slide-up">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h2 class="title">المستقبل التكنولوجي<br><span class="accent-color">بين يديك</span></h2>
+            <p class="subtitle">نحن فريق من خبراء الذكاء الاصطناعي وصناع المحتوى الرقمي. نساعدك في تحسين أداء أعمالك
+                وزيادة مبيعاتك عبر أحدث التقنيات.</p>
+            <div class="hero-actions">
+                <a href="#services" class="btn btn-primary">اكتشف خدماتنا</a>
+                <a href="#contact" class="btn btn-secondary">تواصل معنا الان</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section container scroll-reveal">
+        <div class="section-header text-center">
+            <h2>من <span class="accent-color">نحن</span></h2>
+            <p>شريكك الرقمي في عصر التكنولوجيا المنظمة</p>
+        </div>
+        <div class="about-grid">
+            <div class="glass-card">
+                <i class="fa-solid fa-brain fa-3x icon-accent"></i>
+                <h3>خبراء الذكاء الاصطناعي</h3>
+                <p>نقدم استشارات لتوظيف الذكاء الاصطناعي بما يخدم أهدافك ويرفع من كفاءتك.</p>
+            </div>
+            <div class="glass-card">
+                <i class="fa-solid fa-code fa-3x icon-accent"></i>
+                <h3>حلول برمجية متكاملة</h3>
+                <p>تطوير وبناء مواقع الكترونية احترافية وتطبيقات تناسب احتياجات السوق وتجذب عملائك.</p>
+            </div>
+            <div class="glass-card">
+                <i class="fa-solid fa-chart-line fa-3x icon-accent"></i>
+                <h3>نتائج ملموسة</h3>
+                <p>نعتمد على البيانات الحديثة لنضمن لك زيادة واضحة في المبيعات وتوسيع قاعدة عملائك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section container scroll-reveal">
+        <div class="section-header text-center">
+            <h2>خدمات <span class="accent-color">تكنولوجية متطورة</span></h2>
+            <p>باقات تناسب جميع الأعمال والمشاريع الناشئة</p>
+        </div>
+        <div class="services-list">
+            <div class="service-row glass-panel">
+                <div class="service-info">
+                    <h3><i class="fa-solid fa-laptop-code"></i> تصميم المواقع الاحترافية</h3>
+                    <p>انطلق بمشروعك الآن في العالم الرقمي مع مواقع متكاملة سريعة واحترافية (عروض خاصة تبدأ من 7,500
+                        ج.م).</p>
+                </div>
+            </div>
+            <div class="service-row glass-panel">
+                <div class="service-info">
+                    <h3><i class="fa-solid fa-comments"></i> استشارات الذكاء الاصطناعي</h3>
+                    <p>استراتيجيات مخصصة لتمكين شركتك من أتمتة العمليات وتقليل التكاليف وزيادة الإنتاجية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Preview Section -->
+    <section id="products" class="products section container scroll-reveal">
+        <div class="section-header text-center">
+            <h2>أفضل <span class="accent-color">الإكسسوارات الذكية</span></h2>
+            <p>نوفر أحدث الأجهزة الذكية لتسهيل حياتك اليومية</p>
+        </div>
+        <div class="product-gallery" id="landingProducts">
+            <!-- Products injected dynamically -->
+            <div class="text-center w-100"><i class="fa-solid fa-spinner fa-spin fa-2x"></i> جاري تحميل المنتجات...
+            </div>
+        </div>
+        <div class="text-center mt-2">
+            <a href="./pos.html" class="btn btn-outline">إدارة المنتجات (POS) <i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section container scroll-reveal">
+        <div class="glass-panel contact-panel">
+            <div class="contact-info">
+                <h2>ابقَ على <span class="accent-color">تواصل</span></h2>
+                <p>أرسل لنا استفساراتك وسنقوم بالرد في أقرب وقت متاح.</p>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> 6 المساحة (الدقي، الجيزة)</li>
+                    <li><i class="fa-solid fa-phone"></i> 01023567101</li>
+                    <li><i class="fa-solid fa-envelope"></i> باب.allouq@gmail.com</li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Bab.alluq" target="_blank" aria-label="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="الاسم الكريم" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="كيف يمكننا مساعدتك؟" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> باب اللوق للخدمات التكنولوجية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Particles Background for Tech Feel -->
+    <canvas id="particles"></canvas>
+
+    <script src="./js/products-data.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

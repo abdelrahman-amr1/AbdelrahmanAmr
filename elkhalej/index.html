@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الرئيسية | الخليج لتأجير السيارات</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- 1. Splash Screen -->
+        <section id="splash" class="screen active">
+            <div class="splash-bg"></div>
+            <div class="splash-content">
+                <img src="IMG_20240701_164704 - Edited.png" alt="Elkhalej Logo" class="brand-logo-splash">
+                <h1 class="splash-title">الخليج لتاجير السيارات</h1>
+                <p class="splash-subtitle">استمتع بتجربة قيادة فاخرة وأداء لا يضاهى مع أحدث أسطول سيارات في مصر.</p>
+                <button id="btn-lets-go" class="circular-btn">
+                    <span>تحرك الآن</span>
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. Home / Discover Screen -->
+        <section id="discover" class="screen">
+            <!-- Top Nav -->
+            <nav class="top-nav">
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="airport.html">ليموزين المطار</a>
+                <a href="trips.html">الرحلات</a>
+                <a href="wedding.html">الزفاف</a>
+                <a href="business.html">رجال الأعمال</a>
+            </nav>
+
+            <header class="home-header" style="margin-top: 20px;">
+                <div class="brand-header">
+                    <img src="IMG_20240701_164704 - Edited.png" alt="Logo" class="header-logo">
+                    <div>
+                        <p class="welcome-text">مرحباً بك في</p>
+                        <h2 class="user-name">الخليج لتاجير السيارات</h2>
+                    </div>
+                </div>
+            </header>
+
+            <h3 class="section-title">خدماتنا المميزة</h3>
+
+            <!-- Service Cards for Home -->
+            <div class="cars-grid" style="margin-bottom: 40px; grid-template-columns: repeat(2, 1fr) !important;">
+                <a href="airport.html" class="car-card" style="text-decoration: none; padding: 10px;">
+                    <div class="card-img-wrapper" style="height: 120px;">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?q=80&w=600" alt="Airport"
+                            class="car-img">
+                    </div>
+                    <h4 class="car-name" style="font-size: 0.9rem;">ليموزين المطار</h4>
+                </a>
+                <a href="trips.html" class="car-card" style="text-decoration: none; padding: 10px;">
+                    <div class="card-img-wrapper" style="height: 120px;">
+                        <img src="https://images.unsplash.com/photo-1550064824-8f993041ffd3?auto=format&fit=crop&q=80"
+                            alt="Trips" class="car-img">
+                    </div>
+                    <h4 class="car-name" style="font-size: 0.9rem;">الرحلات</h4>
+                </a>
+                <a href="wedding.html" class="car-card" style="text-decoration: none; padding: 10px;">
+                    <div class="card-img-wrapper" style="height: 120px;">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80"
+                            alt="Wedding" class="car-img">
+                    </div>
+                    <h4 class="car-name" style="font-size: 0.9rem;">الزفاف</h4>
+                </a>
+                <a href="business.html" class="car-card" style="text-decoration: none; padding: 10px;">
+                    <div class="card-img-wrapper" style="height: 120px;">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80"
+                            alt="Business" class="car-img">
+                    </div>
+                    <h4 class="car-name" style="font-size: 0.9rem;">رجال الأعمال</h4>
+                </a>
+            </div>
+
+            <h3 class="section-title">سيارات مقترحة</h3>
+            <div class="cars-grid" id="dynamicCarsGrid">
+                <!-- Populated via script.js -->
+            </div>
+
+            <h3 class="section-title">موقعنا</h3>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.60385601719!2d31.18842360664917!3d30.05948381831876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296fcbc6f!2z2KfZhNmC2KfZh9ix2KnYIEdpemEsIEVneXB0!5e0!3m2!1sen!2seg!4v1680000000000"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <a href="admin.html" class="nav-link-admin"><i class="fa-solid fa-lock"></i> Admin</a>
+        </section>
+    </div>
+
+    <!-- App Logic Scripts -->
+    <script src="competitor_data.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <title>لعبة البطاقات التعليمية التفاعلية | نسخة عرض (Demo)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 16px;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* ============= HEADER LOGOS ============= */
+        .header-logos {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 14px;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 600px) {
+            .header-logos {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 8px 12px;
+            }
+            .logo-img {
+                height: 34px;
+            }
+        }
+
+        /* ============= TITLES ============= */
+        .title-block {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .title-block h1 {
+            margin: 6px 0 4px;
+            font-size: 1.6rem;
+            color: #111827;
+        }
+
+        .title-block .subtitle-top {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+
+        .title-block .subtitle-bottom {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ============= MAIN CONTAINER ============= */
+        .container {
+            background: #ffffff;
+            padding: 18px 22px 22px;
+            border-radius: 14px;
+            box-shadow: 0 14px 35px rgba(15,23,42,0.12);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 10px;
+            gap: 6px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 7px;
+            border-radius: 999px;
+            background: #e5e7eb;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            transition: width 0.25s ease;
+        }
+
+        .card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .question-text,
+        .answer-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #111827;
+        }
+
+        .answer {
+            margin-top: 10px;
+            border-top: 1px dashed #e5e7eb;
+            padding-top: 8px;
+        }
+
+        .answer.hidden {
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .controls-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .controls-row > div {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .primary {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .secondary {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .success {
+            background: var(--success);
+            color: #ffffff;
+        }
+
+        .danger {
+            background: #ef4444;
+            color: #ffffff;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-top: 10px;
+        }
+
+        .status-msg {
+            text-align: center;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .status-loading {
+            color: #6b7280;
+        }
+
+        .status-error {
+            color: #b91c1c;
+        }
+    </style>
+</head>
+<body>
+<div class="shell">
+
+    <!-- ================= HEADER LOGOS ================= -->
+    <div class="header-logos">
+        <h2 style="color: var(--primary); margin: 0; font-weight: 900; font-size: 1.5rem;">⚙️ YourLogo</h2>
+    </div>
+
+    <!-- ================= TITLE ================= -->
+    <div class="title-block">
+        <div class="subtitle-top">Interactive Flashcards for Training & Revision</div>
+        <h1>لعبة البطاقات التعليمية التفاعلية</h1>
+        <div class="subtitle-bottom">حلول برمجية مبتكرة لمراجعة وتكرار المعلومات</div>
+    </div>
+
+    <!-- ================= MAIN GAME ================= -->
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="stats-row">
+            <div>الكارت: <span id="cardIndex">0 / 0</span></div>
+            <div>تمت مراجعته: <span id="reviewedCount">0</span></div>
+            <div>نسبة الإتقان: <span id="masteryPercent">0%</span></div>
+        </div>
+
+        <!-- أزرار وضع المراجعة -->
+        <div class="controls-row" style="margin-top: 4px; margin-bottom: 4px;">
+            <div></div>
+            <div>
+                <button class="secondary" id="allCardsBtn">كل الكروت</button>
+                <button class="primary" id="weakSessionBtn">جلسة التقوية (الكروت الضعيفة)</button>
+            </div>
+        </div>
+
+        <div id="statusMessage" class="status-msg status-loading">
+            جاري تحميل الكروت من الملف <strong>flashcards.csv</strong>...
+        </div>
+
+        <div id="cardArea" style="display:none;">
+            <div class="card">
+                <div class="label">السؤال</div>
+                <div class="question-text" id="questionText"></div>
+
+                <div class="answer">
+                    <div class="label">الإجابة</div>
+                    <div class="answer-text hidden" id="answerText">اضغط "إظهار الإجابة"</div>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <div>
+                    <button class="secondary" id="prevBtn">السابق</button>
+                    <button class="secondary" id="nextBtn">التالي</button>
+                </div>
+                <div>
+                    <button class="primary" id="toggleAnswerBtn">إظهار الإجابة</button>
+                </div>
+            </div>
+
+            <div class="controls-row" style="margin-top: 8px;">
+                <div></div>
+                <div>
+                    <button class="success" id="knewBtn">كنت عارف ✅</button>
+                    <button class="danger" id="didntKnowBtn">لسه محتاج أذاكره ❌</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p style="margin-top:20px; font-weight:bold; color:var(--primary);">&copy; تم التطوير بواسطة م. عبدالرحمن عمرو | نسخة عرض (Demo)</p>
+        </div>
+    </div>
+</div>
+
+<!-- Theme Switcher -->
+<div id="theme-switcher" style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 10px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; gap: 10px; z-index: 1000; align-items: center;">
+    <span style="font-size: 12px; font-weight: bold; color: #333; margin-left: 5px;">تخصيص:</span>
+    <button onclick="setTheme('#2563eb', '#22c55e')" style="background: #2563eb; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+    <button onclick="setTheme('#1a2b4c', '#eab308')" style="background: #1a2b4c; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+    <button onclick="setTheme('#dc2626', '#f97316')" style="background: #dc2626; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+    <button onclick="setTheme('#7e22ce', '#db2777')" style="background: #7e22ce; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+</div>
+
+<script>
+    function setTheme(p, s) {
+        document.documentElement.style.setProperty('--primary', p);
+        document.documentElement.style.setProperty('--success', s);
+    }
+    const statusMessage = document.getElementById("statusMessage");
+    const cardArea = document.getElementById("cardArea");
+    const questionText = document.getElementById("questionText");
+    const answerText = document.getElementById("answerText");
+    const cardIndexSpan = document.getElementById("cardIndex");
+    const reviewedCountSpan = document.getElementById("reviewedCount");
+    const masteryPercentSpan = document.getElementById("masteryPercent");
+    const progressFill = document.getElementById("progressFill");
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const toggleAnswerBtn = document.getElementById("toggleAnswerBtn");
+    const knewBtn = document.getElementById("knewBtn");
+    const didntKnowBtn = document.getElementById("didntKnowBtn");
+
+    const allCardsBtn = document.getElementById("allCardsBtn");
+    const weakSessionBtn = document.getElementById("weakSessionBtn");
+
+    let allCards = [];
+    let cards = [];
+    let currentIndex = 0;
+    let reviewedCount = 0;
+    let masteredCount = 0;
+    let showAnswer = false;
+    let sessionMode = "all"; // all | weak
+
+    fetch("flashcards.csv")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("تعذر تحميل flashcards.csv. تأكد أن الملف موجود في نفس المجلد على GitHub.");
+            }
+            return response.text();
+        })
+        .then(text => {
+            allCards = parseCSV(text);
+            if (!allCards.length) {
+                throw new Error("لم يتم العثور على أي كروت. تأكد من أن الملف يحتوي على بيانات بعد عناوين الأعمدة.");
+            }
+            cards = [...allCards];
+            shuffleArray(cards);
+            currentIndex = 0;
+            reviewedCount = 0;
+            masteredCount = 0;
+            cardArea.style.display = "block";
+            setStatusMessage(
+                "تم تحميل " + cards.length + " كرت. ابدأ بالمراجعة الآن، ويمكنك لاحقًا تشغيل جلسة التقوية لعرض الكروت الضعيفة فقط.",
+                "info"
+            );
+            updateUI();
+        })
+        .catch(err => {
+            statusMessage.textContent = err.message;
+            statusMessage.classList.remove("status-loading");
+            statusMessage.classList.add("status-error");
+        });
+
+    function parseCSV(text) {
+        const lines = text.trim().split(/\r?\n/);
+        if (lines.length <= 1) return [];
+
+        const result = [];
+
+        for (let i = 1; i < lines.length; i++) {
+            let line = lines[i].trim();
+            if (!line) continue;
+
+            let parts = line.split(",");
+            if (parts.length < 2) continue;
+
+            const question = parts[0].trim();
+            const answer = parts.slice(1).join(",").trim();
+
+            if (!question || !answer) continue;
+
+            result.push({ question, answer, reviewed: false, mastered: false });
+        }
+
+        return result;
+    }
+
+    function updateUI() {
+        if (!cards.length) {
+            questionText.textContent = "";
+            answerText.textContent = "";
+            cardIndexSpan.textContent = "0 / 0";
+            progressFill.style.width = "0%";
+            return;
+        }
+
+        const card = cards[currentIndex];
+        questionText.textContent = card.question;
+
+        if (showAnswer) {
+            answerText.textContent = card.answer;
+            answerText.classList.remove("hidden");
+            toggleAnswerBtn.textContent = "إخفاء الإجابة";
+        } else {
+            answerText.textContent = "اضغط \"إظهار الإجابة\"";
+            answerText.classList.add("hidden");
+            toggleAnswerBtn.textContent = "إظهار الإجابة";
+        }
+
+        cardIndexSpan.textContent = (currentIndex + 1) + " / " + cards.length;
+
+        reviewedCountSpan.textContent = reviewedCount;
+        const mastery = cards.length ? Math.round((masteredCount / allCards.length) * 100) : 0;
+        masteryPercentSpan.textContent = mastery + "%";
+
+        progressFill.style.width = (cards.length ? ((currentIndex + 1) / cards.length) * 100 : 0) + "%";
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === cards.length - 1;
+    }
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showAnswer = false;
+            updateUI();
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            showAnswer = false;
+            updateUI();
+        }
+    });
+
+    toggleAnswerBtn.addEventListener("click", () => {
+        showAnswer = !showAnswer;
+        updateUI();
+    });
+
+    knewBtn.addEventListener("click", () => {
+        const card = cards[currentIndex];
+        if (!card.reviewed) {
+            reviewedCount++;
+            card.reviewed = true;
+        }
+        if (!card.mastered) {
+            card.mastered = true;
+            masteredCount++;
+        }
+        goNextAuto();
+    });
+
+    didntKnowBtn.addEventListener("click", () => {
+        const card = cards[currentIndex];
+        if (!card.reviewed) {
+            reviewedCount++;
+            card.reviewed = true;
+        }
+        if (card.mastered) {
+            card.mastered = false;
+            masteredCount = Math.max(0, masteredCount - 1);
+        }
+        goNextAuto();
+    });
+
+    function goNextAuto() {
+        showAnswer = false;
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+        }
+        updateUI();
+    }
+
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+
+    function setStatusMessage(text, type) {
+        statusMessage.textContent = text;
+        statusMessage.style.display = "block";
+        statusMessage.classList.remove("status-loading", "status-error");
+        if (type === "error") {
+            statusMessage.classList.add("status-error");
+        } else {
+            statusMessage.classList.add("status-loading");
+        }
+    }
+
+    // ======= أوضاع المراجعة =======
+
+    allCardsBtn.addEventListener("click", () => {
+        sessionMode = "all";
+        cards = [...allCards];
+        shuffleArray(cards);
+        currentIndex = 0;
+        showAnswer = false;
+        setStatusMessage("جلسة عادية: يتم عرض جميع الكروت.", "info");
+        updateUI();
+    });
+
+    weakSessionBtn.addEventListener("click", () => {
+        const weak = allCards.filter(c => c.reviewed && !c.mastered);
+        if (!weak.length) {
+            setStatusMessage("لا توجد كروت ضعيفة حتى الآن. جاوب على بعض الكروت بـ \"لسه محتاج أذاكره\" ثم جرّب مرة أخرى.", "error");
+            return;
+        }
+        sessionMode = "weak";
+        cards = [...weak];
+        shuffleArray(cards);
+        currentIndex = 0;
+        showAnswer = false;
+        setStatusMessage("جلسة التقوية: يتم عرض الكروت التي لم تُتقن بعد فقط (" + cards.length + " كرت).", "info");
+        cardArea.style.display = "block";
+        updateUI();
+    });
+</script>
+</body>
+</html>
+

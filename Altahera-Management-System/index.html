@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المراكز الطبية | نسخة عرض (Demo)</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Fonts via Bunny.net (works even when Google is blocked) -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=tajawal:400,500,700,800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for modern icons (self-hosted CDN, not blocked by Edge) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Login Screen: Premium AI Portal -->
+    <div id="login-screen" class="view-screen active">
+        <!-- Particle Canvas -->
+        <canvas id="particle-canvas"></canvas>
+
+        <!-- Hex Grid Background -->
+        <div class="hex-grid"></div>
+
+        <!-- HUD Lines -->
+        <div class="hud-lines">
+            <div class="hud-line hud-line-h" style="top:20%"></div>
+            <div class="hud-line hud-line-h" style="top:80%"></div>
+            <div class="hud-line hud-line-v" style="left:15%"></div>
+            <div class="hud-line hud-line-v" style="left:85%"></div>
+        </div>
+
+        <!-- Light rays -->
+        <div class="light-rays">
+            <div class="ray ray-1"></div>
+            <div class="ray ray-2"></div>
+            <div class="ray ray-3"></div>
+        </div>
+
+        <!-- Portal + Login Wrapper -->
+        <div class="ai-portal-wrapper" id="ai-portal-wrapper">
+
+            <!-- PORTAL STATE -->
+            <div class="portal-state" id="portal-state">
+                <!-- Corner Brackets -->
+                <div class="corner-bracket top-left"></div>
+                <div class="corner-bracket top-right"></div>
+                <div class="corner-bracket bottom-left"></div>
+                <div class="corner-bracket bottom-right"></div>
+
+                <!-- Logo & Title (above portal) -->
+                <div class="portal-header">
+                    <div style="font-size:3rem; font-weight:bold; color:var(--secondary); text-align:center; margin-bottom:10px;">⚙️ YourLogo</div>
+                    <div class="portal-title-wrap">
+                        <div class="portal-system-label">MEDICAL MANAGEMENT SYSTEM — v1.0</div>
+                        <h1 class="portal-main-title">نظام إدارة المراكز الطبية</h1>
+                    </div>
+                </div>
+
+                <!-- The Animated Ring Portal -->
+                <div class="portal-container" id="portal-btn" onclick="activatePortal()">
+                    <div class="ring ring-outer"></div>
+                    <div class="ring ring-mid"></div>
+                    <div class="ring ring-inner"></div>
+                    <div class="ring ring-core"></div>
+                    <div class="streak streak-1"></div>
+                    <div class="streak streak-2"></div>
+                    <div class="portal-center">
+                        <div class="portal-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="portal-click-hint">اضغط للدخول</div>
+                    </div>
+                    <div class="portal-glow-floor"></div>
+                </div>
+
+                <!-- Status Bar Below Portal -->
+                <div class="portal-status-bar">
+                    <span class="status-dot"></span>
+                    <span class="status-text">النظام جاهز — انتظار المصادقة</span>
+                </div>
+            </div>
+
+            <!-- LOGIN PANEL STATE (hidden initially) -->
+            <div class="login-panel" id="login-panel">
+                <!-- Scanning animation overlay -->
+                <div class="scan-overlay" id="scan-overlay"></div>
+
+                <!-- Panel Content -->
+                <div class="panel-inner">
+                    <div class="panel-header">
+                        <div class="panel-logo-row">
+                            <div style="font-size:2rem; font-weight:bold; color:var(--secondary);">⚙️</div>
+                            <div>
+                                <div class="panel-sys-label">SYSTEM ACCESS</div>
+                                <div class="panel-title-ar">تسجيل الدخول الأمني</div>
+                            </div>
+                        </div>
+                        <div class="panel-divider"></div>
+                    </div>
+
+                    <form id="login-form" onsubmit="event.preventDefault(); handleLoginClick();">
+                        <!-- Username -->
+                        <div class="neon-field" id="field-user">
+                            <i class="fa-solid fa-user field-icon"></i>
+                            <input type="text" id="login-email" class="neon-input" placeholder=" "
+                                autocomplete="username" dir="ltr" style="direction:ltr;text-align:left;">
+                            <label class="neon-label">اسم المستخدم</label>
+                            <div class="field-glow"></div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="neon-field" id="field-pass" style="position:relative;">
+                            <i class="fa-solid fa-key field-icon"></i>
+                            <input type="password" id="login-password" class="neon-input" placeholder=" "
+                                autocomplete="current-password" dir="ltr"
+                                style="direction:ltr;text-align:left;padding-left:2.5rem;">
+                            <label class="neon-label">كلمة المرور</label>
+                            <button type="button"
+                                onclick="const p=document.getElementById('login-password');p.type=p.type==='password'?'text':'password';this.querySelector('i').className='fa-solid '+(p.type==='text'?'fa-eye-slash':'fa-eye');"
+                                style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:#00fff7;cursor:pointer;padding:4px;z-index:10;">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <div class="field-glow"></div>
+                        </div>
+
+                        <!-- Login Button -->
+                        <button type="submit" id="login-btn" class="cyber-btn">
+                            <div class="cyber-btn-bg"></div>
+                            <div class="cyber-btn-inner">
+                                <span id="btn-text"><i class="fa-solid fa-arrow-right-to-bracket"></i> دخول
+                                    النظام</span>
+                            </div>
+                            <div class="cyber-btn-glow"></div>
+                        </button>
+                    </form>
+
+                    <!-- Status Message -->
+                    <div id="login-status" class="login-status hidden"></div>
+
+                    <!-- Footer -->
+                    <div class="panel-footer-text">
+                        تم التطوير بواسطة م. عبدالرحمن عمرو &copy; 2026 | نسخة عرض (Demo)
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- end ai-portal-wrapper -->
+    </div>
+
+    <!-- Main Application Shell -->
+    <div id="app-shell" class="view-screen">
+
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="logo">
+                ⚙️ YourLogo | نظام الإدارة
+            </div>
+            <div style="display:flex; align-items:center; gap: 1rem;">
+                <div class="notification-bell" onclick="app.navigate('reports')"
+                    style="position:relative; cursor:pointer;">
+                    <i class="fa-solid fa-bell" style="font-size:1.2rem;"></i>
+                    <span id="mobile-notif-badge" class="badge badge-danger"
+                        style="position:absolute; top:-5px; right:-10px; font-size:0.6rem; display:none;">0</span>
+                </div>
+                <button class="mobile-nav-toggle" onclick="app.toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div style="font-size:1.5rem; color:var(--secondary);">⚙️</div>
+                <h2 style="font-size: 1.1rem; text-align: center;">نظام إدارة المراكز الطبية</h2>
+            </div>
+
+            <div class="user-info" style="justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap: 1rem;">
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user-circle fa-2x"></i>
+                    </div>
+                    <div class="user-details">
+                        <span id="current-user-role" class="user-role">موظف استقبال</span>
+                        <span id="current-user-branch" class="user-branch">فرع روكسي</span>
+                    </div>
+                </div>
+                <div class="notification-bell" onclick="app.navigate('reports')"
+                    style="position:relative; cursor:pointer; color:var(--primary);">
+                    <i class="fa-solid fa-bell" style="font-size:1.2rem;"></i>
+                    <span id="desktop-notif-badge" class="badge badge-danger"
+                        style="position:absolute; top:-5px; right:-8px; font-size:0.6rem; display:none;">0</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard" onclick="app.navigate('dashboard')">
+                    <i class="fa-solid fa-chart-pie"></i> الرئيسية
+                </a>
+                <a href="#" class="nav-item" data-view="tests" onclick="app.navigate('tests')">
+                    <i class="fa-solid fa-flask-vial"></i> دليل التحاليل
+                </a>
+                <a href="#" class="nav-item" data-view="devices" onclick="app.navigate('devices')">
+                    <i class="fa-solid fa-laptop-medical"></i> أجهزة الأشعة
+                </a>
+                <a href="#" class="nav-item" data-view="doctors" onclick="app.navigate('doctors')">
+                    <i class="fa-solid fa-user-doctor"></i> جدول الأطباء
+                </a>
+
+                <!-- Admin/Manager Only Section -->
+                <div id="manager-menu" class="manager-menu hidden">
+                    <div class="nav-section-title">لوحة التحكم والتنظيم</div>
+                    <a href="#" class="nav-item" id="nav-manage-tests" data-view="manage-tests"
+                        onclick="app.navigate('manage-tests')">
+                        <i class="fa-solid fa-gear"></i> إدارة التحاليل
+                    </a>
+                    <a href="#" class="nav-item" id="nav-users" data-view="users" onclick="app.navigate('users')">
+                        <i class="fa-solid fa-users-gear"></i> إدارة المستخدمين
+                    </a>
+                    <a href="#" class="nav-item" id="nav-global-devices" data-view="global-devices"
+                        onclick="app.navigate('global-devices')">
+                        <i class="fa-solid fa-satellite-dish"></i> مراقبة أجهزة الفروع
+                    </a>
+                    <a href="#" class="nav-item" id="nav-reports" data-view="reports" onclick="app.navigate('reports')">
+                        <i class="fa-solid fa-file-invoice"></i> حركة الأجهزة والاشعارات
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="app.logout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dynamic content injected here -->
+            <div id="view-container" class="view-container">
+                <!-- Dashboard View -->
+                <div id="view-dashboard" class="content-view active">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Tests Catalog View -->
+                <div id="view-tests" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Devices View -->
+                <div id="view-devices" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Doctors Schedule View -->
+                <div id="view-doctors" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Manage Tests View (Manager Only) -->
+                <div id="view-manage-tests" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Users View (Admin Only) -->
+                <div id="view-users" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Global Devices Monitoring View (Admin/Manager Only) -->
+                <div id="view-global-devices" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Reports & Notifications View (Admin/Manager Only) -->
+                <div id="view-reports" class="content-view">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals Container -->
+    <div id="modal-overlay" class="modal-overlay" onclick="app.closeModal()"></div>
+    <div id="app-modal" class="app-modal glass-panel">
+        <div class="modal-header">
+            <h3 id="modal-title">العنوان</h3>
+            <button class="modal-close-btn" onclick="app.closeModal()"><i class="fa-solid fa-times"></i></button>
+        </div>
+        <div id="modal-body" class="modal-body">
+            <!-- Form content will be injected here via JS -->
+        </div>
+    </div>
+
+    <!-- Application Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- AI PORTAL ENGINE -->
+    <script>
+        (function () {
+            /* ── Particle System ── */
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [];
+
+            function resize() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            function Particle() {
+                this.reset();
+            }
+            Particle.prototype.reset = function () {
+                this.x = Math.random() * W;
+                this.y = Math.random() * H;
+                this.r = Math.random() * 1.5 + 0.3;
+                this.speed = Math.random() * 0.4 + 0.1;
+                this.alpha = Math.random() * 0.5 + 0.1;
+                this.dir = Math.random() * Math.PI * 2;
+            };
+            Particle.prototype.update = function () {
+                this.x += Math.cos(this.dir) * this.speed;
+                this.y += Math.sin(this.dir) * this.speed;
+                this.alpha += (Math.random() - 0.5) * 0.01;
+                this.alpha = Math.max(0.05, Math.min(0.6, this.alpha));
+                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+            };
+            Particle.prototype.draw = function () {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0,255,247,${this.alpha})`;
+                ctx.fill();
+            };
+
+            for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+            function animate() {
+                ctx.clearRect(0, 0, W, H);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            /* ── Auto-activate login panel after 2 seconds ── */
+            setTimeout(() => {
+                if (document.getElementById('login-panel') &&
+                    !document.getElementById('login-panel').classList.contains('active')) {
+                    activatePortal();
+                }
+            }, 2000);
+
+            /* ── Mouse Parallax ── */
+            let mx = 0, my = 0;
+            document.addEventListener('mousemove', e => {
+                mx = (e.clientX / window.innerWidth - 0.5) * 20;
+                my = (e.clientY / window.innerHeight - 0.5) * 20;
+                const wrapper = document.getElementById('ai-portal-wrapper');
+                if (wrapper) wrapper.style.transform = `translate(${mx * 0.4}px, ${my * 0.4}px)`;
+            });
+
+            /* ── Portal Activation ── */
+            window.activatePortal = function () {
+                const portalState = document.getElementById('portal-state');
+                const loginPanel = document.getElementById('login-panel');
+                const scanOverlay = document.getElementById('scan-overlay');
+
+                // Zoom-in the portal
+                portalState.classList.add('zoom-in');
+                setTimeout(() => {
+                    portalState.style.display = 'none';
+                    loginPanel.classList.add('active');
+                    // trigger scan
+                    setTimeout(() => {
+                        scanOverlay.classList.add('scanning');
+                        setTimeout(() => scanOverlay.classList.remove('scanning'), 1600);
+                    }, 200);
+                }, 550);
+            };
+
+            /* ── Status Helper ── */
+            window.setLoginStatus = function (type, icon, text) {
+                const el = document.getElementById('login-status');
+                if (!el) return;
+                el.className = 'login-status ' + type;
+                el.innerHTML = `<i class="fa-solid ${icon}"></i> ${text}`;
+            };
+            window.clearLoginStatus = function () {
+                const el = document.getElementById('login-status');
+                if (el) el.className = 'login-status hidden';
+            };
+
+            /* ── Login Handler ── */
+            window.handleLoginClick = function () {
+                const scanOverlay = document.getElementById('scan-overlay');
+                const btnText = document.getElementById('btn-text');
+                const loginBtn = document.getElementById('login-btn');
+
+                clearLoginStatus();
+
+                if (scanOverlay) {
+                    scanOverlay.classList.remove('scanning');
+                    void scanOverlay.offsetWidth;
+                    scanOverlay.classList.add('scanning');
+                }
+
+                setLoginStatus('loading', 'fa-circle-notch fa-spin', 'جاري التحقق من البيانات...');
+
+                // Login immediately - no artificial delay
+                if (window.app) app.loginWithEmail();
+            };
+
+            /* ── Restore portal state on logout ── */
+            /* ── Enter key support ── */
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Enter') {
+                    const panel = document.getElementById('login-panel');
+                    if (panel && panel.classList.contains('active')) {
+                        handleLoginClick();
+                    }
+                }
+            });
+
+            /* ── Restore portal state on logout ── */
+            const origLogout = App.prototype.logout;
+            App.prototype.logout = function () {
+                origLogout.call(this);
+                // restore portal
+                const portalState = document.getElementById('portal-state');
+                const loginPanel = document.getElementById('login-panel');
+                if (portalState && loginPanel) {
+                    portalState.style.display = '';
+                    portalState.classList.remove('zoom-in', 'hidden');
+                    loginPanel.classList.remove('active');
+                }
+            };
+
+        })();
+    </script>
+
+    <!-- Theme Switcher -->
+    <div id="theme-switcher" style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; gap: 10px; z-index: 9999; align-items: center; border: 1px solid rgba(0,0,0,0.1);">
+        <span style="font-size: 12px; font-weight: bold; color: #333; margin-left: 5px;">تخصيص:</span>
+        <button onclick="setTheme('#661A57', '#8e307c', '#400d36', '#00d2ff')" style="background: #661A57; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+        <button onclick="setTheme('#0056b3', '#007bff', '#004085', '#00ffcc')" style="background: #0056b3; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+        <button onclick="setTheme('#b30000', '#ff4d4d', '#800000', '#ffcc00')" style="background: #b30000; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+        <button onclick="setTheme('#006600', '#33cc33', '#004d00', '#99ff33')" style="background: #006600; width: 25px; height: 25px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+    </div>
+
+    <script>
+        function setTheme(primary, light, dark, secondary) {
+            document.documentElement.style.setProperty('--primary', primary);
+            document.documentElement.style.setProperty('--primary-light', light);
+            document.documentElement.style.setProperty('--primary-dark', dark);
+            document.documentElement.style.setProperty('--secondary', secondary);
+        }
+    </script>
+</body>
+
+</html>

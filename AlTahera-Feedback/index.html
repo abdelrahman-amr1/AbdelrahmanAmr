@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>تقييم مركز الطاهرة للأشعة والتحاليل الطبية</title>
+        <link rel="stylesheet" href="style.css?v=4">
+        <!-- إضافة ايقونة التبويب في المتصفح -->
+        <link rel="icon" type="image/x-icon" href="CleanIcon-9.jpg">
+        <!-- استخدام خطوط جوجل الحديثة (Tajawal) لتجربة UI احترافية -->
+        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+                rel="stylesheet">
+</head>
+
+<body>
+        <!-- شاشة البداية (Splash Screen) -->
+        <div id="splashScreen" class="splash-screen">
+                <img src="CleanIcon-9.jpg" alt="شعار الطاهرة" class="splash-logo">
+                <h1 class="splash-title">تقييمك يهمنا</h1>
+                <p class="splash-subtitle">اضغط هنا للبدء ✨</p>
+        </div>
+
+        <div class="feedback-card" id="mainCard" style="display: none;">
+                <div class="header">
+                        <!-- أيقونة تعبيرية كشعار رمزي -->
+                        <img src="CleanIcon-9.jpg" alt="شعار الطاهرة" class="logo">
+                        <h1>مركز الطاهرة</h1>
+                        <p>للأشعة والتحاليل الطبية</p>
+                        <p
+                                style="font-weight: bold; font-size: 14px; opacity: 0.8; margin-top: -5px; color: var(--secondary);">
+                                إدارة تكنولوجيا المعلومات والتحول الرقمي</p>
+                        <h2>يسعدنا تقييمكم للارتقاء بخدماتنا</h2>
+                </div>
+
+                <!-- سنربط هذا النموذج بجوجل شيت لاحقاً عبر سكريبت الخوادم -->
+                <form id="feedbackForm" name="google-sheet">
+
+                        <!-- بيانات المريض -->
+                        <div class="form-group text-center">
+                                <label>بيانات المريض</label>
+                                <p class="desc">يُرجى اختيار الفرع وإدخال بياناتك قبل بدء التقييم.</p>
+
+                                <!-- اختيار الفرع -->
+                                <div style="margin-bottom: 25px; text-align: right;">
+                                        <label style="font-size: 16px; font-weight: bold; color: var(--text-dark);"
+                                                for="branchSelect">اختر
+                                                الفرع <span style="color: red;">*</span></label>
+                                        <select name="Branch" id="branchSelect" required style="margin-top: 10px;">
+                                                <option value="" disabled selected>-- يرجى اختيار الفرع --</option>
+                                                <option value="اخر فيصل">اخر فيصل</option>
+                                                <option value="حدائق الاهرام">حدائق الاهرام</option>
+                                                <option value="السيده زينب">السيده زينب</option>
+                                                <option value="المقطم">المقطم</option>
+                                                <option value="المنيا">المنيا</option>
+                                                <option value="روكسي">روكسي</option>
+                                                <option value="ميت غمر">ميت غمر</option>
+                                        </select>
+                                </div>
+
+                                <input type="text" name="PatientName" placeholder="أدخل اسم المريض هنا (اجبارى)..."
+                                        id="patientNameInput" style="margin-bottom: 15px;" required>
+                                <input type="tel" name="PatientMobile"
+                                        placeholder="أدخل رقم المحمول هنا (11 رقم على الأقل)..." id="patientMobileInput"
+                                        dir="rtl" minlength="11" required>
+                        </div>
+
+                        <!-- التقييم العام للزيارة -->
+                        <div class="form-group text-center rating-group">
+                                <label>التقييم العام للزيارة</label>
+                                <p class="desc">كيف تقيم إجمالي تجربتك لزيارة الفرع والحصول على الخدمة؟</p>
+                                <div class="emojis">
+                                        <div class="emoji-wrapper" data-value="1"><img
+                                                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f621/512.webp"
+                                                        alt="سيء جداً" class="emoji"><span>سيء جداً</span></div>
+                                        <div class="emoji-wrapper" data-value="2"><img
+                                                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f61f/512.webp"
+                                                        alt="سيء" class="emoji"><span>سيء</span></div>
+                                        <div class="emoji-wrapper" data-value="3"><img
+                                                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f610/512.webp"
+                                                        alt="مقبول" class="emoji"><span>مقبول</span></div>
+                                        <div class="emoji-wrapper" data-value="4"><img
+                                                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60a/512.webp"
+                                                        alt="جيد" class="emoji"><span>جيد</span></div>
+                                        <div class="emoji-wrapper" data-value="5"><img
+                                                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60d/512.webp"
+                                                        alt="ممتاز" class="emoji"><span>ممتاز</span></div>
+                                </div>
+                                <!-- نرسل التقييم كملاحظة الاستقبال هنا حتى لا نحتاج لتغيير أعمدة Google Sheets القديمة أو نستبدله برقم عام -->
+                                <input type="hidden" name="OverallRating" id="overallRatingInput" value="0" required>
+                        </div>
+
+                        <!-- المقترحات -->
+                        <div class="form-group text-center">
+                                <label>مقترحات أو شكاوى (اختياري)</label>
+                                <p class="desc">هل لديك أي ملاحظات أخرى أو شكاوى لم نذكرها؟</p>
+                                <textarea name="Comments" rows="4" placeholder="يسعدنا سماع صوتك..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn btn-primary" id="submitBtn"
+                                style="margin-top: 20px;">إرسال التقييم
+                                الآن</button>
+
+                        <div class="success-message" id="successMessage" style="display: none;">
+                                ✅ شكراً لك! تم الإرسال بنجاح. نتمنى لك دوام الصحة والعافية.
+                        </div>
+
+                        <div class="error-message" id="errorMessage" style="display: none;">
+                                ❌ حدث خطأ ما. يرجى التأكد من اتصالك بالإنترنت والمحاولة مجدداً.
+                        </div>
+
+                </form>
+        </div>
+
+        <!-- الكيبورد الافتراضي التكنولوجي -->
+        <div id="virtualKeyboard" class="virtual-keyboard">
+                <div class="vk-header">
+                        <span class="vk-title">لوحة المفاتيح الذكية</span>
+                        <button type="button" class="vk-close-btn" id="vkCloseBtn">✖</button>
+                </div>
+                <div class="vk-keys" id="vkKeysContainer">
+                        <!-- مفاتيح الأرقام سيتم إدراجها هنا عبر JavaScript لتكون تفاعلية -->
+                </div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
