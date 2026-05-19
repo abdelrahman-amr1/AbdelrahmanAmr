@@ -833,17 +833,12 @@ ul {
 /* Multi-Page SPA Navigation */
 .page-view {
     display: none;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     width: 100%;
 }
 
 .page-view.active-page {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeInUp 0.5s forwards;
+    animation: fadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
 @keyframes fadeInUp {
