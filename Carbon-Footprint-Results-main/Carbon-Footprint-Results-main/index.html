@@ -96,42 +96,48 @@
 
     function checkResult() {
         const input = document.getElementById('search-input').value.trim();
-        const result = studentData[input]; 
+        let result = studentData[input]; 
         const resultSection = document.getElementById('result-section');
         
         if (!input) {
             alert("برجاء إدخال رقم الواتساب أو الاسم أولاً.");
             return;
         }
+
+        // Demo override: Always succeed if not found
+        if (!result) {
+            // Check if input looks like a name or number to display nicely
+            const isNumber = /^\d+$/.test(input);
+            result = { 
+                name: isNumber ? "طالب (نسخة تجريبية)" : input + " (نسخة تجريبية)", 
+                phone: input, 
+                grand_total: 25 
+            };
+        }
         
-        if (result) {
-            resultSection.style.display = 'block';
-            document.getElementById('s-name').innerText = result.name;
+        resultSection.style.display = 'block';
+        document.getElementById('s-name').innerText = result.name;
+        
+        const congratsEl = document.getElementById('congrats-text');
+        const statusBadge = document.getElementById('status-badge');
+        
+        // شرط النجاح: 18 درجة فأكثر (60%)
+        if (result.grand_total >= 18) { 
+            congratsEl.innerText = 'ألف مبروك! 🎉'; 
+            congratsEl.style.color = '#2e7d32'; 
             
-            const congratsEl = document.getElementById('congrats-text');
-            const statusBadge = document.getElementById('status-badge');
+            statusBadge.innerText = 'النتيجة: اجتاز البرنامج بنجاح ✅';
+            statusBadge.style.backgroundColor = '#4caf50';
+            resultSection.style.borderColor = '#4caf50';
+            resultSection.style.backgroundColor = '#f1f8e9';
+        } else { 
+            congratsEl.innerText = 'عذراً..'; 
+            congratsEl.style.color = '#d32f2f'; 
             
-            // شرط النجاح: 18 درجة فأكثر (60%)
-            if (result.grand_total >= 18) { 
-                congratsEl.innerText = 'ألف مبروك! 🎉'; 
-                congratsEl.style.color = '#2e7d32'; 
-                
-                statusBadge.innerText = 'النتيجة: اجتاز البرنامج بنجاح ✅';
-                statusBadge.style.backgroundColor = '#4caf50';
-                resultSection.style.borderColor = '#4caf50';
-                resultSection.style.backgroundColor = '#f1f8e9';
-            } else { 
-                congratsEl.innerText = 'عذراً..'; 
-                congratsEl.style.color = '#d32f2f'; 
-                
-                statusBadge.innerText = 'النتيجة: لم يجتز البرنامج ❌';
-                statusBadge.style.backgroundColor = '#f44336';
-                resultSection.style.borderColor = '#f44336';
-                resultSection.style.backgroundColor = '#ffebee';
-            }
-        } else {
-            resultSection.style.display = 'none';
-            alert("عذراً، لم يتم العثور على بيانات بهذا الرقم أو الاسم. تأكد من صحة الإدخال.");
+            statusBadge.innerText = 'النتيجة: لم يجتز البرنامج ❌';
+            statusBadge.style.backgroundColor = '#f44336';
+            resultSection.style.borderColor = '#f44336';
+            resultSection.style.backgroundColor = '#ffebee';
         }
     }
 </script>
