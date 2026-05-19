@@ -14,8 +14,8 @@ const Contact = () => {
                     <div className="contact-info">
                         <h3>معلومات الاتصال</h3>
                         <p><strong>العنوان:</strong> القاهرة، مصر</p>
-                        <p><strong>الهاتف:</strong> 0236570700</p>
-                        <p><strong>البريد الإلكتروني:</strong> info@ese-eg.com</p>
+                        <p><strong>الهاتف:</strong> 01128007078</p>
+                        <p><strong>البريد الإلكتروني:</strong> eng.abdelrahman.amr@gmail.com</p>
                     </div>
 
                     <div className="contact-form">

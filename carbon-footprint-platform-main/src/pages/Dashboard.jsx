@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 import { getReports } from '../services/db';
-import logoImage from '../assets/logo.png';
 
 const COLORS = ['#0a5f38', '#f59e0b', '#e11d48', '#3b82f6'];
 
@@ -57,7 +56,8 @@ const Dashboard = () => {
         <div className="dashboard-page section-padding" id="pdf-report-content">
             <div className="container" style={{ maxWidth: '1000px' }}>
                 <div className="print-header" style={{ display: 'none', textAlign: 'center', marginBottom: '2rem' }}>
-                    <img src={logoImage} alt="ESE Logo" style={{ height: '80px', objectFit: 'contain' }} />
+                    <h1 style={{ color: 'var(--primary-green)', margin: 0 }}>م. عبدالرحمن عمرو</h1>
+                    <p style={{ margin: '5px 0 0 0', color: '#666' }}>مدرب وسفير معتمد للاستدامة</p>
                 </div>
                 <div className="section-header text-center">
                     <h2>تقرير البصمة الكربونية لمؤسسة: {inputData.companyName}</h2>

@@ -18,8 +18,8 @@ const Footer = () => {
                 </div>
                 <div className="footer-section">
                     <h4>تواصل معنا</h4>
-                    <p>البريد الإلكتروني: info@ese-eg.com</p>
-                    <p>الهاتف: 0236570700</p>
+                    <p>البريد الإلكتروني: eng.abdelrahman.amr@gmail.com</p>
+                    <p>الهاتف: 01128007078</p>
                 </div>
             </div>
             <div className="footer-bottom">
