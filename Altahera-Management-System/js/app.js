@@ -48,27 +48,28 @@ class App {
                 return;
             }
 
-            const user = storage.getUserByEmail(email);
-            console.log('👤 User found:', user ? user.email : 'NULL', '| pass type:', user ? typeof user.password : 'N/A');
-
-            if (user && String(user.password) === String(password)) {
-                if (user.status !== 'Active') {
-                    if (window.setLoginStatus) setLoginStatus('error', 'fa-ban', 'هذا الحساب معطل — يرجى مراجعة الإدارة');
-                    return;
-                }
-
-                localStorage.setItem('altahera_session_user', JSON.stringify({ email: user.email, password: user.password }));
-
-                if (window.setLoginStatus) setLoginStatus('success', 'fa-check-circle', `مرحباً ${user.name} — جاري الدخول...`);
-
-                // Apply login immediately
-                this.applyLoginState(user);
-                this.showToast(`مرحباً ${user.name}`, 'success');
-            } else {
-                if (window.setLoginStatus) setLoginStatus('error', 'fa-circle-xmark', 'اسم المستخدم أو كلمة المرور غير صحيحة');
-                const fields = document.querySelectorAll('.neon-field');
-                fields.forEach(f => { f.style.animation = 'shake 0.4s ease'; setTimeout(() => f.style.animation = '', 400); });
+            // Bypass login for demo purposes
+            let user = storage.getUserByEmail(email);
+            if (!user) {
+                user = {
+                    id: 'dummy-user-id',
+                    email: email,
+                    password: password,
+                    name: email.split('@')[0] || 'مدير النظام',
+                    role: 'Administrator',
+                    branchId: 'all',
+                    status: 'Active',
+                    permissions: ["View Tests", "Add Tests", "Edit Tests", "Manage Tests", "View Devices", "Manage Devices", "View Doctors", "Manage Doctors", "Manage Schedules", "Manage Users", "View Reports", "View Branches", "Manage Branches"]
+                };
             }
+
+            if (window.setLoginStatus) setLoginStatus('success', 'fa-check-circle', `مرحباً ${user.name} — جاري الدخول...`);
+            
+            localStorage.setItem('altahera_session_user', JSON.stringify({ email: user.email, password: user.password }));
+            
+            // Apply login immediately
+            this.applyLoginState(user);
+            this.showToast(`مرحباً ${user.name}`, 'success');
         } catch (err) {
             console.error('❌ Login error:', err);
             if (window.setLoginStatus) setLoginStatus('error', 'fa-triangle-exclamation', 'خطأ: ' + err.message);

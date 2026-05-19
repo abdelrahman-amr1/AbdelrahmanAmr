@@ -102,24 +102,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signIn = async (email: string, password: string) => {
-    if (USE_LOCAL_API) {
-      try {
-        const { user: userData } = await api.signIn(email, password);
-        setUser({
-          id: userData.id,
-          email: userData.email,
-          fullName: userData.fullName,
-          role: userData.role
-        });
-        setUserRole(userData.role as AppRole);
-        return { error: null };
-      } catch (error: any) {
-        return { error: new Error(error.message || "فشل تسجيل الدخول") };
-      }
-    } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      return { error };
-    }
+    // Mock login for demo purposes
+    const mockRole = 'admin';
+    const mockUser = {
+        id: 'dummy-demo-id',
+        email: email,
+        fullName: 'مدير النظام (Demo)',
+        role: mockRole
+    };
+    setUser(mockUser);
+    setUserRole(mockRole);
+    return { error: null };
   };
 
   const signUp = async (email: string, password: string, fullName: string) => {
