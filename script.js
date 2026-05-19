@@ -5,6 +5,8 @@ const translations = {
         "nav-honors": "التكريمات والمناصب",
         "nav-services": "الخدمات",
         "nav-contact": "تواصل معي",
+        "nav-products": "الأنظمة الجاهزة",
+        "nav-portfolio": "سابقة الأعمال",
         "hero-badge": "رؤية مصر 2030",
         "hero-title": "م. عبدالرحمن عمرو",
         "hero-tagline": "مدرب دولي سفيراً للحوكمة، الذكاء الاصطناعي، والبصمة الكربونية.",
@@ -61,6 +63,9 @@ const translations = {
         "form-opt-4": "استشارة ذكاء اصطناعي",
         "form-details": "تفاصيل طلبك...",
         "form-btn": 'إرسال الطلب عبر واتساب <i class="fab fa-whatsapp"></i>',
+        "products-title": "الأنظمة والمنتجات البرمجية (SaaS)",
+        "products-subtitle": "أنظمة ذكية ومنصات متكاملة جاهزة للتركيب فوراً لخدمة مؤسستك مع إمكانية التخصيص الكامل لهويتك.",
+        "products-hint": "💡 جرب كتابة أي بريد إلكتروني وكلمة مرور لتجربة الأنظمة وتصفح الصفحات مباشرة!",
         "copyright": "م. عبدالرحمن عمرو. جميع الحقوق محفوظة."
     },
     en: {
@@ -68,6 +73,8 @@ const translations = {
         "nav-honors": "Honors & Roles",
         "nav-services": "Services",
         "nav-contact": "Contact Me",
+        "nav-products": "Ready Systems",
+        "nav-portfolio": "Portfolio",
         "hero-badge": "Egypt Vision 2030",
         "hero-title": "Eng. Abdelrahman Amr",
         "hero-tagline": "International Trainer & Ambassador for Governance, AI, and Carbon Footprint.",
@@ -124,6 +131,9 @@ const translations = {
         "form-opt-4": "AI Consultation",
         "form-details": "Your Request Details...",
         "form-btn": 'Send Request via WhatsApp <i class="fab fa-whatsapp"></i>',
+        "products-title": "Software Systems & Products (SaaS)",
+        "products-subtitle": "Smart systems and integrated platforms ready for instant deployment to serve your organization with full identity customization.",
+        "products-hint": "💡 Enter any email and password to try the systems and explore their pages directly!",
         "copyright": "Eng. Abdelrahman Amr. All rights reserved."
     }
 };
