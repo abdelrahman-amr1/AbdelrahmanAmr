@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEEN - زين لجنوط السيارات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* هوية الألوان من لافتة الورشة */
+        :root {
+            --primary-red: #e61e25;
+            --accent-yellow: #ffcc00;
+            --dark-blue: #004da1;
+            --light-grey: #f8f9fa;
+            --text-grey: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--text-grey);
+        }
+
+        /* 1. قسم الواجهة الرئيسية (Hero) باستخدام hero.jpg */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('hero.jpg'); /* واجهة المحل الحقيقية */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .logo-text {
+            font-size: 5rem;
+            color: var(--accent-yellow);
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px var(--primary-red);
+        }
+
+        header h2 { font-size: 1.8rem; margin: 10px 0; }
+        header p { color: #ccc; max-width: 600px; margin: 10px auto; }
+        .contact-info { color: var(--accent-yellow); font-size: 1.3rem; margin-top: 15px; }
+
+        /* الأزرار */
+        .cta-buttons { margin-top: 30px; }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-whatsapp { background-color: #25d366; color: white; }
+        .btn-maps { background-color: var(--dark-blue); color: white; }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        /* العناوين العامة الأقسام */
+        .section-title { text-align: center; margin: 60px 0 40px; font-size: 2.2rem; position: relative; }
+        .section-title::after {
+            content: ''; width: 80px; height: 4px; background: var(--primary-red);
+            display: block; margin: 10px auto;
+        }
+
+        /* 2. قسم المعدات التكنولوجية (Technology Showcase) يستخدم 3 صور آلات */
+        .tech-specs {
+            padding: 40px 10% 80px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tech-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+        .tech-item:hover { transform: translateY(-5px); }
+
+        .tech-item img {
+            width: 100%;
+            height: 250px; /* توحيد ارتفاع الصور */
+            object-fit: cover; /* لضمان ملء المساحة دون تشويه */
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+
+        .tech-content { padding: 25px; text-align: center; }
+        .tech-item h4 { color: var(--dark-blue); margin: 0 0 10px 0; font-size: 1.4rem; }
+        .tech-item p { color: var(--text-grey); margin: 0; line-height: 1.6; }
+
+        /* 3. التذييل (Footer) */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 3px solid var(--primary-red);
+        }
+        .social-links { margin-bottom: 25px; }
+        .social-links a { color: white; margin: 0 15px; font-size: 1.8rem; text-decoration: none; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent-yellow); }
+        footer p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo-text">ZEEN</h1>
+        <h2>مركز زين لاستعدال الجنوط ولحام الألمنيوم</h2>
+        <p>دقة احترافية وأعلى معايير الأمان لإعادة جنوط سيارتك لحالتها الأصلية بأحدث المعدات الألمانية والليزري.</p>
+        <p class="contact-info"><i class="fas fa-phone"></i> م/ زين: 01127808328</p>
+        
+        <div class="cta-buttons">
+            <a href="https://wa.me/201127808328" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> واتساب: 01127808328
+            </a>
+            <a href="https://www.google.com/maps/search/%D8%B2%D9%8A%D9%86%20%D9%84%D8%A7%D8%B3%D8%AA%D8%B9%D8%AF%D8%A7%D9%84%20%D9%88%D9%84%D8%AD%D8%A7%D9%85%20%D8%A7%D9%84%D8%AC%D9%86%D9%88%D8%B7/@29.978376388549805,31.27210807800293,17z?hl=en" class="btn btn-maps">
+                <i class="fas fa-map-marker-alt"></i> موقعنا على الخريطة
+            </a>
+        </div>
+    </header>
+
+    <section class="tech-specs">
+        <h2 class="section-title">تجهيزاتنا التكنولوجية</h2>
+        
+        <div class="tech-grid">
+            <div class="tech-item">
+                <img src="machine1.jpg" alt="مكبس استعدال KONIG Professional">
+                <div class="tech-content">
+                    <h4>KONIG Professional Press</h4>
+                    <p>مكبس استعدال جنوط مخصص للتعامل مع الشطرة ومعالجة الانحناءات الهيكلية الشديدة في جنوط الألمنيوم.</p>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <img src="machine2.jpg" alt="جهاز ترصيص APT U-520 Laser">
+                <div class="tech-content">
+                    <h4>APT U-520 Laser Balancer</h4>
+                    <p>جهاز ترصيص ليزري ديناميكي متطور لضبط الاتزان بالمليجرام لضمان قيادة ناعمة تماماً وآمنة على السرعات.</p>
+                </div>
+            </div>
+
+            <div class="tech-item">
+                <img src="machine3.jpg" alt="ماكينة تغيير إطارات">
+                <div class="tech-content">
+                    <h4>Tire Mounting Station</h4>
+                    <p>ماكينة مخصصة لتغيير الإطارات (سبور - حديد) بأمان تام ودون خدش الجنط أو الإطار.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://web.facebook.com/zeanbobzean/"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/201127808328"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>جميع الحقوق محفوظة © 2026 - ورشة م/ زين</p>
+        <p style="color: #666;"><small>التطوير بواسطة م عبدالعزيز خالد - م عبدالرحمن عمرو </p>
+    </footer>
+
+</body>
+</html>
