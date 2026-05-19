@@ -29,6 +29,8 @@ const translations = {
         "honor-6-desc": "تخطيط وتقديم برامج تدريبية متقدمة في التحول الرقمي وتكنولوجيا المعلومات.",
         "gallery-title": "معرض الشهادات والتكريمات",
         "gallery-subtitle": "جانب من الشهادات والتكريمات المستحقة لعام 2025.",
+        "gallery-tributes": "التكريمات والمناسبات",
+        "gallery-certs": "الشهادات والاعتمادات",
         "news-title": "التغطية الإعلامية",
         "news-badge": "تغطية صحفية حديثة",
         "news-headline": "المهندس عبدالرحمن عمرو سفيراً للذكاء الاصطناعي",
@@ -132,6 +134,8 @@ const translations = {
         "honor-6-desc": "Planning and delivering advanced training programs in digital transformation and Information Technology.",
         "gallery-title": "Certificates & Honors Gallery",
         "gallery-subtitle": "A glimpse of the certificates and honors earned in 2025.",
+        "gallery-tributes": "Honors & Events",
+        "gallery-certs": "Certificates & Accreditations",
         "news-title": "Media Coverage",
         "news-badge": "Recent Press Coverage",
         "news-headline": "Eng. Abdelrahman Amr as AI Ambassador",
@@ -305,44 +309,124 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Smooth Scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    // SPA Routing & Navigation
+    function handleRouting() {
+        const hash = window.location.hash || '#about';
+        let pageId = 'page-home';
 
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+        if (hash === '#home' || hash === '#about') {
+            pageId = 'page-home';
+        } else if (hash === '#honors' || hash === '#gallery' || hash === '#news') {
+            pageId = 'page-honors';
+        } else if (hash === '#services') {
+            pageId = 'page-services';
+        } else if (hash === '#products') {
+            pageId = 'page-products';
+        } else if (hash === '#portfolio') {
+            pageId = 'page-portfolio';
+        } else if (hash === '#contact') {
+            pageId = 'page-contact';
+        }
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+        document.querySelectorAll('.page-view').forEach(view => {
+            view.classList.remove('active-page');
+        });
+
+        const activePage = document.getElementById(pageId);
+        if (activePage) {
+            activePage.classList.add('active-page');
+        }
+
+        // Highlight active navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === hash || (pageId === 'page-home' && href === '#about')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu if open
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks) {
+            navLinks.classList.remove('active');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Listen to hash changes and initial page load
+    window.addEventListener('hashchange', handleRouting);
+    handleRouting();
+
+    // Hamburger Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Initialize Swiper Marquee Row 1 (Honors - Scrolls Left)
+    const honorsSwiper = new Swiper('.honors-swiper', {
+        loop: true,
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        speed: 8000,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        allowTouchMove: true
+    });
+
+    // Initialize Swiper Marquee Row 2 (Certificates - Scrolls Right)
+    const certsSwiper = new Swiper('.certs-swiper', {
+        loop: true,
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        speed: 8000,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: true,
+        },
+        allowTouchMove: true
+    });
+
+    // Lightbox Modal Setup
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeLightbox = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.honors-swiper img, .certs-swiper img').forEach(img => {
+        img.addEventListener('click', () => {
+            if (lightboxModal && lightboxImg) {
+                lightboxImg.src = img.src;
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = img.alt || '';
+                }
+                lightboxModal.classList.add('show');
             }
         });
     });
 
-    // Initialize Swiper
-    const swiper = new Swiper('.gallery-swiper', {
-        loop: true,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            320: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-        }
-    });
+    if (closeLightbox && lightboxModal) {
+        closeLightbox.addEventListener('click', () => {
+            lightboxModal.classList.remove('show');
+        });
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                lightboxModal.classList.remove('show');
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxModal.classList.contains('show')) {
+                lightboxModal.classList.remove('show');
+            }
+        });
+    }
 });
