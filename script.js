@@ -247,9 +247,9 @@ function setLanguage(lang) {
     // Update logos
     document.querySelectorAll('[data-i18n-logo]').forEach(el => {
         if (lang === 'ar') {
-            el.innerHTML = '<i class="fas fa-microchip"></i> عبدالرحمن <span>عمرو</span>';
+            el.innerHTML = 'عبدالرحمن <span>عمرو</span>';
         } else {
-            el.innerHTML = '<i class="fas fa-microchip"></i> Abdelrahman <span>Amr</span>';
+            el.innerHTML = 'Abdelrahman <span>Amr</span>';
         }
     });
 }
