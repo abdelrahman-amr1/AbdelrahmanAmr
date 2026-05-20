@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo">
-                    <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>⚙️ YourLogo</span>
+                    <img src={logoImage} alt="Abdelrahman Amr" style={{ height: '50px' }} />
                 </Link>
                 <ul className="navbar-menu">
                     <li><Link to="/">الرئيسية</Link></li>
