@@ -244,6 +244,14 @@ ul {
     flex: 1;
 }
 
+.hero-logo {
+    display: inline-block;
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
 .hero-text .badge {
     display: inline-block;
     padding: 6px 14px;
@@ -782,6 +790,12 @@ ul {
         flex-direction: column;
         text-align: center;
         padding-top: 40px;
+    }
+
+    .hero-logo {
+        display: block;
+        margin: 0 auto 25px;
+        height: 140px;
     }
 
     .hero-text .description {
