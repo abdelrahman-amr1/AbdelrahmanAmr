@@ -878,15 +878,23 @@ ul {
         padding-top: 40px;
     }
 
+    .hero-text {
+        text-align: center;
+    }
+
     .hero-logo-wrapper {
-        display: inline-block;
+        display: block;
         margin: 0 auto 25px;
+        width: fit-content;
+        max-width: 100%;
         padding: 12px;
         border-radius: 16px;
     }
 
     .hero-logo {
         height: 140px;
+        display: block;
+        margin: 0 auto;
     }
 
     .hero-text .description {
