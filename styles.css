@@ -696,6 +696,21 @@ ul {
     margin-bottom: 20px;
 }
 
+.product-price {
+    color: var(--clr-secondary);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-price i {
+    color: var(--clr-primary);
+    font-size: 1rem;
+}
+
 .product-actions {
     display: flex;
     gap: 10px;
