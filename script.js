@@ -107,6 +107,30 @@ const translations = {
         "port-zeen-title": "مركز زين (ZEEN)",
         "port-zeen-desc": "موقع تعريفي احترافي لمركز صيانة واستعدال جنوط السيارات ولحام الألمنيوم باستخدام أحدث المعدات.",
         "port-btn-view": 'استعرض المشروع <i class="fas fa-arrow-left"></i>',
+        "prod-lawmind-title": "منصة LawMind AI للمحاماة الذكية",
+        "prod-lawmind-desc": "منصة المساعد القانوني وإدارة القضايا بالذكاء الاصطناعي، صياغة مذكرات الدفاع وتحليل القضية وفق القانون المصري.",
+        "prod-lawmind-price": "تبدأ من 80,000 ج.م إلى 500,000 ج.م+",
+        "featured-badge-text": "مشروع مميز (Masterpiece)",
+        "featured-title": "منصة LawMind AI للمحاماة الذكية",
+        "featured-tagline": "المساعد القانوني الذكي صائد الدفوع وصائغ مذكرات الدفاع وفق القانون المصري",
+        "simulator-title": "المستشار القانوني الذكي",
+        "simulator-status": "متصل - محرك الذكاء الاصطناعي نشط",
+        "simulator-pdf-card-title": "نتيجة.pdf",
+        "simulator-pdf-close": "إغلاق المستند",
+        "simulator-pdf-page": "صفحة",
+        "simulator-pdf-of": "من",
+        "case-problem-title": "المشكلة القضائية",
+        "case-problem-desc": "المحامون والمستشارون القانونيون يستهلكون ساعات طويلة في مراجعة مئات الأوراق وصياغة المذكرات وتتبع المواعيد والثغرات القانونية.",
+        "case-solution-title": "الحل الذكي للمنصة",
+        "case-solution-desc": "منصة تعتمد على Gemini AI + RAG مع تقنية Caching متقدمة لقراءة ملفات القضايا الضخمة فورياً، وصياغة مذكرات دفاع احترافية مدعمة بمواد القانون المصري.",
+        "case-results-title": "النتائج الملموسة",
+        "case-results-desc": "تسريع صياغة المذكرات بنسبة 85%، استخراج ثغرات الدفاع بدقة، والحصول على عريضة دعوى ومذكرة جاهزة للطباعة بصيغة PDF.",
+        "feat-1": "مساعد الاستشارات الذكي (AI Consultation)",
+        "feat-2": "توليد مذكرات الدفاع تلقائياً",
+        "feat-3": "صياغة العقود والعرائض القانونية",
+        "feat-4": "الذاكرة الذكية لسياق القضية (RAG)",
+        "feat-5": "التصدير المباشر لملفات PDF جاهزة",
+        "portfolio-others-title": "بقية المشاريع وسابقة الأعمال",
         "copyright": "م. عبدالرحمن عمرو. جميع الحقوق محفوظة."
     },
     en: {
@@ -216,6 +240,30 @@ const translations = {
         "port-zeen-title": "ZEEN Center for Rims & Wheels",
         "port-zeen-desc": "A professional landing page for a car rim repair, straightening, and aluminum welding center using state-of-the-art equipment.",
         "port-btn-view": 'View Project <i class="fas fa-arrow-right"></i>',
+        "prod-lawmind-title": "LawMind AI - Smart Law Platform",
+        "prod-lawmind-desc": "AI Legal Assistant & Case Management Platform, drafting defense memos and analyzing cases under Egyptian Law.",
+        "prod-lawmind-price": "Starts from 80,000 EGP to 500,000+ EGP",
+        "featured-badge-text": "Featured Project (Masterpiece)",
+        "featured-title": "LawMind AI Legal Platform",
+        "featured-tagline": "Smart Legal AI Assistant finding defenses & drafting memos under Egyptian Law",
+        "simulator-title": "Smart AI Legal Advisor",
+        "simulator-status": "Connected - AI Engine Active",
+        "simulator-pdf-card-title": "Result.pdf",
+        "simulator-pdf-close": "Close Document",
+        "simulator-pdf-page": "Page",
+        "simulator-pdf-of": "of",
+        "case-problem-title": "The Legal Problem",
+        "case-problem-desc": "Lawyers and legal consultants spend countless hours reviewing hundreds of papers, drafting defense memos, and tracking deadlines and legal loopholes.",
+        "case-solution-title": "The Smart Platform Solution",
+        "case-solution-desc": "A platform utilizing Gemini AI + RAG with advanced Context Caching to read massive case files instantly, drafting professional defense memos backed by Egyptian law articles.",
+        "case-results-title": "Tangible Results",
+        "case-results-desc": "Accelerating memo drafting by 85%, accurately extracting defense loopholes, and generating print-ready lawsuits and defense memos in PDF format.",
+        "feat-1": "Smart AI Legal Consultation",
+        "feat-2": "Automated Defense Memo Generation",
+        "feat-3": "Drafting Contracts & Claims",
+        "feat-4": "Smart Case Context Memory (RAG)",
+        "feat-5": "Direct Export to Print-Ready PDFs",
+        "portfolio-others-title": "Other Projects & Portfolio",
         "copyright": "Eng. Abdelrahman Amr. All rights reserved."
     }
 };
@@ -260,6 +308,14 @@ function setLanguage(lang) {
             el.innerHTML = 'Abdelrahman <span>Amr</span>';
         }
     });
+
+    // Update active simulator if running
+    if (typeof window.resetAndStartLawMindSimulator === 'function') {
+        const activePage = document.querySelector('.page-view.active-page');
+        if (activePage && activePage.id === 'page-portfolio') {
+            window.resetAndStartLawMindSimulator();
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -361,6 +417,17 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.remove('active');
         }
 
+        // Start or stop LawMind AI Simulator based on page
+        if (pageId === 'page-portfolio') {
+            if (typeof window.resetAndStartLawMindSimulator === 'function') {
+                window.resetAndStartLawMindSimulator();
+            }
+        } else {
+            if (typeof window.clearAllSimulatorTimeouts === 'function') {
+                window.clearAllSimulatorTimeouts();
+            }
+        }
+
         window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
@@ -436,5 +503,331 @@ document.addEventListener('DOMContentLoaded', () => {
                 lightboxModal.classList.remove('show');
             }
         });
+    }
+
+    // ==========================================
+    // LawMind AI Simulator State & Logic
+    // ==========================================
+    let simulatorTimeouts = [];
+    let isSimulatorRunning = false;
+    let currentPdfPage = 1;
+    const totalPdfPages = 5;
+
+    const simulatorData = {
+        ar: {
+            userInput: "الزوج بيكلم عشيقته على الوتس اب ويوجد محادثات بالصور اثبات زيارتهم لبعض بدون خيانه جنسيه مع تعاطيهم للمخدرات وعايز يتجوز عشيقته. الزوجه عايزه تتطلق ولديها ثلاث اطفال",
+            aiResponseTitle: "المستشار القانوني الذكي",
+            aiResponseLines: [
+                "القضية: دعوى طلاق للضرر بسبب الخيانة الزوجية وتعاطي المخدرات",
+                "",
+                "أولاً: تلخيص الوقائع",
+                "- أطراف النزاع: المدعية (الزوجة)، المدعى عليه (الزوج).",
+                "- الوقائع الجوهرية: اكتشاف الزوجة لمحادثات وصور على تطبيق \"واتساب\" بين الزوج وسيدة أخرى (العشيقة) تثبت زيارات متبادلة وتعاطيهما للمخدرات، مع إعراب الزوج عن رغبته في الزواج منها، ووجود ثلاثة أطفال للزوجة.",
+                "",
+                "ثانياً: الدفوع القانونية المقترحة",
+                "1. إثبات الضرر والشقاق بموجب المادة 6 من القانون رقم 25 لسنة 1920 المعدل بالقانون 100 لسنة 1985.",
+                "2. تقديم صور المحادثات كقرائن قوية تؤيد الضرر المادي والمعنوي الموجب للتطليق.",
+                "3. المطالبة بالحقوق الشرعية (نفقة المتعة، العدة، مؤخر الصداق، وحضانة الأطفال).",
+                "",
+                "تم إعداد عريضة الدعوى ومذكرة الدفاع التفصيلية في ملف PDF المرفق."
+            ],
+            pdfTitle: "مذكرة_الدفاع_والدعوى_المقترحة.pdf",
+            pdfDesc: "مستند دعوى طلاق للضرر ومذكرة دفاع (5 صفحات)",
+            pdfBrowseText: "اضغط للمعاينة الفورية وتصفح أوراق القضية داخل الموقع",
+            loadingText: "يجري الآن معالجة سياق القضية وتحليل المحادثات عبر Gemini AI..."
+        },
+        en: {
+            userInput: "The husband is talking to his mistress on WhatsApp, and there are chats and pictures proving they visited each other without sexual infidelity but with drug abuse, and he wants to marry her. The wife wants a divorce and has three children.",
+            aiResponseTitle: "Smart AI Legal Advisor",
+            aiResponseLines: [
+                "Case: Fault Divorce Claim due to Marital Infidelity & Drug Abuse",
+                "",
+                "First: Summary of Facts",
+                "- Parties: Plaintiff (Wife), Defendant (Husband).",
+                "- Core Facts: Discovery of chats and images on WhatsApp between the husband and another woman (mistress) proving mutual visits and drug consumption, with his desire to marry her, and 3 children involved.",
+                "",
+                "Second: Proposed Legal Defenses",
+                "1. Proving material and moral harm under Article 6 of Law No. 25 of 1920 (amended by Law 100 of 1985).",
+                "2. Submitting screenshots of chats as corroborating evidence of severe marital harm.",
+                "3. Claiming all marital and child support rights (mut'ah, iddah, deferred dowry, and child custody).",
+                "",
+                "The detailed lawsuit draft and defense memo have been compiled into the attached PDF file."
+            ],
+            pdfTitle: "Proposed_Defense_Memo_and_Lawsuit.pdf",
+            pdfDesc: "Fault Divorce Claim & Defense Memo (5 Pages)",
+            pdfBrowseText: "Click to preview and flip through the case pages live on site",
+            loadingText: "Analyzing case context and extracting legal defenses via Gemini AI..."
+        }
+    };
+
+    function clearAllSimulatorTimeouts() {
+        simulatorTimeouts.forEach(t => clearTimeout(t));
+        simulatorTimeouts = [];
+    }
+
+    function addSimulatorTimeout(callback, delay) {
+        const t = setTimeout(callback, delay);
+        simulatorTimeouts.push(t);
+        return t;
+    }
+
+    function startLawMindSimulator() {
+        if (isSimulatorRunning) return;
+        isSimulatorRunning = true;
+
+        const chatMessages = document.getElementById('simulator-chat-messages');
+        const inputTextEl = document.getElementById('simulator-input-text');
+        const sendBtn = document.getElementById('simulator-send-btn');
+        
+        if (!chatMessages || !inputTextEl) return;
+
+        // Reset elements
+        chatMessages.innerHTML = '';
+        inputTextEl.textContent = '';
+        if (sendBtn) sendBtn.classList.remove('active');
+
+        // Hide PDF Pane and show Chat Pane
+        const pdfPane = document.getElementById('simulator-pdf-pane');
+        const chatPane = document.querySelector('.simulator-chat-pane');
+        if (pdfPane) pdfPane.classList.remove('active');
+        if (chatPane) chatPane.classList.add('active');
+
+        const data = simulatorData[currentLang] || simulatorData.ar;
+        const userInputText = data.userInput;
+        let charIndex = 0;
+
+        // 1. Typing animation
+        function typeCharacter() {
+            if (charIndex < userInputText.length) {
+                inputTextEl.textContent += userInputText.charAt(charIndex);
+                charIndex++;
+                const variance = Math.random() * 15 - 5; 
+                addSimulatorTimeout(typeCharacter, Math.max(15, 30 + variance));
+            } else {
+                if (sendBtn) sendBtn.classList.add('active');
+                
+                addSimulatorTimeout(() => {
+                    if (sendBtn) sendBtn.classList.remove('active');
+                    inputTextEl.textContent = '';
+                    
+                    const userMsg = document.createElement('div');
+                    userMsg.className = 'chat-message user';
+                    userMsg.textContent = userInputText;
+                    chatMessages.appendChild(userMsg);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    addSimulatorTimeout(showLoader, 400);
+                }, 800);
+            }
+        }
+
+        addSimulatorTimeout(typeCharacter, 800);
+
+        // 2. Show Loader
+        function showLoader() {
+            const loaderDiv = document.createElement('div');
+            loaderDiv.className = 'chat-message-loader';
+            loaderDiv.id = 'simulator-loader';
+            loaderDiv.innerHTML = `<i class="fas fa-spinner"></i> <span>${data.loadingText}</span>`;
+            chatMessages.appendChild(loaderDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            addSimulatorTimeout(() => {
+                const loader = document.getElementById('simulator-loader');
+                if (loader) loader.remove();
+                showAIResponse();
+            }, 1800);
+        }
+
+        // 3. Show AI Response (Streaming line by line)
+        function showAIResponse() {
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'chat-message ai';
+            
+            const header = document.createElement('div');
+            header.className = 'ai-header';
+            header.innerHTML = `<i class="fas fa-robot"></i> <span>${data.aiResponseTitle}</span>`;
+            aiMsg.appendChild(header);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'ai-content';
+            aiMsg.appendChild(contentDiv);
+
+            chatMessages.appendChild(aiMsg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            let lineIndex = 0;
+            const lines = data.aiResponseLines;
+
+            function streamLine() {
+                if (lineIndex < lines.length) {
+                    const lineText = lines[lineIndex];
+                    if (lineText === '') {
+                        contentDiv.appendChild(document.createElement('br'));
+                    } else {
+                        const p = document.createElement('p');
+                        p.style.margin = '4px 0';
+                        p.style.opacity = '0';
+                        p.style.transform = 'translateY(4px)';
+                        p.style.transition = 'all 0.3s ease';
+                        
+                        if (lineText.startsWith('أولاً:') || lineText.startsWith('ثانياً:') || lineText.startsWith('First:') || lineText.startsWith('Second:')) {
+                            p.style.fontWeight = 'bold';
+                            p.style.color = 'var(--clr-secondary)';
+                            p.style.fontSize = '1.05rem';
+                            p.style.marginTop = '12px';
+                        }
+                        
+                        p.textContent = lineText;
+                        contentDiv.appendChild(p);
+                        
+                        p.offsetHeight; 
+                        p.style.opacity = '1';
+                        p.style.transform = 'translateY(0)';
+                    }
+                    
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    lineIndex++;
+                    addSimulatorTimeout(streamLine, 400);
+                } else {
+                    addSimulatorTimeout(appendPdfCard, 800);
+                }
+            }
+
+            streamLine();
+        }
+
+        // 4. Append PDF Card
+        function appendPdfCard() {
+            const arrowClass = currentLang === 'ar' ? 'fa-chevron-left' : 'fa-chevron-right';
+            const pdfCard = document.createElement('div');
+            pdfCard.className = 'pdf-download-card';
+            pdfCard.id = 'pdf-result-card';
+            pdfCard.innerHTML = `
+                <div class="pdf-icon-wrapper">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="pdf-details">
+                    <h5>${data.pdfTitle}</h5>
+                    <p>${data.pdfDesc}</p>
+                    <small style="color: var(--clr-secondary); font-weight: bold; font-size: 0.75rem; display: block; margin-top: 4px;">
+                        <i class="fas fa-eye"></i> ${data.pdfBrowseText}
+                    </small>
+                </div>
+                <div class="pdf-browse-icon">
+                    <i class="fas ${arrowClass}" id="pdf-card-arrow"></i>
+                </div>
+            `;
+
+            pdfCard.addEventListener('click', () => {
+                openPdfViewer();
+            });
+
+            chatMessages.appendChild(pdfCard);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            isSimulatorRunning = false;
+        }
+    }
+
+    function openPdfViewer() {
+        const pdfPane = document.getElementById('simulator-pdf-pane');
+        const chatPane = document.querySelector('.simulator-chat-pane');
+        if (pdfPane && chatPane) {
+            chatPane.classList.remove('active');
+            pdfPane.classList.add('active');
+            currentPdfPage = 1;
+            updatePdfPage();
+        }
+    }
+
+    function closePdfViewer() {
+        const pdfPane = document.getElementById('simulator-pdf-pane');
+        const chatPane = document.querySelector('.simulator-chat-pane');
+        if (pdfPane && chatPane) {
+            pdfPane.classList.remove('active');
+            chatPane.classList.add('active');
+            
+            const chatMessages = document.getElementById('simulator-chat-messages');
+            if (chatMessages) {
+                setTimeout(() => {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 50);
+            }
+        }
+    }
+
+    function updatePdfPage() {
+        const pdfImg = document.getElementById('pdf-page-img');
+        const currentPageEl = document.getElementById('pdf-current-page');
+        const pageContainer = document.querySelector('.pdf-page-container');
+        
+        if (pdfImg && currentPageEl && pageContainer) {
+            pageContainer.classList.add('loading');
+            pdfImg.src = `./assets/screenshots/lawmind-pdf-page-${currentPdfPage}.png`;
+            currentPageEl.textContent = currentPdfPage;
+            
+            pdfImg.onload = () => {
+                pageContainer.classList.remove('loading');
+            };
+        }
+    }
+
+    function resetAndStartLawMindSimulator() {
+        clearAllSimulatorTimeouts();
+        isSimulatorRunning = false;
+        startLawMindSimulator();
+    }
+
+    // Expose to window for language change & router triggers
+    window.resetAndStartLawMindSimulator = resetAndStartLawMindSimulator;
+    window.clearAllSimulatorTimeouts = window.clearAllSimulatorTimeouts || clearAllSimulatorTimeouts;
+
+    // PDF Navigation Click Listeners
+    const prevBtn = document.getElementById('pdf-prev-btn');
+    const nextBtn = document.getElementById('pdf-next-btn');
+    const closeBtn = document.getElementById('pdf-close-btn');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentPdfPage > 1) {
+                currentPdfPage--;
+                updatePdfPage();
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentPdfPage < totalPdfPages) {
+                currentPdfPage++;
+                updatePdfPage();
+            }
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            closePdfViewer();
+        });
+    }
+
+    // Restart simulation on send button click
+    const simulatorSendBtn = document.getElementById('simulator-send-btn');
+    if (simulatorSendBtn) {
+        simulatorSendBtn.addEventListener('click', () => {
+            if (!isSimulatorRunning) {
+                const pdfPane = document.getElementById('simulator-pdf-pane');
+                if (pdfPane && pdfPane.classList.contains('active')) {
+                    closePdfViewer();
+                }
+                resetAndStartLawMindSimulator();
+            }
+        });
+    }
+
+    // Auto-run if portfolio is loaded directly on startup
+    const initialActivePage = document.querySelector('.page-view.active-page');
+    if (initialActivePage && initialActivePage.id === 'page-portfolio') {
+        resetAndStartLawMindSimulator();
     }
 });

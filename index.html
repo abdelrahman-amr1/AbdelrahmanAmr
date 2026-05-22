@@ -393,6 +393,25 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Product 8 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="./assets/screenshots/lawmind-dashboard.png" alt="LawMind AI" style="object-fit: cover; object-position: center;">
+                            <span class="badge" data-i18n="badge-saas-ready">SaaS Ready</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="prod-lawmind-title">منصة LawMind AI للمحاماة الذكية</h3>
+                            <p data-i18n="prod-lawmind-desc">منصة المساعد القانوني وإدارة القضايا بالذكاء الاصطناعي، صياغة مذكرات الدفاع وتحليل القضية وفق القانون المصري.</p>
+                            <div class="product-price">
+                                <i class="fas fa-tag"></i> <span data-i18n="prod-lawmind-price">تبدأ من 80,000 ج.م إلى 500,000 ج.م+</span>
+                            </div>
+                            <div class="product-actions">
+                                <a href="https://lawsamarsamier.vercel.app/" target="_blank" class="btn btn-outline btn-sm" data-i18n="prod-btn-demo">تجربة النظام <i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20منصة%20LawMind%20AI%20للمحاماة%20الذكية" target="_blank" class="btn btn-primary-gradient btn-sm" data-i18n="prod-btn-order">اطلب النظام <i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -407,6 +426,120 @@
                     <h2 data-i18n="portfolio-title">سابقة الأعمال والعملاء</h2>
                     <div class="divider"></div>
                     <p class="subtitle" data-i18n="portfolio-subtitle">مجموعة من المواقع والتطبيقات التي تم تطويرها خصيصاً لتلبية احتياجات عملائنا وتحقيق أهدافهم.</p>
+                </div>
+
+                <!-- Featured Masterpiece Showcase -->
+                <div class="featured-case-study">
+                    <div class="featured-header">
+                        <span class="featured-badge"><i class="fas fa-star"></i> <span data-i18n="featured-badge-text">مشروع مميز (Masterpiece)</span></span>
+                        <h3 data-i18n="featured-title">منصة LawMind AI للمحاماة الذكية</h3>
+                        <p class="featured-tagline" data-i18n="featured-tagline">المساعد القانوني الذكي صائد الدفوع وصائغ مذكرات الدفاع وفق القانون المصري</p>
+                    </div>
+
+                    <div class="featured-grid">
+                        <!-- Left: Live Interactive Simulator -->
+                        <div class="simulator-wrapper">
+                            <div class="simulator-window">
+                                <div class="simulator-title-bar">
+                                    <div class="simulator-dot red"></div>
+                                    <div class="simulator-dot yellow"></div>
+                                    <div class="simulator-dot green"></div>
+                                    <div class="simulator-app-title" data-i18n="simulator-title">المستشار القانوني الذكي</div>
+                                    <div class="simulator-status-indicator">
+                                        <span class="status-dot pulsing"></span>
+                                        <span data-i18n="simulator-status">متصل - محرك الذكاء الاصطناعي نشط</span>
+                                    </div>
+                                </div>
+                                <div class="simulator-body">
+                                    <!-- Chat Pane -->
+                                    <div class="simulator-chat-pane active">
+                                        <div class="chat-messages" id="simulator-chat-messages">
+                                            <!-- Dynamic simulated messages will be injected here by script.js -->
+                                        </div>
+                                        <div class="chat-input-container">
+                                            <div class="chat-input-box">
+                                                <span class="chat-input-text" id="simulator-input-text"></span>
+                                                <span class="chat-caret" id="simulator-caret">|</span>
+                                            </div>
+                                            <div class="chat-input-actions">
+                                                <button class="chat-btn-clip" aria-label="Attach File"><i class="fas fa-paperclip"></i></button>
+                                                <button class="chat-btn-send" id="simulator-send-btn" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- PDF Viewer Pane (Initially hidden) -->
+                                    <div class="simulator-pdf-pane" id="simulator-pdf-pane">
+                                        <div class="pdf-header">
+                                            <div class="pdf-title"><i class="fas fa-file-pdf"></i> <span data-i18n="simulator-pdf-card-title">نتيجة.pdf</span></div>
+                                            <button class="pdf-close-btn" id="pdf-close-btn"><span data-i18n="simulator-pdf-close">إغلاق المستند</span> <i class="fas fa-times"></i></button>
+                                        </div>
+                                        <div class="pdf-viewer-content">
+                                            <div class="pdf-page-container">
+                                                <img src="./assets/screenshots/lawmind-pdf-page-1.png" id="pdf-page-img" alt="PDF Page">
+                                            </div>
+                                        </div>
+                                        <div class="pdf-footer-nav">
+                                            <button class="btn btn-outline btn-sm-nav" id="pdf-prev-btn" aria-label="Previous Page"><i class="fas fa-chevron-right"></i></button>
+                                            <span class="pdf-page-indicator">
+                                                <span data-i18n="simulator-pdf-page">صفحة</span>
+                                                <span id="pdf-current-page">1</span>
+                                                <span data-i18n="simulator-pdf-of">من</span>
+                                                <span id="pdf-total-pages">5</span>
+                                            </span>
+                                            <button class="btn btn-outline btn-sm-nav" id="pdf-next-btn" aria-label="Next Page"><i class="fas fa-chevron-left"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Detailed Case Study Info -->
+                        <div class="featured-info">
+                            <div class="case-study-block">
+                                <h4 class="block-title problem"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="case-problem-title">المشكلة القضائية</span></h4>
+                                <p data-i18n="case-problem-desc">المحامون والمستشارون القانونيون يستهلكون ساعات طويلة في مراجعة مئات الأوراق وصياغة المذكرات وتتبع المواعيد والثغرات القانونية.</p>
+                            </div>
+
+                            <div class="case-study-block">
+                                <h4 class="block-title solution"><i class="fas fa-check-circle"></i> <span data-i18n="case-solution-title">الحل الذكي للمنصة</span></h4>
+                                <p data-i18n="case-solution-desc">منصة تعتمد على Gemini AI + RAG مع تقنية Caching متقدمة لقراءة ملفات القضايا الضخمة فورياً، وصياغة مذكرات دفاع احترافية مدعمة بمواد القانون المصري.</p>
+                            </div>
+
+                            <div class="case-study-block">
+                                <h4 class="block-title results"><i class="fas fa-chart-line"></i> <span data-i18n="case-results-title">النتائج الملموسة</span></h4>
+                                <p data-i18n="case-results-desc">تسريع صياغة المذكرات بنسبة 85%، استخراج ثغرات الدفاع بدقة، والحصول على عريضة دعوى ومذكرة جاهزة للطباعة بصيغة PDF.</p>
+                            </div>
+
+                            <div class="featured-features-grid">
+                                <div class="ff-item"><i class="fas fa-check-circle" style="color: var(--clr-secondary);"></i> <span data-i18n="feat-1">مساعد الاستشارات الذكي (AI Consultation)</span></div>
+                                <div class="ff-item"><i class="fas fa-check-circle" style="color: var(--clr-secondary);"></i> <span data-i18n="feat-2">توليد مذكرات الدفاع تلقائياً</span></div>
+                                <div class="ff-item"><i class="fas fa-check-circle" style="color: var(--clr-secondary);"></i> <span data-i18n="feat-3">صياغة العقود والعرائض القانونية</span></div>
+                                <div class="ff-item"><i class="fas fa-check-circle" style="color: var(--clr-secondary);"></i> <span data-i18n="feat-4">الذاكرة الذكية لسياق القضية (RAG)</span></div>
+                                <div class="ff-item"><i class="fas fa-check-circle" style="color: var(--clr-secondary);"></i> <span data-i18n="feat-5">التصدير المباشر لملفات PDF جاهزة</span></div>
+                            </div>
+
+                            <div class="tech-tags">
+                                <span class="tag">Gemini AI</span>
+                                <span class="tag">RAG Engine</span>
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Supabase</span>
+                                <span class="tag">PDF Engine</span>
+                                <span class="tag">Context Caching</span>
+                            </div>
+
+                            <div class="featured-actions">
+                                <a href="https://lawsamarsamier.vercel.app/" target="_blank" class="btn btn-primary-gradient" data-i18n="prod-btn-demo">تجربة المنصة مباشرة <i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://wa.me/201128007078?text=أريد%20الاستفسار%20عن%20شراء%20منصة%20LawMind%20AI%20للمحاماة%20الذكية" target="_blank" class="btn btn-outline" data-i18n="prod-btn-order">اطلب النظام المخصص <i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider before standard grid -->
+                <div class="portfolio-divider" style="margin: 60px 0 40px; text-align: center; position: relative;">
+                    <span style="background: var(--clr-bg); padding: 0 20px; color: var(--clr-text-muted); font-size: 1.1rem; font-weight: bold; position: relative; z-index: 2;" data-i18n="portfolio-others-title">بقية المشاريع وسابقة الأعمال</span>
+                    <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: var(--glass-border); z-index: 1;"></div>
                 </div>
 
                 <div class="portfolio-grid">
