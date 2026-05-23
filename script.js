@@ -302,7 +302,7 @@ function setLanguage(lang) {
 
     // Update logos
     document.querySelectorAll('[data-i18n-logo]').forEach(el => {
-        el.innerHTML = 'ENG. ABDELRAHMAN <span>AMR</span>';
+        el.innerHTML = 'Abdelrahman <span>Amr</span>';
     });
 
     // Update active simulator if running
