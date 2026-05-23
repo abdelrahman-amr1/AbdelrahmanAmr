@@ -182,12 +182,42 @@ ul {
     font-size: 1.8rem;
 }
 
-.logo span {
+.logo [data-i18n-logo],
+.logo [data-i18n-logo] span {
     color: var(--clr-primary);
     background: var(--gradient-brand);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.logo-watermark {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--clr-primary) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: var(--clr-primary) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+    opacity: 0.9;
+}
+
+.logo .logo-watermark i {
+    font-size: 0.7rem !important;
+    color: var(--clr-primary) !important;
 }
 
 .nav-links {
@@ -1124,28 +1154,7 @@ ul {
     display: none;
 }
 
-/* Global Watermark */
-.global-watermark {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    opacity: 0.1;
-    font-size: 1.5rem;
-    font-weight: 900;
-    font-family: var(--font-heading);
-    pointer-events: none;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    user-select: none;
-    text-transform: uppercase;
-}
-
-.global-watermark i {
-    color: var(--clr-primary);
-    font-size: 1.8rem;
-}
+/* Global Watermark removed and placed above the logo name */
 
 @media (max-width: 968px) {
     /* Mobile text spacing fixes */
