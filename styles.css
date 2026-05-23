@@ -193,31 +193,10 @@ ul {
 
 .logo-text-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
-}
-
-.logo-watermark {
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: var(--clr-primary) !important;
-    background: none !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-    -webkit-text-fill-color: var(--clr-primary) !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 4px;
-    margin-bottom: 2px;
-    opacity: 0.9;
-}
-
-.logo .logo-watermark i {
-    font-size: 0.7rem !important;
-    color: var(--clr-primary) !important;
+    gap: 8px;
+    line-height: 1.1;
 }
 
 .nav-links {
