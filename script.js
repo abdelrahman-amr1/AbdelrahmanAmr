@@ -980,8 +980,878 @@ function setLanguage(lang) {
 }
 
 // ==========================================
-// Project Details Modal Content Update Function
+// Interactive Simulators Data & Engine
 // ==========================================
+const simTranslations = {
+    ar: {
+        "cipt": {
+            q: "س: ما هي التقنية الأساسية لحماية خصوصية البيانات الشخصية في السحابة؟",
+            c: ["أ) التشفير المتماثل بالكامل (FHE)", "ب) الحماية بجدار ناري بسيط", "ج) زيادة سعة الخادم"],
+            res: "تم اجتياز الاختبار بنجاح!",
+            grade: "ممتاز",
+            score: "10/10"
+        },
+        "carbon": {
+            lbl1: "الكهرباء (كيلوواط)",
+            lbl2: "السيارات (كم/أسبوع)",
+            btn: "احسب البصمة الكربونية",
+            status: "انبعاثات منخفضة 🍃",
+            total: "الإجمالي: 0.8 طن CO2 سنوياً",
+            rec: "💡 نصيحة: استخدم اللمبات الموفرة وازرع شجرة لتقليل الانبعاثات."
+        },
+        "results": {
+            btn: "بحث",
+            name: "الطالب: أحمد محمد علي",
+            id: "رقم الجلوس: 48920",
+            thSub: "المادة",
+            thDeg: "الدرجة",
+            subjects: [
+                ["الرياضيات", "98 / 100"],
+                ["العلوم", "95 / 100"],
+                ["اللغة العربية", "96 / 100"],
+                ["المجموع (امتياز)", "96.3%"]
+            ]
+        },
+        "flashcards": {
+            score: "النقاط: ",
+            term: "الذكاء الاصطناعي",
+            def: "أنظمة تحاكي الذكاء البشري لحل المشكلات المعقدة"
+        },
+        "medical": {
+            lbl1: "اسم المريض",
+            lbl2: "السن",
+            lbl3: "التشخيص والعلاج",
+            doc: "د. أحمد علي - عيادة الباطنة",
+            pat: "المريض: محمد حسن (34 سنة)",
+            meds: "- بنادول 500 ملج (قرص كل 8 ساعات)<br>- كلاريتين 10 ملج (قرص قبل النوم)",
+            footer: "تم التوليد والطباعة إلكترونياً عبر نظام المطبوعات الذكي",
+            rxName: "محمد حسن",
+            rxAge: "34",
+            rxDiag: "نزلة برد حادة واحتقان بالحلق"
+        },
+        "ris": {
+            hdr: "جهاز الرنين المغناطيسي (MRI)",
+            status1: "الحالة: جاري المسح الضوئي...",
+            status2: "الحالة: اكتمل المسح بنجاح ✅",
+            report: "تقرير الرنين المغناطيسي للمخ:\n- لا يوجد أي أورام أو بؤر صرعية.\n- حجم البطينات طبيعي ومستقر.\n- الحالة مستقرة ولا تتطلب تدخل جراحي."
+        },
+        "wedding": {
+            title: "دعوة زفاف فرحنا",
+            names: "نورهان & جمال",
+            btn: "تأكيد الحضور RSVP"
+        },
+        "lawmind": {
+            input: "أريد رفع دعوى طلاق للضرر بسبب الهجر الطويل وإثبات الواقعة.",
+            loading: "جاري تحليل بنود قانون الأحوال الشخصية وصياغة العريضة...",
+            title: "الرد القانوني الذكي (LawMind AI)",
+            resp: [
+                "القضية: دعوى طلاق للضرر بسبب الهجر",
+                "",
+                "1. تندرج هذه الحالة تحت المادة 6 من القانون رقم 25 لسنة 1920.",
+                "2. يجب إثبات الهجر لمدة تزيد عن سنة بدون عذر مقبول.",
+                "3. يتم صياغة عريضة الدعوى وإرفاق شهادة الشهود وقسم الشرطة.",
+                "",
+                "تم صياغة المذكرة القانونية الكاملة بنجاح."
+            ],
+            pdfTitle: "عريضة_طلاق_للضرر.pdf",
+            pdfDesc: "مستند عريضة دعوى طلاق للضرر (3 صفحات)"
+        }
+    },
+    en: {
+        "cipt": {
+            q: "Q: What is the primary tech for protecting personal data privacy in the cloud?",
+            c: ["A) Fully Homomorphic Encryption (FHE)", "B) A simple network firewall", "C) Upgrading server CPU"],
+            res: "Exam Passed Successfully!",
+            grade: "Excellent",
+            score: "10/10"
+        },
+        "carbon": {
+            lbl1: "Electricity (kWh)",
+            lbl2: "Car (km/week)",
+            btn: "Calculate Carbon Footprint",
+            status: "Low Emissions 🍃",
+            total: "Total: 0.8 Tons CO2 / Year",
+            rec: "💡 Tip: Use energy-saving bulbs and plant a tree to offset emissions."
+        },
+        "results": {
+            btn: "Search",
+            name: "Student: Ahmed Mohamed Ali",
+            id: "Seat Number: 48920",
+            thSub: "Subject",
+            thDeg: "Grade",
+            subjects: [
+                ["Mathematics", "98 / 100"],
+                ["Science", "95 / 100"],
+                ["Arabic Language", "96 / 100"],
+                ["Total (Excellent)", "96.3%"]
+            ]
+        },
+        "flashcards": {
+            score: "Score: ",
+            term: "AI (Artificial Intelligence)",
+            def: "Systems mimicking human intelligence to solve complex problems"
+        },
+        "medical": {
+            lbl1: "Patient Name",
+            lbl2: "Age",
+            lbl3: "Diagnosis & Treatment",
+            doc: "Dr. Ahmed Ali - Internal Medicine",
+            pat: "Patient: Mohamed Hassan (Age 34)",
+            meds: "- Panadol 500mg (1 tablet every 8 hrs)<br>- Claritin 10mg (1 tablet at bedtime)",
+            footer: "Generated and printed electronically via Smart Rx",
+            rxName: "Mohamed Hassan",
+            rxAge: "34",
+            rxDiag: "Acute cold and throat congestion"
+        },
+        "ris": {
+            hdr: "Magnetic Resonance Imaging (MRI)",
+            status1: "Status: Scanning brain...",
+            status2: "Status: Scan completed successfully ✅",
+            report: "Brain MRI Diagnostic Report:\n- No signs of space-occupying lesions.\n- Normal ventricular size and shape.\n- Normal intracranial status, follow up advised."
+        },
+        "wedding": {
+            title: "Wedding Invitation",
+            names: "Norhan & Gamal",
+            btn: "Confirm RSVP Attendance"
+        },
+        "lawmind": {
+            input: "I want to file a fault divorce claim due to desertion and prove it.",
+            loading: "Analyzing Personal Status Law and drafting lawsuit memo...",
+            title: "Smart AI Legal Response (LawMind AI)",
+            resp: [
+                "Case: Divorce claim due to desertion",
+                "",
+                "1. Desertion claims fall under Article 6 of Law No. 25 of 1920.",
+                "2. Desertion must be proven for a period exceeding one year without excuse.",
+                "3. A formal court petition is drafted, backed by witness testimonies.",
+                "",
+                "The legal petition and memo have been compiled successfully."
+            ],
+            pdfTitle: "Fault_Divorce_Petition.pdf",
+            pdfDesc: "Desertion Divorce Claim Memo (3 Pages)"
+        }
+    }
+};
+
+let modalSimTimeouts = [];
+
+function clearModalSimulators() {
+    modalSimTimeouts.forEach(t => clearTimeout(t));
+    modalSimTimeouts = [];
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (wrapper) wrapper.innerHTML = '';
+}
+window.clearModalSimulators = clearModalSimulators;
+
+function addModalSimTimeout(callback, delay) {
+    const t = setTimeout(callback, delay);
+    modalSimTimeouts.push(t);
+}
+
+function runCiptSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].cipt;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'منصة الاختبارات الذكية' : 'Smart Testing Platform'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-cipt-container">
+                    <div class="sim-q-header" id="sim-cipt-q"></div>
+                    <div class="sim-q-choices" id="sim-cipt-choices">
+                        <div class="sim-choice-item" id="cipt-opt-0"><span></span> <i class="fas fa-check-circle"></i></div>
+                        <div class="sim-choice-item" id="cipt-opt-1"><span></span> <i class="fas fa-check-circle"></i></div>
+                        <div class="sim-choice-item" id="cipt-opt-2"><span></span> <i class="fas fa-check-circle"></i></div>
+                    </div>
+                    <div class="sim-cursor" id="sim-cipt-cursor"></div>
+                    <div class="sim-cipt-result" id="sim-cipt-result">
+                        <div class="sim-score-circle">
+                            <span style="font-size: 1.4rem;">${data.score}</span>
+                            <span style="font-size: 0.6rem;">${data.grade}</span>
+                        </div>
+                        <span style="font-size: 0.8rem; font-weight: bold; color: #10b981;">${data.res}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const cursor = document.getElementById('sim-cipt-cursor');
+    const qEl = document.getElementById('sim-cipt-q');
+    const opt0 = document.getElementById('cipt-opt-0');
+    const opt1 = document.getElementById('cipt-opt-1');
+    const opt2 = document.getElementById('cipt-opt-2');
+    const resultPanel = document.getElementById('sim-cipt-result');
+    
+    let qIdx = 0;
+    function typeQ() {
+        if (qIdx < data.q.length) {
+            qEl.textContent += data.q.charAt(qIdx);
+            qIdx++;
+            addModalSimTimeout(typeQ, 20);
+        } else {
+            addModalSimTimeout(showOpts, 300);
+        }
+    }
+    
+    function showOpts() {
+        opt0.querySelector('span').textContent = data.c[0];
+        opt1.querySelector('span').textContent = data.c[1];
+        opt2.querySelector('span').textContent = data.c[2];
+        
+        opt0.style.opacity = '1';
+        opt1.style.opacity = '1';
+        opt2.style.opacity = '1';
+        
+        addModalSimTimeout(moveCursor, 500);
+    }
+    
+    function moveCursor() {
+        if (cursor) {
+            cursor.style.transform = 'translate(60px, 90px)';
+        }
+        addModalSimTimeout(() => {
+            if (opt0) opt0.classList.add('hovered');
+            addModalSimTimeout(clickOpt, 500);
+        }, 1200);
+    }
+    
+    function clickOpt() {
+        if (opt0) {
+            opt0.classList.remove('hovered');
+            opt0.classList.add('selected');
+        }
+        addModalSimTimeout(() => {
+            if (resultPanel) resultPanel.classList.add('show');
+            addModalSimTimeout(() => runCiptSimulator(lang), 3500);
+        }, 800);
+    }
+    
+    typeQ();
+}
+
+function runCarbonSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].carbon;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'حاسبة البصمة الكربونية' : 'Carbon Calculator'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-carbon-container">
+                    <div class="sim-carbon-form">
+                        <div class="sim-carbon-field">
+                            <label>${data.lbl1}</label>
+                            <div class="sim-carbon-val" id="carb-val-1"></div>
+                        </div>
+                        <div class="sim-carbon-field">
+                            <label>${data.lbl2}</label>
+                            <div class="sim-carbon-val" id="carb-val-2"></div>
+                        </div>
+                        <button class="sim-carbon-btn" id="carb-btn">${data.btn}</button>
+                    </div>
+                    <div class="sim-carbon-results" id="carb-res">
+                        <div class="sim-chart-flex">
+                            <div class="sim-chart-ring">
+                                <svg class="sim-chart-svg" width="80" height="80">
+                                    <circle class="sim-chart-bg" cx="40" cy="40" r="35"></circle>
+                                    <circle class="sim-chart-fill" id="carb-fill" cx="40" cy="40" r="35"></circle>
+                                </svg>
+                                <div class="sim-chart-center" id="carb-center">0.0t</div>
+                            </div>
+                            <div style="font-size: 0.8rem;">
+                                <div style="font-weight: bold; color: #10b981;" id="carb-status">${data.status}</div>
+                                <div style="color: var(--clr-text-muted);" id="carb-total">${data.total}</div>
+                            </div>
+                        </div>
+                        <div class="sim-recommendations">${data.rec}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const val1 = document.getElementById('carb-val-1');
+    const val2 = document.getElementById('carb-val-2');
+    const btn = document.getElementById('carb-btn');
+    const resPanel = document.getElementById('carb-res');
+    const fillCircle = document.getElementById('carb-fill');
+    const centerVal = document.getElementById('carb-center');
+    
+    addModalSimTimeout(() => {
+        if (val1) val1.textContent = '35';
+        addModalSimTimeout(() => {
+            if (val1) val1.textContent = '350';
+            addModalSimTimeout(() => {
+                if (val2) val2.textContent = '12';
+                addModalSimTimeout(() => {
+                    if (val2) val2.textContent = '120';
+                    addModalSimTimeout(clickCalculate, 600);
+                }, 400);
+            }, 500);
+        }, 400);
+    }, 500);
+    
+    function clickCalculate() {
+        if (btn) btn.classList.add('active');
+        addModalSimTimeout(() => {
+            if (btn) btn.classList.remove('active');
+            if (resPanel) resPanel.classList.add('show');
+            
+            let target = 0.8;
+            let steps = 10;
+            let currentStep = 0;
+            
+            if (fillCircle) {
+                fillCircle.style.strokeDashoffset = '154';
+            }
+            
+            function updateCounter() {
+                if (currentStep <= steps) {
+                    if (centerVal) centerVal.textContent = (target * (currentStep / steps)).toFixed(1) + 't';
+                    currentStep++;
+                    addModalSimTimeout(updateCounter, 80);
+                }
+            }
+            updateCounter();
+            
+            addModalSimTimeout(() => runCarbonSimulator(lang), 4500);
+        }, 500);
+    }
+}
+
+function runResultsSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].results;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'بوابة نتائج الطلاب' : 'Student Results Portal'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-results-container">
+                    <div class="sim-search-bar">
+                        <div class="sim-search-input" id="res-input"></div>
+                        <button class="sim-search-btn" id="res-btn">${data.btn}</button>
+                    </div>
+                    <div class="sim-results-table-box" id="res-table-box">
+                        <div class="sim-student-header">
+                            <div style="font-weight: bold; font-size: 0.85rem;">${data.name}</div>
+                            <div style="font-size: 0.7rem; color: var(--clr-text-muted);">${data.id}</div>
+                        </div>
+                        <table class="sim-table">
+                            <thead>
+                                <tr>
+                                    <th>${data.thSub}</th>
+                                    <th>${data.thDeg}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="res-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const input = document.getElementById('res-input');
+    const btn = document.getElementById('res-btn');
+    const tableBox = document.getElementById('res-table-box');
+    const tbody = document.getElementById('res-tbody');
+    
+    addModalSimTimeout(() => {
+        if (input) input.textContent = '4';
+        addModalSimTimeout(() => {
+            if (input) input.textContent = '48';
+            addModalSimTimeout(() => {
+                if (input) input.textContent = '489';
+                addModalSimTimeout(() => {
+                    if (input) input.textContent = '4892';
+                    addModalSimTimeout(() => {
+                        if (input) input.textContent = '48920';
+                        addModalSimTimeout(clickSearch, 600);
+                    }, 200);
+                }, 200);
+            }, 200);
+        }, 200);
+    }, 500);
+    
+    function clickSearch() {
+        if (btn) btn.classList.add('active');
+        addModalSimTimeout(() => {
+            if (btn) btn.classList.remove('active');
+            if (tableBox) tableBox.classList.add('show');
+            
+            let rowIdx = 0;
+            function addRow() {
+                if (rowIdx < data.subjects.length) {
+                    const tr = document.createElement('tr');
+                    if (rowIdx === data.subjects.length - 1) {
+                        tr.className = 'total-row';
+                    }
+                    tr.innerHTML = `
+                        <td>${data.subjects[rowIdx][0]}</td>
+                        <td>${data.subjects[rowIdx][1]}</td>
+                    `;
+                    if (tbody) tbody.appendChild(tr);
+                    rowIdx++;
+                    addModalSimTimeout(addRow, 450);
+                } else {
+                    addModalSimTimeout(() => runResultsSimulator(lang), 3500);
+                }
+            }
+            addModalSimTimeout(addRow, 400);
+        }, 500);
+    }
+}
+
+function runFlashcardsSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].flashcards;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'لعبة البطاقات التعليمية' : 'Flashcards Game'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-flashcards-container">
+                    <div class="sim-score-hud" id="fc-hud">${data.score} 0</div>
+                    <div class="sim-cards-row">
+                        <div class="sim-card-scene">
+                            <div class="sim-card-inner" id="fc-card-1">
+                                <div class="sim-card-face sim-card-front"><i class="fas fa-question"></i></div>
+                                <div class="sim-card-back">${data.term}</div>
+                            </div>
+                        </div>
+                        <div class="sim-card-scene">
+                            <div class="sim-card-inner" id="fc-card-2">
+                                <div class="sim-card-face sim-card-front"><i class="fas fa-question"></i></div>
+                                <div class="sim-card-back" style="font-size: 0.6rem;">${data.def}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const card1 = document.getElementById('fc-card-1');
+    const card2 = document.getElementById('fc-card-2');
+    const hud = document.getElementById('fc-hud');
+    
+    addModalSimTimeout(() => {
+        if (card1) card1.classList.add('flipped');
+        addModalSimTimeout(() => {
+            if (card2) card2.classList.add('flipped');
+            addModalSimTimeout(() => {
+                if (card1) card1.classList.add('matched');
+                if (card2) card2.classList.add('matched');
+                if (hud) {
+                    hud.textContent = `${data.score} 10`;
+                    hud.style.color = '#10b981';
+                    hud.style.borderColor = '#10b981';
+                }
+                addModalSimTimeout(() => runFlashcardsSimulator(lang), 3500);
+            }, 1000);
+        }, 800);
+    }, 600);
+}
+
+function runMedicalSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].medical;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'عيادة الطبيب الذكية' : 'Smart Doctor Clinic'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-medical-container">
+                    <div class="sim-medical-form">
+                        <div class="sim-med-field">
+                            <label>${data.lbl1}</label>
+                            <div class="sim-med-input" id="med-name"></div>
+                        </div>
+                        <div class="sim-med-field">
+                            <label>${data.lbl2}</label>
+                            <div class="sim-med-input" id="med-age"></div>
+                        </div>
+                        <div class="sim-med-field" style="grid-column: span 2;">
+                            <label>${data.lbl3}</label>
+                            <div class="sim-med-input" id="med-diag" style="min-height: 48px; font-size: 0.7rem;"></div>
+                        </div>
+                    </div>
+                    <div class="sim-rx-paper" id="med-rx">
+                        <div class="sim-rx-header">
+                            <span style="font-weight: bold;">${data.doc}</span>
+                            <span>2026-05-24</span>
+                        </div>
+                        <div class="sim-rx-body">
+                            <div class="sim-rx-symbol">Rx</div>
+                            <div style="font-weight: bold; font-size: 0.75rem;">${data.pat}</div>
+                            <div style="margin-top: 6px; font-size: 0.65rem; line-height: 1.4;">${data.meds}</div>
+                        </div>
+                        <div style="text-align: center; font-size: 0.55rem; border-top: 1px dashed #cbd5e1; padding-top: 4px; color: #64748b;">
+                            ${data.footer}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const nameEl = document.getElementById('med-name');
+    const ageEl = document.getElementById('med-age');
+    const diagEl = document.getElementById('med-diag');
+    const rxPaper = document.getElementById('med-rx');
+    
+    let nameIdx = 0;
+    function typeName() {
+        if (nameIdx < data.rxName.length) {
+            if (nameEl) nameEl.textContent += data.rxName.charAt(nameIdx);
+            nameIdx++;
+            addModalSimTimeout(typeName, 40);
+        } else {
+            addModalSimTimeout(typeAge, 200);
+        }
+    }
+    
+    function typeAge() {
+        if (ageEl) ageEl.textContent = data.rxAge;
+        addModalSimTimeout(typeDiag, 400);
+    }
+    
+    let diagIdx = 0;
+    function typeDiag() {
+        if (diagIdx < data.rxDiag.length) {
+            if (diagEl) diagEl.textContent += data.rxDiag.charAt(diagIdx);
+            diagIdx++;
+            addModalSimTimeout(typeDiag, 30);
+        } else {
+            addModalSimTimeout(() => {
+                if (rxPaper) rxPaper.classList.add('print');
+                addModalSimTimeout(() => runMedicalSimulator(lang), 4500);
+            }, 600);
+        }
+    }
+    
+    addModalSimTimeout(typeName, 500);
+}
+
+function runRisSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].ris;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'منظومة الأشعة الذكية (RIS)' : 'Radiology Information System'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-ris-container">
+                    <div class="sim-scan-grid">
+                        <div class="sim-scan-monitor">
+                            <svg viewBox="0 0 100 100" class="sim-scan-img" id="ris-scan-svg" style="width: 80px; height: 80px;">
+                                <path d="M50,15 C30,15 20,30 20,50 C20,70 30,85 50,85 C70,85 80,70 80,50 C80,30 70,15 50,15 Z" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                                <path d="M50,25 C38,25 30,35 30,50 C30,65 38,75 50,75 C62,75 70,65 70,50 C70,35 62,25 50,25 Z" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="2,2"/>
+                                <circle cx="50" cy="50" r="10" fill="none" stroke="#a855f7" stroke-width="1"/>
+                                <line x1="50" y1="15" x2="50" y2="85" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                                <line x1="20" y1="50" x2="80" y2="50" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+                            </svg>
+                            <div class="sim-laser-line" id="ris-laser"></div>
+                        </div>
+                        <div class="sim-ris-details">
+                            <div style="font-weight: bold; color: var(--clr-secondary);">${data.hdr}</div>
+                            <div id="ris-status" style="font-size: 0.65rem; color: var(--clr-text-muted);">${data.status1}</div>
+                            <div class="sim-ris-report" id="ris-report"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const svgEl = document.getElementById('ris-scan-svg');
+    const laser = document.getElementById('ris-laser');
+    const statusEl = document.getElementById('ris-status');
+    const reportEl = document.getElementById('ris-report');
+    
+    addModalSimTimeout(() => {
+        if (laser) laser.classList.add('active');
+        
+        addModalSimTimeout(() => {
+            if (laser) laser.classList.remove('active');
+            if (svgEl) {
+                svgEl.classList.add('scanned');
+                const primaryPath = svgEl.querySelector('path');
+                if (primaryPath) primaryPath.setAttribute('stroke', '#10b981');
+            }
+            if (statusEl) {
+                statusEl.textContent = data.status2;
+                statusEl.style.color = '#10b981';
+            }
+            
+            let repIdx = 0;
+            function typeReport() {
+                if (repIdx < data.report.length) {
+                    if (reportEl) reportEl.textContent += data.report.charAt(repIdx);
+                    repIdx++;
+                    addModalSimTimeout(typeReport, 20);
+                } else {
+                    addModalSimTimeout(() => runRisSimulator(lang), 5000);
+                }
+            }
+            typeReport();
+        }, 2000);
+    }, 600);
+}
+
+function runWeddingSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].wedding;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${lang === 'ar' ? 'دعوة زفاف رقمية' : 'Digital Wedding Card'}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-wedding-container">
+                    <div class="sim-envelope" id="wed-envelope">
+                        <div class="sim-envelope-flap"></div>
+                        <div class="sim-wedding-letter">
+                            <div style="font-weight: bold; font-size: 0.6rem; color: #881337;">${data.title}</div>
+                            <p style="margin: 4px 0; font-size: 0.8rem; font-weight: bold; font-family: sans-serif;">${data.names}</p>
+                            <div class="sim-wave-eq">
+                                <span class="sim-wave-bar"></span>
+                                <span class="sim-wave-bar"></span>
+                                <span class="sim-wave-bar"></span>
+                                <span class="sim-wave-bar"></span>
+                                <span class="sim-wave-bar"></span>
+                            </div>
+                            <button class="btn btn-primary-gradient" style="font-size: 0.5rem; padding: 4px 8px; margin-top: 6px;" id="wed-rsvp-btn">${data.btn}</button>
+                        </div>
+                    </div>
+                    <div class="sim-wedding-hearts" id="wed-hearts"></div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const envelope = document.getElementById('wed-envelope');
+    const rsvpBtn = document.getElementById('wed-rsvp-btn');
+    const heartsPanel = document.getElementById('wed-hearts');
+    
+    addModalSimTimeout(() => {
+        if (envelope) envelope.classList.add('open');
+        
+        addModalSimTimeout(() => {
+            if (rsvpBtn) rsvpBtn.style.transform = 'scale(0.9)';
+            addModalSimTimeout(() => {
+                if (rsvpBtn) {
+                    rsvpBtn.style.transform = 'scale(1)';
+                    rsvpBtn.style.background = '#10b981';
+                    rsvpBtn.textContent = lang === 'ar' ? 'تم تأكيد الحضور ✓' : 'RSVP Confirmed ✓';
+                }
+                if (heartsPanel) heartsPanel.classList.add('active');
+                
+                for (let i = 0; i < 15; i++) {
+                    addModalSimTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'sim-falling-heart';
+                        heart.innerHTML = '♥';
+                        heart.style.left = (Math.random() * 80 + 10) + '%';
+                        heart.style.animationDelay = (Math.random() * 0.5) + 's';
+                        if (heartsPanel) heartsPanel.appendChild(heart);
+                    }, i * 100);
+                }
+                
+                addModalSimTimeout(() => runWeddingSimulator(lang), 5000);
+            }, 150);
+        }, 1500);
+    }, 600);
+}
+
+function runLawMindModalSimulator(lang) {
+    const wrapper = document.getElementById('modalSimulatorWrapper');
+    if (!wrapper) return;
+    const data = simTranslations[lang].lawmind;
+    wrapper.innerHTML = `
+        <div class="simulator-window">
+            <div class="simulator-title-bar">
+                <div class="simulator-dot red"></div>
+                <div class="simulator-dot yellow"></div>
+                <div class="simulator-dot green"></div>
+                <div class="simulator-app-title">${data.title}</div>
+            </div>
+            <div class="simulator-body">
+                <div class="sim-lawmind-container">
+                    <div class="sim-lm-messages" id="lm-chat-messages"></div>
+                    <div class="sim-lm-input-container">
+                        <div class="sim-lm-input-box" id="lm-input-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    const messagesEl = document.getElementById('lm-chat-messages');
+    const inputTextEl = document.getElementById('lm-input-text');
+    
+    let inputIdx = 0;
+    function typeInput() {
+        if (inputIdx < data.input.length) {
+            if (inputTextEl) inputTextEl.textContent += data.input.charAt(inputIdx);
+            inputIdx++;
+            addModalSimTimeout(typeInput, 25);
+        } else {
+            addModalSimTimeout(sendUserMsg, 600);
+        }
+    }
+    
+    function sendUserMsg() {
+        if (inputTextEl) inputTextEl.textContent = '';
+        const userMsg = document.createElement('div');
+        userMsg.className = 'chat-message user';
+        userMsg.textContent = data.input;
+        if (messagesEl) {
+            messagesEl.appendChild(userMsg);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+        addModalSimTimeout(showThinking, 400);
+    }
+    
+    function showThinking() {
+        const loader = document.createElement('div');
+        loader.className = 'chat-message-loader';
+        loader.id = 'lm-loader';
+        loader.innerHTML = `<i class="fas fa-spinner"></i> <span>${data.loading}</span>`;
+        if (messagesEl) {
+            messagesEl.appendChild(loader);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+        
+        addModalSimTimeout(() => {
+            const loaderEl = document.getElementById('lm-loader');
+            if (loaderEl) loaderEl.remove();
+            
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'chat-message ai';
+            const aiHeader = document.createElement('div');
+            aiHeader.className = 'ai-header';
+            aiHeader.innerHTML = `<i class="fas fa-robot"></i> <span>${data.title}</span>`;
+            aiMsg.appendChild(aiHeader);
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'ai-content';
+            aiMsg.appendChild(contentDiv);
+            
+            if (messagesEl) {
+                messagesEl.appendChild(aiMsg);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+            
+            let lineIdx = 0;
+            function streamLine() {
+                if (lineIdx < data.resp.length) {
+                    const lineText = data.resp[lineIdx];
+                    if (lineText === '') {
+                        contentDiv.appendChild(document.createElement('br'));
+                    } else {
+                        const p = document.createElement('p');
+                        p.style.margin = '2px 0';
+                        p.style.fontSize = '0.75rem';
+                        p.textContent = lineText;
+                        contentDiv.appendChild(p);
+                    }
+                    if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight;
+                    lineIdx++;
+                    addModalSimTimeout(streamLine, 350);
+                } else {
+                    addModalSimTimeout(showPdfCard, 600);
+                }
+            }
+            streamLine();
+        }, 1500);
+    }
+    
+    function showPdfCard() {
+        const arrowClass = lang === 'ar' ? 'fa-chevron-left' : 'fa-chevron-right';
+        const pdfCard = document.createElement('div');
+        pdfCard.className = 'pdf-download-card';
+        pdfCard.style.padding = '8px';
+        pdfCard.innerHTML = `
+            <div class="pdf-icon-wrapper" style="width: 32px; height: 32px; font-size: 1rem;">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="pdf-details" style="font-size: 0.65rem;">
+                <h5 style="font-size: 0.7rem; margin-bottom: 2px;">${data.pdfTitle}</h5>
+                <p>${data.pdfDesc}</p>
+            </div>
+            <div class="pdf-browse-icon" style="font-size: 0.7rem;">
+                <i class="fas ${arrowClass}"></i>
+            </div>
+        `;
+        if (messagesEl) {
+            messagesEl.appendChild(pdfCard);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+        addModalSimTimeout(() => runLawMindModalSimulator(lang), 5000);
+    }
+    
+    typeInput();
+}
+
+function startModalSimulator(projectId, lang) {
+    clearModalSimulators();
+    if (projectId === 'prod-1') {
+        runCiptSimulator(lang);
+    } else if (projectId === 'prod-2') {
+        runCarbonSimulator(lang);
+    } else if (projectId === 'prod-3') {
+        runResultsSimulator(lang);
+    } else if (projectId === 'prod-4') {
+        runFlashcardsSimulator(lang);
+    } else if (projectId === 'prod-5') {
+        runMedicalSimulator(lang);
+    } else if (projectId === 'prod-6') {
+        runRisSimulator(lang);
+    } else if (projectId === 'prod-7') {
+        runWeddingSimulator(lang);
+    } else if (projectId === 'lawmind') {
+        runLawMindModalSimulator(lang);
+    }
+}
+window.startModalSimulator = startModalSimulator;
+
 function updateModalContent(projectId, lang) {
     const project = projectDetails[projectId];
     if (!project) return;
@@ -1006,6 +1876,27 @@ function updateModalContent(projectId, lang) {
     if (modalPrice) modalPrice.textContent = project[lang].price;
     // Image
     if (modalImage) modalImage.src = project.image;
+
+    // Toggle Simulator or Image
+    const interactiveProjectIds = ['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6', 'prod-7', 'lawmind'];
+    const hasSimulator = interactiveProjectIds.includes(projectId);
+    
+    const modalImageWrapper = document.getElementById('modalImageWrapper');
+    const modalSimulatorWrapper = document.getElementById('modalSimulatorWrapper');
+    
+    // Always clear existing simulators before updating
+    clearModalSimulators();
+    
+    if (hasSimulator) {
+        if (modalImageWrapper) modalImageWrapper.style.display = 'none';
+        if (modalSimulatorWrapper) {
+            modalSimulatorWrapper.style.display = 'block';
+            startModalSimulator(projectId, lang);
+        }
+    } else {
+        if (modalSimulatorWrapper) modalSimulatorWrapper.style.display = 'none';
+        if (modalImageWrapper) modalImageWrapper.style.display = 'block';
+    }
 
     // Tech Tags
     if (modalTechs) {
@@ -1588,6 +2479,9 @@ document.addEventListener('DOMContentLoaded', () => {
         detailsModal.classList.remove('active');
         activeProjectId = null;
         document.body.style.overflow = '';
+        if (typeof clearModalSimulators === 'function') {
+            clearModalSimulators();
+        }
         setTimeout(() => {
             if (!detailsModal.classList.contains('active')) {
                 detailsModal.style.display = 'none';

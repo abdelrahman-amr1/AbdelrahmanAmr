@@ -2129,4 +2129,660 @@ html[lang="ar"] .project-details-modal .modal-close-btn {
         padding: 25px 20px;
         width: 95%;
     }
+}
+
+/* ==========================================
+   Interactive Simulators for Project Modal
+   ========================================== */
+.modal-simulator-wrapper {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.modal-simulator-wrapper .simulator-window {
+    height: 320px; /* Compact height for modal visual column */
+    border-radius: 14px;
+}
+
+/* 1. CIPT Exam Simulator Styles */
+.sim-cipt-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+.sim-q-header {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--clr-text);
+}
+.sim-q-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.sim-choice-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sim-choice-item.hovered {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: var(--clr-secondary);
+}
+.sim-choice-item.selected {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: #10b981;
+    color: #10b981;
+}
+.sim-choice-item i {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.sim-choice-item.selected i {
+    opacity: 1;
+}
+.sim-cursor {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4.5 2.25l15 15-6.75 2.25-3 5.25L4.5 2.25z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 100;
+    transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translate(250px, 200px);
+}
+.sim-cipt-result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 14, 20, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 10;
+}
+.sim-cipt-result.show {
+    transform: translateY(0);
+}
+.sim-score-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid #10b981;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: #10b981;
+    animation: scaleIn 0.5s ease forwards;
+}
+
+/* 2. Carbon Calculator Simulator Styles */
+.sim-carbon-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+.sim-carbon-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.sim-carbon-field {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+}
+.sim-carbon-field label {
+    display: block;
+    color: var(--clr-text-muted);
+    margin-bottom: 4px;
+    font-size: 0.7rem;
+}
+.sim-carbon-val {
+    font-weight: 700;
+    color: var(--clr-text);
+    min-height: 18px;
+}
+.sim-carbon-btn {
+    grid-column: span 2;
+    background: var(--gradient-brand);
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.sim-carbon-btn.active {
+    filter: brightness(1.2);
+}
+.sim-carbon-results {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 14, 20, 0.95);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+}
+.sim-carbon-results.show {
+    transform: translateX(0);
+}
+.sim-chart-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.sim-chart-ring {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.sim-chart-svg {
+    transform: rotate(-90deg);
+}
+.sim-chart-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 8;
+}
+.sim-chart-fill {
+    fill: none;
+    stroke: var(--clr-secondary);
+    stroke-width: 8;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transition: stroke-dashoffset 1.5s ease;
+}
+.sim-chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--clr-secondary);
+}
+.sim-recommendations {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    color: #a7f3d0;
+}
+
+/* 3. Student Results Simulator Styles */
+.sim-results-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+.sim-search-bar {
+    display: flex;
+    gap: 8px;
+}
+.sim-search-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    color: white;
+}
+.sim-search-btn {
+    background: var(--clr-primary);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+.sim-search-btn.active {
+    background: var(--clr-secondary);
+}
+.sim-results-table-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 14, 20, 0.95);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 8px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    overflow-y: auto;
+}
+.sim-results-table-box.show {
+    transform: translateY(0);
+}
+.sim-student-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 6px;
+    margin-bottom: 4px;
+}
+.sim-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+}
+.sim-table th, .sim-table td {
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+html[dir="rtl"] .sim-table th, html[dir="rtl"] .sim-table td {
+    text-align: right;
+}
+.sim-table tr.total-row {
+    font-weight: 800;
+    color: var(--clr-secondary);
+    background: rgba(6, 182, 212, 0.05);
+}
+
+/* 4. Flashcards Game Simulator Styles */
+.sim-flashcards-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.sim-cards-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+.sim-card-scene {
+    width: 120px;
+    height: 150px;
+    perspective: 600px;
+}
+.sim-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.sim-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+.sim-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.sim-card-face span {
+    pointer-events: none;
+}
+.sim-card-front {
+    background: linear-gradient(135deg, #1e1b4b, #311042);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--clr-secondary);
+}
+.sim-card-front i {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    color: var(--clr-secondary);
+}
+.sim-card-back {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 2px solid var(--clr-accent);
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.sim-card-inner.matched .sim-card-back {
+    border-color: #10b981;
+    background: linear-gradient(135deg, #064e3b, #022c22);
+}
+.sim-score-hud {
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 5. Medical Clinic ERP Simulator Styles */
+.sim-medical-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+.sim-medical-form {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 8px;
+}
+.sim-med-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.sim-med-field label {
+    font-size: 0.7rem;
+    color: var(--clr-text-muted);
+}
+.sim-med-input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    color: white;
+    min-height: 28px;
+}
+.sim-rx-paper {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 100%;
+    background: white;
+    color: #1e293b;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 10;
+}
+.sim-rx-paper.print {
+    transform: translateY(15px);
+}
+.sim-rx-header {
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+}
+.sim-rx-body {
+    flex: 1;
+    padding-top: 10px;
+    font-size: 0.75rem;
+}
+.sim-rx-symbol {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #3b82f6;
+    margin-bottom: 4px;
+}
+
+/* 6. Medical RIS Scanner Simulator Styles */
+.sim-ris-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+.sim-scan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 12px;
+    flex: 1;
+    align-items: center;
+}
+.sim-scan-monitor {
+    position: relative;
+    background: black;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.sim-scan-img {
+    max-width: 90%;
+    max-height: 90%;
+    opacity: 0.1;
+    transition: opacity 1.5s ease;
+}
+.sim-scan-img.scanned {
+    opacity: 0.9;
+}
+.sim-laser-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: #06b6d4;
+    box-shadow: 0 0 8px #06b6d4;
+    animation: laserScan 2s linear infinite;
+    display: none;
+}
+.sim-laser-line.active {
+    display: block;
+}
+.sim-ris-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.75rem;
+}
+.sim-ris-report {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.7rem;
+    color: var(--clr-text-muted);
+    min-height: 80px;
+    white-space: pre-line;
+}
+@keyframes laserScan {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+}
+
+/* 7. Wedding Invitation Card Simulator Styles */
+.sim-wedding-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.sim-envelope {
+    width: 160px;
+    height: 120px;
+    background: #47112b;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 15px;
+}
+.sim-envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 60px solid #63193e;
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: 3;
+}
+.sim-envelope.open .sim-envelope-flap {
+    transform: rotateX(180deg);
+}
+.sim-wedding-letter {
+    position: absolute;
+    width: 140px;
+    height: 100px;
+    background: #fdfaf6;
+    color: #63193e;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.55rem;
+    text-align: center;
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(0);
+}
+.sim-envelope.open .sim-wedding-letter {
+    transform: translateY(-50px) scale(1.05);
+    z-index: 4;
+}
+.sim-wave-eq {
+    display: flex;
+    gap: 3px;
+    height: 20px;
+    align-items: flex-end;
+}
+.sim-wave-bar {
+    width: 3px;
+    background: var(--clr-accent);
+    height: 3px;
+    animation: bounceEq 0.8s ease infinite alternate;
+}
+.sim-wave-bar:nth-child(2) { animation-delay: 0.15s; }
+.sim-wave-bar:nth-child(3) { animation-delay: 0.3s; }
+.sim-wave-bar:nth-child(4) { animation-delay: 0.45s; }
+.sim-wave-bar:nth-child(5) { animation-delay: 0.1s; }
+
+@keyframes bounceEq {
+    0% { height: 3px; }
+    100% { height: 20px; }
+}
+
+.sim-wedding-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    display: none;
+}
+.sim-wedding-hearts.active {
+    display: block;
+}
+.sim-falling-heart {
+    position: absolute;
+    color: #e11d48;
+    font-size: 1.2rem;
+    animation: heartFall 1.5s linear forwards;
+}
+@keyframes heartFall {
+    0% { transform: translateY(-20px) scale(0); opacity: 0; }
+    20% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(180px) scale(0.6); opacity: 0; }
+}
+
+/* 8. LawMind AI Simulator Modal Styles */
+.sim-lawmind-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+.sim-lm-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sim-lm-input-container {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.01);
+}
+.sim-lm-input-box {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 0.75rem;
+    color: var(--clr-text-muted);
+    min-height: 32px;
+}
+
+/* Common scale in keyframe */
+@keyframes scaleIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
