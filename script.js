@@ -89,7 +89,6 @@ const translations = {
         "badge-wedding": "دعوة تفاعلية",
         "prod-wedding-title": "دعوة زفاف رقمية تفاعلية فاخرة",
         "prod-wedding-desc": "احصل على دعوة زفاف رقمية تفاعلية فاخرة بتأثيرات بصرية راقية وموسيقى مخصصة لمشاركة فرحتكم.",
-        "prod-wedding-price": "تبدأ من 100$ إلى 1000$",
         "prod-btn-demo": 'تجربة النظام <i class="fas fa-external-link-alt"></i>',
         "prod-btn-order": 'اطلب النظام <i class="fab fa-whatsapp"></i>',
         "portfolio-title": "سابقة الأعمال والعملاء",
@@ -109,7 +108,6 @@ const translations = {
         "port-btn-view": 'استعرض المشروع <i class="fas fa-arrow-left"></i>',
         "prod-lawmind-title": "منصة LawMind AI للمحاماة الذكية",
         "prod-lawmind-desc": "منصة المساعد القانوني وإدارة القضايا بالذكاء الاصطناعي، صياغة مذكرات الدفاع وتحليل القضية وفق القانون المصري.",
-        "prod-lawmind-price": "تبدأ من 80,000 ج.م إلى 500,000 ج.م+",
         "featured-badge-text": "مشروع مميز (Masterpiece)",
         "featured-title": "منصة LawMind AI للمحاماة الذكية",
         "featured-tagline": "المساعد القانوني الذكي صائد الدفوع وصائغ مذكرات الدفاع وفق القانون المصري",
@@ -131,7 +129,30 @@ const translations = {
         "feat-4": "الذاكرة الذكية لسياق القضية (RAG)",
         "feat-5": "التصدير المباشر لملفات PDF جاهزة",
         "portfolio-others-title": "بقية المشاريع وسابقة الأعمال",
-        "copyright": "م. عبدالرحمن عمرو. جميع الحقوق محفوظة."
+        "copyright": "م. عبدالرحمن عمرو. جميع الحقوق محفوظة.",
+        
+        // New labels & prices
+        "modal-lbl-problem": "المشكلة",
+        "modal-lbl-solution": "الحل الذكي",
+        "modal-lbl-results": "النتائج المتوقعة",
+        "modal-lbl-features": "الميزات الرئيسية",
+        "modal-btn-demo": 'تجربة المنصة مباشرة <i class="fas fa-external-link-alt"></i>',
+        "modal-btn-order": 'اطلب نفس الفكرة عبر واتساب <i class="fab fa-whatsapp"></i>',
+        "srv-details-btn": 'تفاصيل الخدمة <i class="fas fa-info-circle"></i>',
+        "prod-btn-details": 'تفاصيل المنصة <i class="fas fa-info-circle"></i>',
+        "port-btn-details": 'تفاصيل <i class="fas fa-info-circle"></i>',
+        
+        "srv-1-price": "تبدأ من 15,000 ج.م إلى 60,000 ج.م",
+        "srv-2-price": "تبدأ من 40,000 ج.م إلى 150,000 ج.م",
+        "srv-3-price": "تبدأ من 5,000 ج.م إلى 12,000 ج.م",
+        "prod-cipt-price": "احصل على نفس الفكرة: 15,000 ج.م - 45,000 ج.م",
+        "prod-carbon-price": "احصل على نفس الفكرة: 45,000 ج.م - 120,000 ج.م",
+        "prod-results-price": "احصل على نفس الفكرة: 12,000 ج.م - 30,000 ج.م",
+        "prod-flashcards-price": "احصل على نفس الفكرة: 8,000 ج.م - 20,000 ج.م",
+        "prod-medical-price": "احصل على نفس الفكرة: 35,000 ج.م - 90,000 ج.م",
+        "prod-ris-price": "احصل على نفس الفكرة: 60,000 ج.م - 180,000 ج.م",
+        "prod-wedding-price": "احصل على نفس الفكرة: 3,500 ج.م - 12,000 ج.م",
+        "prod-lawmind-price": "احصل على نفس الفكرة: 80,000 ج.م - 500,000 ج.م"
     },
     en: {
         "nav-about": "About",
@@ -222,9 +243,6 @@ const translations = {
         "badge-wedding": "Interactive Invitation",
         "prod-wedding-title": "Luxury Digital Interactive Wedding Invitation",
         "prod-wedding-desc": "Get a luxurious digital interactive wedding invitation with sophisticated visual effects and custom music to share your joy.",
-        "prod-wedding-price": "Starts from $100 to $1000",
-        "prod-btn-demo": 'Try Demo <i class="fas fa-external-link-alt"></i>',
-        "prod-btn-order": 'Order System <i class="fab fa-whatsapp"></i>',
         "portfolio-title": "Portfolio & Clients",
         "portfolio-subtitle": "A collection of websites and applications custom-built to meet our clients' needs and achieve their goals.",
         "port-medhat-title": "Dr. Medhat, Training & Development Consultant, and Certified Business Administration Lecturer.",
@@ -241,8 +259,7 @@ const translations = {
         "port-zeen-desc": "A professional landing page for a car rim repair, straightening, and aluminum welding center using state-of-the-art equipment.",
         "port-btn-view": 'View Project <i class="fas fa-arrow-right"></i>',
         "prod-lawmind-title": "LawMind AI - Smart Law Platform",
-        "prod-lawmind-desc": "AI Legal Assistant & Case Management Platform, drafting defense memos and analyzing cases under Egyptian Law.",
-        "prod-lawmind-price": "Starts from 80,000 EGP to 500,000+ EGP",
+        "prod-lawmind-desc": "AI Legal Assistant & Case Management Platform, drafting defense briefs and analyzing cases under Egyptian Law.",
         "featured-badge-text": "Featured Project (Masterpiece)",
         "featured-title": "LawMind AI Legal Platform",
         "featured-tagline": "Smart Legal AI Assistant finding defenses & drafting memos under Egyptian Law",
@@ -257,16 +274,659 @@ const translations = {
         "case-solution-title": "The Smart Platform Solution",
         "case-solution-desc": "A platform utilizing Gemini AI + RAG with advanced Context Caching to read massive case files instantly, drafting professional defense memos backed by Egyptian law articles.",
         "case-results-title": "Tangible Results",
-        "case-results-desc": "Accelerating memo drafting by 85%, accurately extracting defense loopholes, and generating print-ready lawsuits and defense memos in PDF format.",
+        "case-results-desc": "Accelerating memo drafting by 85%, accurately extracting defense loopholes, and generating print-ready lawsuits and defense briefs in PDF format.",
         "feat-1": "Smart AI Legal Consultation",
         "feat-2": "Automated Defense Memo Generation",
         "feat-3": "Drafting Contracts & Claims",
         "feat-4": "Smart Case Context Memory (RAG)",
         "feat-5": "Direct Export to Print-Ready PDFs",
         "portfolio-others-title": "Other Projects & Portfolio",
-        "copyright": "Eng. Abdelrahman Amr. All rights reserved."
+        "copyright": "Eng. Abdelrahman Amr. All rights reserved.",
+        
+        // New labels & prices
+        "modal-lbl-problem": "The Problem",
+        "modal-lbl-solution": "Smart Solution",
+        "modal-lbl-results": "Concrete Results",
+        "modal-lbl-features": "Key Features",
+        "modal-btn-demo": 'Try Live Demo <i class="fas fa-external-link-alt"></i>',
+        "modal-btn-order": 'Order Same Idea <i class="fab fa-whatsapp"></i>',
+        "srv-details-btn": 'Service Details <i class="fas fa-info-circle"></i>',
+        "prod-btn-details": 'Platform Details <i class="fas fa-info-circle"></i>',
+        "port-btn-details": 'Details <i class="fas fa-info-circle"></i>',
+        
+        "srv-1-price": "Starts from 15,000 EGP to 60,000 EGP",
+        "srv-2-price": "Starts from 40,000 EGP to 150,000 EGP",
+        "srv-3-price": "Starts from 5,000 EGP to 12,000 EGP",
+        "prod-cipt-price": "Get the same idea: 15,000 EGP - 45,000 EGP",
+        "prod-carbon-price": "Get the same idea: 45,000 EGP - 120,000 EGP",
+        "prod-results-price": "Get the same idea: 12,000 EGP - 30,000 EGP",
+        "prod-flashcards-price": "Get the same idea: 8,000 EGP - 20,000 EGP",
+        "prod-medical-price": "Get the same idea: 35,000 EGP - 90,000 EGP",
+        "prod-ris-price": "Get the same idea: 60,000 EGP - 180,000 EGP",
+        "prod-wedding-price": "Get the same idea: 3,500 EGP - 12,000 EGP",
+        "prod-lawmind-price": "Get the same idea: 80,000 EGP - 500,000 EGP"
     }
 };
+
+// ==========================================
+// Project Details Metadata Database
+// ==========================================
+const projectDetails = {
+    "srv-1": {
+        badge: { ar: "خدمة رقمية", en: "Digital Service" },
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        techs: ["HTML5", "CSS3", "JavaScript", "SEO", "Responsive UI"],
+        ar: {
+            title: "إنشاء وتطوير مواقع إلكترونية احترافية",
+            price: "تبدأ من 15,000 ج.م إلى 60,000 ج.م",
+            problem: "تواجه الشركات والأفراد صعوبة في بناء حضور رقمي قوي واحترافي يعبر عن هويتهم ويجذب العملاء بفعالية.",
+            solution: "برمجة وتصميم مواقع ويب متجاوبة، سريعة، ومحسنة كلياً لمحركات البحث (SEO) لضمان أفضل ظهور للعملاء.",
+            results: "بناء مصداقية رقمية قوية، وزيادة في عدد زيارات الموقع وتفاعل العملاء مع الخدمات المقدمة.",
+            features: [
+                "تصاميم فريدة وعصرية تناسب مختلف الأنشطة التجارية.",
+                "سرعة تحميل ممتازة وتوافق تام مع شاشات الهواتف.",
+                "تهيئة متكاملة لقواعد الـ SEO لجلب زوار طبيعيين من جوجل.",
+                "لوحة تحكم مرنة لإدارة محتوى الموقع بسهولة وبدون خبرة برمجية."
+            ]
+        },
+        en: {
+            title: "Professional Website Development",
+            price: "Starts from 15,000 EGP to 60,000 EGP",
+            problem: "Businesses and individuals struggle to build a strong, professional digital presence that conveys their identity and attracts customers effectively.",
+            solution: "Programming and designing fully responsive, fast, and SEO-optimized websites to ensure the best customer reach.",
+            results: "Building strong digital credibility, and increasing website visits and customer engagement with the services offered.",
+            features: [
+                "Unique and modern designs tailored to different business activities.",
+                "Excellent loading speed and full responsiveness on mobile screens.",
+                "Integrated SEO setup to drive organic traffic from Google.",
+                "Flexible dashboard to manage site content easily without coding experience."
+            ]
+        },
+        demoUrl: "#contact",
+        orderText: {
+            ar: "أريد الاستفسار عن خدمة إنشاء وتطوير مواقع إلكترونية احترافية",
+            en: "I want to inquire about professional website development service"
+        }
+    },
+    "srv-2": {
+        badge: { ar: "خدمة رقمية", en: "Digital Service" },
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        techs: ["ERP Systems", "Digital Archive", "Cloud Database", "Staff Training"],
+        ar: {
+            title: "سيستم للتحول من ورقي إلى رقمي",
+            price: "تبدأ من 40,000 ج.م إلى 150,000 ج.م",
+            problem: "تراكم الملفات الورقية وبطء المعاملات اليومية وصعوبة استرجاع البيانات والتقارير عند الحاجة.",
+            solution: "تطوير نظام أرشفة وإدارة سحابي ذكي مخصص، متبوعاً بتدريب وتأهيل الموظفين لتبسيط سير العمل.",
+            results: "تسريع العمليات اليومية بنسبة 70%، صفر هدر للأوراق، وصول فوري ومؤمن لأي معلومة من أي مكان.",
+            features: [
+                "تخصيص كامل للنظام ليتوافق مع دورة العمل الفعلية بمؤسستك.",
+                "أرشفة سحابية مشفرة وآمنة تماماً لحماية البيانات الحساسة.",
+                "تقارير وإحصائيات فورية تدعم اتخاذ القرارات الإدارية.",
+                "دورة تدريبية مكثفة ودعم فني مستمر لطاقم العمل."
+            ]
+        },
+        en: {
+            title: "Paper to Digital Transformation System",
+            price: "Starts from 40,000 EGP to 150,000 EGP",
+            problem: "Accumulation of physical papers, slow daily transactions, and extreme difficulty in retrieving data and reports when needed.",
+            solution: "Developing a custom cloud-based archiving and management system, followed by staff training to streamline workflows.",
+            results: "Accelerating daily operations by 70%, zero paper waste, and instant, secure access to data from anywhere.",
+            features: [
+                "Full system customization to match your organization's actual workflow.",
+                "Encrypted and fully secure cloud archiving to protect sensitive data.",
+                "Instant reports and analytics that support administrative decision-making.",
+                "Intensive training course and continuous technical support for the staff."
+            ]
+        },
+        demoUrl: "#contact",
+        orderText: {
+            ar: "أريد الاستفسار عن خدمة سيستم التحول الرقمي وتدريب الموظفين",
+            en: "I want to inquire about the paper to digital transformation and training system"
+        }
+    },
+    "srv-3": {
+        badge: { ar: "خدمة رقمية", en: "Digital Service" },
+        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        techs: ["Landing Pages", "Social Media Linkage", "Lead Capture", "Fast Load"],
+        ar: {
+            title: "صفحات تعريفية للأنشطة الصغيرة",
+            price: "تبدأ من 5,000 ج.م إلى 12,000 ج.م",
+            problem: "تحتاج المشروعات والأنشطة الصغيرة لصفحة سريعة واقتصادية لعرض أعمالها وتسهيل تواصل الزبائن معها دون تكاليف باهظة.",
+            solution: "إطلاق صفحات هبوط (Landing Pages) مبهرة وسريعة جداً، تربط الزوار مباشرة بروابط التواصل والواتساب.",
+            results: "الحصول على هوية أولية مميزة للمشروع، ومضاعفة طلبات العملاء عبر قنوات السوشيال ميديا.",
+            features: [
+                "تكلفة اقتصادية وسرعة قياسية في التنفيذ (خلال أيام قليلة).",
+                "تصميم مبهر يركز على تحويل الزائر إلى عميل فعلي.",
+                "ربط مباشر بحسابات التواصل الاجتماعي ورقم الواتساب.",
+                "تجاوب كامل مع الهواتف الذكية."
+            ]
+        },
+        en: {
+            title: "Landing Pages for Small Businesses",
+            price: "Starts from 5,000 EGP to 12,000 EGP",
+            problem: "Small projects and local businesses need a fast and cost-effective page to display their work and ease customer contact without massive budgets.",
+            solution: "Launching beautiful, high-speed landing pages that connect visitors directly to social media and WhatsApp.",
+            results: "Acquiring an elegant initial brand identity, and doubling client inquiries through social channels.",
+            features: [
+                "Highly cost-effective and record execution time (in just a few days).",
+                "Stunning design focused on converting visitors into active clients.",
+                "Direct integration with social media accounts and WhatsApp number.",
+                "Fully responsive on smartphones."
+            ]
+        },
+        demoUrl: "#contact",
+        orderText: {
+            ar: "أريد الاستفسار عن خدمة الصفحات التعريفية للمشاريع الصغيرة",
+            en: "I want to inquire about landing pages for small projects"
+        }
+    },
+    "cipt": {
+        badge: { ar: "نظام جاهز - SaaS Ready", en: "SaaS Ready" },
+        image: "./assets/screenshots/cipt-screen.png",
+        techs: ["HTML5", "CSS3", "JavaScript", "Firebase", "PDF Reports"],
+        ar: {
+            title: "منصة منظومة اختبارات",
+            price: "احصل على نفس الفكرة: 15,000 ج.م - 45,000 ج.م",
+            problem: "تستنزف عملية إعداد وتصحيح الاختبارات الورقية للمؤسسات التعليمية وقتاً هائلاً، مع صعوبة رصد وتحليل نتائج الطلاب بدقة.",
+            solution: "منصة اختبارات ذكية تتيح رفع بنوك الأسئلة، إعداد اختبارات محددة بزمن، وتصحيح الإجابات ورصد الدرجات تلقائياً فور الانتهاء.",
+            results: "توفير 90% من وقت وجهد المعلمين، إرسال فوري للنتائج للطلاب، وتقارير تفصيلية تحدد نقاط الضعف الأكاديمية.",
+            features: [
+                "تصحيح تلقائي فوري لجميع أنواع الأسئلة (اختيار من متعدد، صح وخطأ).",
+                "لوحة تحكم متكاملة للمعلمين والطلاب مع إحصائيات متطورة.",
+                "منع الغش من خلال تعطيل الخروج من شاشة الامتحان.",
+                "تصدير نتائج وتقارير الطلاب بصيغة Excel أو PDF."
+            ]
+        },
+        en: {
+            title: "Testing System Platform",
+            price: "Get the same idea: 15,000 EGP - 45,000 EGP",
+            problem: "Creating and grading paper-based exams for educational institutions consumes huge time, alongside the difficulty of precisely analyzing student progress.",
+            solution: "A smart exam platform allowing question bank uploads, timed test settings, automated grading, and instant score compilation.",
+            results: "Saving 90% of teachers' grading time, instant results distribution to students, and detailed progress charts highlighting weak areas.",
+            features: [
+                "Instant automated grading for multiple-choice and true/false questions.",
+                "Comprehensive dashboard for teachers and students with advanced statistics.",
+                "Anti-cheat mechanisms by detecting screen leaving.",
+                "Exporting student scores and reports directly to Excel or PDF."
+            ]
+        },
+        demoUrl: "./CIPT/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء نظام منظومة اختبارات للطلاب",
+            en: "I want to inquire about purchasing the Testing System Platform"
+        }
+    },
+    "carbon": {
+        badge: { ar: "نظام جاهز - Eco System", en: "Eco System" },
+        image: "./assets/screenshots/carbon-screen.png",
+        techs: ["Tailwind CSS", "React", "Chart.js", "Carbon Calculators"],
+        ar: {
+            title: "منصة حساب البصمة الكربونية",
+            price: "احصل على نفس الفكرة: 45,000 ج.م - 120,000 ج.م",
+            problem: "تواجه المؤسسات صعوبة بالغة في حساب وتقدير انبعاثاتها من ثاني أكسيد الكربون للوفاء بمتطلبات الاستدامة البيئية.",
+            solution: "منصة ذكية متكاملة تجمع بيانات الطاقة والمخلفات والانتقالات وتحسب المعادل الكربوني تلقائياً وفقاً للمعايير الدولية.",
+            results: "توليد تقارير بيئية معتمدة تدعم خطط الاستدامة وتخفيض البصمة الكربونية للمؤسسة بنسبة تصل لـ 30%.",
+            features: [
+                "حاسبات دقيقة وتفاعلية لمختلف مصادر الانبعاثات المباشرة وغير المباشرة.",
+                "لوحة بيانات رسومية ممتازة تعرض تطور الانبعاثات شهرياً وسنوياً.",
+                "تصدير تقارير بيئية رسمية للمساهمين والجهات التنظيمية.",
+                "توصيات ذكية مدمجة لتقليل الاستهلاك والانبعاثات."
+            ]
+        },
+        en: {
+            title: "Carbon Footprint Calculator Platform",
+            price: "Get the same idea: 45,000 EGP - 120,000 EGP",
+            problem: "Organizations face deep complexities in calculating and estimating their CO2 emissions to meet green sustainability standards.",
+            solution: "A smart integrated platform that tracks energy, waste, and transport data, automatically calculating carbon equivalents based on international standards.",
+            results: "Generating certified environmental reports that support sustainability initiatives, reducing the organization's carbon footprint by up to 30%.",
+            features: [
+                "Precise, interactive calculators for direct and indirect emission sources.",
+                "Stunning visual analytics dashboard showing monthly and annual emission trends.",
+                "Exporting official environmental reports for stakeholders and regulatory bodies.",
+                "Built-in smart suggestions to reduce energy consumption and emissions."
+            ]
+        },
+        demoUrl: "./carbon-footprint-platform-main/dist/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء نظام حساب البصمة الكربونية للمؤسسات",
+            en: "I want to inquire about purchasing the Carbon Footprint Calculator Platform"
+        }
+    },
+    "results": {
+        badge: { ar: "نظام جاهز - Analytics", en: "Analytics" },
+        image: "./assets/screenshots/results-screen.png",
+        techs: ["HTML5", "CSS3", "JavaScript", "Firebase Database", "Excel Upload"],
+        ar: {
+            title: "منصة نتائج الطلاب",
+            price: "احصل على نفس الفكرة: 12,000 ج.م - 30,000 ج.م",
+            problem: "تتحطم خوادم المدارس والجامعات أثناء إعلان النتائج بسبب الضغط الكثيف، مع صعوبة توفير واجهات أمنة ومنظمة لعرض الدرجات.",
+            solution: "بوابة إلكترونية فائقة السرعة تتيح البحث برقم الجلوس وعرض كشف الدرجات التفصيلي ومستويات الطلاب بسلاسة تامة.",
+            results: "استقرار تام بنسبة 100% تحت أي ضغط، وسرعة كبيرة للإدارة لرفع الدرجات دفعة واحدة عبر ملفات Excel.",
+            features: [
+                "بحث فوري فائق السرعة برقم الجلوس أو كود الطالب.",
+                "لوحة تحكم إدارية لرفع النتائج بضغطة زر واحدة عبر ملفات Excel.",
+                "عرض بياني للدرجات يقارن مستوى الطالب بمتوسط درجات زملائه.",
+                "إمكانية طباعة النتيجة فورياً كشهادة ورقية بتنسيق ممتاز."
+            ]
+        },
+        en: {
+            title: "Student Results Platform",
+            price: "Get the same idea: 12,000 EGP - 30,000 EGP",
+            problem: "School and university servers often crash during results release due to heavy traffic, coupled with security issues in displaying student grades.",
+            solution: "A high-speed, secure online portal enabling instant search by seat number and displaying detailed, interactive grade reports.",
+            results: "100% server stability during high-traffic periods, and extreme administrative ease in uploading grades via Excel spreadsheets.",
+            features: [
+                "Instant, high-speed lookup by seat number or student ID.",
+                "Admin panel to import and publish results instantly from Excel.",
+                "Interactive graphs comparing student performance with class averages.",
+                "Direct print function to generate high-quality grade certificates."
+            ]
+        },
+        demoUrl: "./Carbon-Footprint-Results-main/Carbon-Footprint-Results-main/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء نظام منصة نتائج الطلاب",
+            en: "I want to inquire about purchasing the Student Results Platform"
+        }
+    },
+    "flashcards": {
+        badge: { ar: "نظام جاهز - Education", en: "Education" },
+        image: "./assets/screenshots/flashcards-screen.png",
+        techs: ["HTML5 Canvas", "CSS Grid", "JavaScript animations", "Game Engine"],
+        ar: {
+            title: "لعبة البطاقات التعليمية (Flashcards)",
+            price: "احصل على نفس الفكرة: 8,000 ج.م - 20,000 ج.م",
+            problem: "يعاني الأطفال والطلاب من الملل عند مراجعة وحفظ المفاهيم الدراسية واللغات بالطرق التقليدية.",
+            solution: "منصة تعليمية مبتكرة تعتمد على التلعيب (Gamification) لربط الأسئلة والأجوبة ببطاقات تفاعلية متحركة.",
+            results: "زيادة استيعاب الطلاب وحفظهم للمفاهيم بنسبة 70% وتفاعل مستمر وممتع داخل الحصص الدراسية.",
+            features: [
+                "تأثيرات بصرية وحركية جذابة ومسلية تحاكي ألعاب الأطفال.",
+                "نظام مؤقت لحساب النقاط ولوحة شرف تنافسية لتشجيع الطلاب.",
+                "سهولة تخصيص وإدخال البطاقات والأسئلة لجميع المواد الدراسية.",
+                "متوافق تماماً للعب الفردي أو كنشاط جماعي داخل الفصل."
+            ]
+        },
+        en: {
+            title: "Educational Flashcards Game",
+            price: "Get the same idea: 8,000 EGP - 20,000 EGP",
+            problem: "Children and students often feel bored when revising and memorizing academic concepts and languages using traditional methods.",
+            solution: "An innovative learning tool leveraging gamification to connect questions and answers through interactive, animated cards.",
+            results: "Improving student comprehension and memory retention by 70% while keeping classroom activities fun and engaging.",
+            features: [
+                "Eye-catching visual and motion effects simulating mobile games.",
+                "Built-in timer, points system, and competitive leaderboards to motivate students.",
+                "Easy creation and input of flashcard decks for any subject.",
+                "Fully optimized for individual play or team-based classroom activities."
+            ]
+        },
+        demoUrl: "./flashcards-game-main/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء لعبة البطاقات التعليمية",
+            en: "I want to inquire about purchasing the Educational Flashcards Game"
+        }
+    },
+    "medical": {
+        badge: { ar: "نظام جاهز - ERP System", en: "ERP System" },
+        image: "./assets/screenshots/altahera-screen.png",
+        techs: ["PHP/NodeJS", "MySQL", "Bootstrap/Tailwind", "ERP Engine"],
+        ar: {
+            title: "نظام إدارة المراكز الطبية",
+            price: "احصل على نفس الفكرة: 35,000 ج.م - 90,000 ج.م",
+            problem: "سوء إدارة حجوزات المرضى، ضياع التاريخ المرضي الورقي، وصعوبة تتبع حسابات العيادة وإيرادات الأطباء.",
+            solution: "نظام إداري طبي شامل (Clinic ERP) يضبط ملفات المرضى، جداول الأطباء، الفواتير، والروشتات الرقمية.",
+            results: "تقليص فترات انتظار المرضى بنسبة 50%، دقة حسابية تامة، وأرشفة آمنة ومستديمة لجميع السجلات الطبية.",
+            features: [
+                "جدولة حجوزات المرضى بطريقة ذكية مع تنبيهات مدمجة.",
+                "سجل طبي إلكتروني موحد لكل مريض يحتوي على الزيارات السابقة والروشتات والأشعات.",
+                "منظومة حسابات وإصدار فواتير متكاملة للعيادات والأطباء.",
+                "طباعة روشتات إلكترونية أنيقة ومؤمنة تمنع أخطاء الصيدليات."
+            ]
+        },
+        en: {
+            title: "Medical Centers Management System",
+            price: "Get the same idea: 35,000 EGP - 90,000 EGP",
+            problem: "Disorganized patient appointment scheduling, lost paper records, and lack of control over clinic accounting and doctor revenues.",
+            solution: "A comprehensive Medical ERP system streamlining patient files, doctor calendars, invoicing, and digital prescriptions.",
+            results: "Reducing patient waiting times by 50%, ensuring absolute financial accuracy, and securing lifelong archiving for all medical files.",
+            features: [
+                "Smart patient booking calendar with automated status tracking.",
+                "Unified Electronic Medical Record (EMR) for each patient, saving history, scans, and drugs.",
+                "Complete billing and finance module for managing doctor shares and expenses.",
+                "Elegant digital prescription printing to prevent handwriting mistakes."
+            ]
+        },
+        demoUrl: "./Altahera-Management-System/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء نظام إدارة المراكز الطبية",
+            en: "I want to inquire about purchasing the Medical Centers Management System"
+        }
+    },
+    "ris": {
+        badge: { ar: "نظام جاهز - Medical RIS", en: "Medical RIS" },
+        image: "./assets/screenshots/radiance-screen.png",
+        techs: ["PACS/RIS Connect", "DICOM integration", "PDF Reports", "SQL Database"],
+        ar: {
+            title: "نظام حجز الأشعة بالمراكز (RIS)",
+            price: "احصل على نفس الفكرة: 60,000 ج.م - 180,000 ج.م",
+            problem: "التخبط التنظيمي في غرف أجهزة الأشعة، وتأخر كتابة التقارير الطبية وإرفاق صور الأشعة بالملفات الطبية.",
+            solution: "نظام معلومات أشعة (RIS) طبي متطور ينظم دورة العمل من الحجز، مروراً بغرفة الفحص، وحتى كتابة التقرير.",
+            results: "تسريع إصدار تقارير الأشعة، الاستغلال الأمثل للأجهزة الطبية، وتكامل تام مع منظومة ملف المريض الموحد.",
+            features: [
+                "حجز وتنظيم أوقات الفحص لغرف أجهزة الأشعة المختلفة (رنين، مقطعية، عادية).",
+                "واجهة عمل مخصصة للأطباء الاستشاريين لكتابة ومراجعة التقارير الطبية.",
+                "ربط صور الأشعة والملفات الطبية تلقائياً لتسهيل الاسترجاع.",
+                "تصدير تقارير أشعة احترافية ومطبوعة بصيغة PDF."
+            ]
+        },
+        en: {
+            title: "Radiology Information System (RIS)",
+            price: "Get the same idea: 60,000 EGP - 180,000 EGP",
+            problem: "Scheduling chaos in radiology imaging rooms, and delays in writing diagnostic reports and linking scans to patient charts.",
+            solution: "An advanced Radiology Information System (RIS) that orchestrates the entire workflow from reception to reporting.",
+            results: "Significantly accelerating report delivery, maximizing medical imaging equipment usage, and integrating with patient records.",
+            features: [
+                "Booking and tracking slots for various scan rooms (MRI, CT, X-Ray, Ultrasound).",
+                "Dedicated radiologist workstation for typing and validating diagnostic reports.",
+                "Direct linking of scan images and diagnostics to patient files.",
+                "Exporting professional, print-ready radiology reports in PDF format."
+            ]
+        },
+        demoUrl: "./radiance-ris-main/dist/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء نظام حجز الأشعة RIS",
+            en: "I want to inquire about purchasing the Radiology Information System (RIS)"
+        }
+    },
+    "wedding": {
+        badge: { ar: "نظام جاهز - Wedding Invitation", en: "Wedding Invitation" },
+        image: "./assets/screenshots/wedding-screen.png",
+        techs: ["HTML5", "CSS3 animations", "Web Audio API", "RSVP Form Backend"],
+        ar: {
+            title: "دعوة زفاف رقمية تفاعلية فاخرة",
+            price: "احصل على نفس الفكرة: 3,500 ج.م - 12,000 ج.م",
+            problem: "الارتفاع الشديد في تكاليف طباعة كروت الأفراح وتوصيلها، مع صعوبة تجميع تأكيدات الحضور RSVP وتوجيه الضيوف لمقر القاعة.",
+            solution: "صفحة إنترنت فاخرة مصممة خصيصاً بمؤثرات بصرية وصوتية مبهرة تعلن للضيوف تفاصيل الزفاف وتتيح لهم تأكيد حضورهم بنقرة واحدة.",
+            results: "توفير 80% من تكاليف الكروت التقليدية، وتنظيم فوري لعدد الحضور ومشاركة الموقع الجغرافي عبر خريطة جوجل التفاعلية.",
+            features: [
+                "تصميم فني راقي متحرك بمؤثرات (قلوب متساقطة، إضاءات ناعمة).",
+                "مشغل موسيقى مدمج بأغنية مخصصة يفضلها العروسين.",
+                "استمارة ذكية لتأكيد الحضور (RSVP) يرسل ردودها مباشرة للعروسين.",
+                "عداد تنازلي للزفاف، وزر للانتقال الفوري لموقع القاعة على خرائط Google."
+            ]
+        },
+        en: {
+            title: "Luxury Digital Interactive Wedding Invitation",
+            price: "Get the same idea: 3,500 EGP - 12,000 EGP",
+            problem: "Soaring printing and delivery costs for traditional wedding cards, alongside the difficulty of collecting RSVP replies and directing guests to the hall.",
+            solution: "A premium, animated webpage designed with stunning graphics and background music, allowing guests to RSVP instantly with a single click.",
+            results: "Saving 80% of traditional invitation card budgets, gathering real-time guest numbers, and sharing location details via Google Maps.",
+            features: [
+                "Elegant artistic animations (falling hearts, smooth fading transitions).",
+                "Custom built-in audio player with a romantic song selected by the couple.",
+                "Smart RSVP confirmation form delivering responses directly to the couple.",
+                "Live countdown clock and one-click Google Maps navigation to the venue."
+            ]
+        },
+        demoUrl: "https://abdelrahman-amr1.github.io/norhan-gamal/",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء دعوة زفاف رقمية تفاعلية فاخرة",
+            en: "I want to inquire about purchasing the Luxury Digital Wedding Invitation"
+        }
+    },
+    "lawmind": {
+        badge: { ar: "مشروع مميز - Masterpiece", en: "Featured Project" },
+        image: "./assets/screenshots/lawmind-dashboard.png",
+        techs: ["Gemini AI", "RAG Engine", "Next.js", "Supabase", "Context Caching"],
+        ar: {
+            title: "منصة LawMind AI للمحاماة الذكية",
+            price: "احصل على نفس الفكرة: 80,000 ج.م - 500,000 ج.م",
+            problem: "تستغرق دراسة القضايا مئات الصفحات وصياغة مذكرات الدفاع القانوني ساعات طويلة من المحامي، مع مخاطرة تفويت ثغرة قانونية حاسمة.",
+            solution: "منصة ذكاء اصطناعي تستخدم محرك Gemini + RAG لقراءة ملفات القضايا وصياغة مذكرات دفاع واستخراج ثغرات الدفاع القانوني وفق القانون المصري.",
+            results: "تسريع صياغة المذكرات والعرائض بنسبة 85%، دقة استقصاء الثغرات وتوليد ملفات PDF مطبوعة جاهزة مباشرة لتقديمها للمحكمة.",
+            features: [
+                "مستشار قانوني ذكي تفاعلي لمناقشة سياق القضية.",
+                "صياغة مذكرات دفاع وعرائض دعاوى متوافقة مع مواد القانون المصري.",
+                "قراءة واستيعاب ملفات قضايا ضخمة فورياً بفضل ميزة Context Caching.",
+                "تصدير العقود والعرائض بصيغة PDF منسقة بدقة وجاهزة للطباعة."
+            ]
+        },
+        en: {
+            title: "LawMind AI - Smart Law Platform",
+            price: "Get the same idea: 80,000 EGP - 500,000 EGP",
+            problem: "Lawyers spend countless hours analyzing voluminous case files and drafting defense briefs, risking missing key legal arguments or defenses.",
+            solution: "An AI legal assistant platform using Gemini AI + RAG to process massive case files, extract defenses, and draft complete legal briefs tailored to Egyptian Law.",
+            results: "Accelerating legal brief drafting by 85%, locating legal loopholes, and exporting court-ready PDF documents instantly.",
+            features: [
+                "Interactive AI legal advisor capable of answering complex case-specific questions.",
+                "Automated drafting of lawsuits and briefs backed by active Egyptian law articles.",
+                "Instant parsing of massive legal files using Gemini's advanced Context Caching.",
+                "Direct export to professionally formatted, print-ready PDF documents."
+            ]
+        },
+        demoUrl: "https://lawsamarsamier.vercel.app/",
+        orderText: {
+            ar: "أريد الاستفسار عن شراء منصة LawMind AI للمحاماة الذكية",
+            en: "I want to inquire about purchasing the LawMind AI Legal Platform"
+        }
+    },
+    "medhat": {
+        badge: { ar: "سابقة أعمال", en: "Past Work" },
+        image: "./drmedhat/assets/images/img1.jpg",
+        techs: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO"],
+        ar: {
+            title: "موقع د. مدحت للتدريب والتطوير",
+            price: "احصل على نفس الفكرة: 15,000 ج.م - 40,000 ج.م",
+            problem: "يحتاج الاستشاريون والمحاضرون إلى منصة شخصية تبرز سيرتهم الذاتية وخبراتهم الطويلة وتسهل تواصل المتدربين والطلاب معهم.",
+            solution: "تصميم موقع تعريفي فاخر وأنيق جداً يبرز الخدمات التدريبية والمناصب والمحتوى العلمي والشهادات والعملاء.",
+            results: "تعزيز السمعة الرقمية الشخصية للمحاضر، وزيادة ملحوظة في طلب الاستشارات والبرامج التدريبية الخاصة.",
+            features: [
+                "تصميم إبداعي بمظهر أكاديمي احترافي يعبر عن مكانة المحاضر.",
+                "استعراض منظم للحقائب والبرامج التدريبية المتاحة.",
+                "تكامل مع وسائل التواصل ووسائل حجز الاستشارات الفورية.",
+                "متوافق تماماً مع الهواتف الذكية وسريع التحميل."
+            ]
+        },
+        en: {
+            title: "Dr. Medhat Course & Training Portal",
+            price: "Get the same idea: 15,000 EGP - 40,000 EGP",
+            problem: "Consultants and lecturers need a personal portal to highlight their biography, long career, and allow trainees to reach out easily.",
+            solution: "Designing a luxury, elegant website displaying training services, academic achievements, certifications, and clients.",
+            results: "Enhancing the personal brand of the trainer, leading to a visible increase in business inquiries and consultation requests.",
+            features: [
+                "Creative layouts with a professional academic style reflecting the trainer's status.",
+                "Structured catalog of available training programs and coursework.",
+                "Direct integration with social media and booking tools.",
+                "Fully mobile-responsive with optimized load speeds."
+            ]
+        },
+        demoUrl: "./drmedhat/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن تطوير موقع مماثل لموقع د. مدحت للمحاضرين والمدربين",
+            en: "I want to inquire about developing a project similar to Dr. Medhat's portal"
+        }
+    },
+    "altahera": {
+        badge: { ar: "سابقة أعمال", en: "Past Work" },
+        image: "./AlTahera-Feedback/CleanIcon-9.jpg",
+        techs: ["HTML5", "CSS3", "JavaScript", "LocalDB/JSON", "Feedback Analytics"],
+        ar: {
+            title: "سيستم تقييم مؤسسة الطاهرة",
+            price: "احصل على نفس الفكرة: 20,000 ج.م - 50,000 ج.م",
+            problem: "صعوبة رصد آراء الزوار والمستفيدين من الخدمات الصحية والإدارية في المؤسسة بطريقة ورقية تقليدية لعدم دقتها.",
+            solution: "تطوير لوحة تقييم رقمية تفاعلية وسهلة الاستخدام يتم تنصيبها على شاشات تابلت تفاعلية في صالات الاستقبال.",
+            results: "تجميع فوري لملاحظات الزوار، تقارير رضا العملاء التلقائية، وتحسين جودة الخدمة بناءً على البيانات.",
+            features: [
+                "واجهة مستخدم بسيطة للغاية ومناسبة لجميع الفئات العمرية باللمس.",
+                "أسئلة تقييم متعددة المحاور (الانتظار، المعاملة، النظافة، جودة الطبيب).",
+                "نظام إحصائيات خلفي يعرض نسب الرضا بدقة للمسؤولين.",
+                "لوحة تحكم محمية لتعديل محاور التقييم ورصد الملاحظات."
+            ]
+        },
+        en: {
+            title: "Al-Tahera Foundation Feedback System",
+            price: "Get the same idea: 20,000 EGP - 50,000 EGP",
+            problem: "Difficulty in gathering feedback from visitors and patients regarding health and admin services via traditional paper forms.",
+            solution: "Developing an interactive, easy-to-use digital feedback system deployed on tablet devices in reception halls.",
+            results: "Real-time logging of visitor complaints and feedback, automated patient satisfaction charts, and data-driven quality of service improvements.",
+            features: [
+                "Extremely simplified touch UI friendly for all age groups.",
+                "Multi-criteria feedback metrics (waiting time, staff treatment, cleanliness, doctor quality).",
+                "Back-end statistics interface displaying precise satisfaction percentages.",
+                "Protected admin panel to edit survey metrics and export logs."
+            ]
+        },
+        demoUrl: "./AlTahera-Feedback/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن تطوير سيستم تقييم زوار مماثل لمشروع مؤسسة الطاهرة",
+            en: "I want to inquire about developing a feedback system similar to Al-Tahera's project"
+        }
+    },
+    "samar": {
+        badge: { ar: "سابقة أعمال", en: "Past Work" },
+        image: "./samar samier/me/media_90d8960e-74b7-400a-b6e2-b9c7e167f6df_1778699676901.png",
+        techs: ["HTML5", "CSS3", "JavaScript", "Vite", "Booking Engine"],
+        ar: {
+            title: "موقع مكتب المحامية سمر سمير",
+            price: "احصل على نفس الفكرة: 18,000 ج.م - 45,000 ج.م",
+            problem: "صعوبة تواصل العملاء مع مكاتب المحاماة بشكل منظم، وحاجتهم الماسة لمعرفة مجالات التخصص وحجز الاستشارات دون انتظار.",
+            solution: "تطوير موقع رسمي راقي لمكتب المحاماة يبرز القضايا الناجحة والتخصصات ويوفر نظام لحجز مواعيد الاستشارات.",
+            results: "تنظيم جدول مواعيد المكتب بنسبة 100%، وبناء واجهة رقمية وقورة للمكتب تثبت كفاءته ومصداقيته القانونية.",
+            features: [
+                "تصميم كلاسيكي فخم يعبر عن وقار وهيبة مهنة المحاماة.",
+                "استعراض مصنف لمجالات التخصص القانوني (أحوال شخصية، جنائي، مدني).",
+                "نظام حجز استشارات قانونية تفاعلي يرسل المواعيد للمكتب.",
+                "مدونة مدمجة لنشر التوعية والمقالات القانونية للجمهور."
+            ]
+        },
+        en: {
+            title: "Law Firm of Attorney Samar Samir",
+            price: "Get the same idea: 18,000 EGP - 45,000 EGP",
+            problem: "Difficulty for clients to reach legal firms in a structured way, and the need to know the firm's legal specialties and book consultations easily.",
+            solution: "Developing a premium official website for the law office, detailing successful lawsuits, categories, and featuring an online appointment engine.",
+            results: "100% organized office schedule, and building a prestigious digital face that establishes trust and authority.",
+            features: [
+                "Classic, high-end design reflecting the prestige and dignity of the legal profession.",
+                "Categorized showcase of practice areas (family law, criminal defense, corporate).",
+                "Interactive legal consultation booking widget.",
+                "Integrated blog to publish legal guides and articles."
+            ]
+        },
+        demoUrl: "./samar samier/dist/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن تطوير موقع مكتب محاماة مماثل لمشروع الأستاذة سمر سمير",
+            en: "I want to inquire about developing a law firm site similar to Samar Samir's project"
+        }
+    },
+    "bellouq": {
+        badge: { ar: "سابقة أعمال", en: "Past Work" },
+        image: "./BabELlouq/assets/tech_store_shelves.webp",
+        techs: ["HTML5", "CSS3", "JavaScript", "Product Catalog", "Cart System"],
+        ar: {
+            title: "معرض باب اللوق الإلكتروني (Bab ELlouq)",
+            price: "احصل على نفس الفكرة: 25,000 ج.م - 65,000 ج.م",
+            problem: "متاجر بيع الإلكترونيات تحتاج لطريقة لعرض تشكيلاتها الضخمة من المنتجات والقطع بأسعارها المحدثة دون بناء متجر معقد ومكلف.",
+            solution: "تطوير كتالوج رقمي متطور وسريع جداً يعرض المنتجات بتصنيفات ذكية ويوفر سلة شراء تفاعلية للطلب عبر واتساب.",
+            results: "زيادة كبيرة في المبيعات، وتخفيف الضغط الهاتفي على خدمة العملاء بسبب عرض التفاصيل والأسعار بوضوح.",
+            features: [
+                "تصفح فائق السرعة وفلاتر ذكية للمنتجات والماركات.",
+                "سلة مشتريات تفاعلية تمكن المشتري من تجميع طلباته وإرسالها بضغطة زر لواتساب المتجر.",
+                "تصميم عصري وجذاب مخصص لعرض التكنولوجيا ومواصفاتها.",
+                "تجاوب كامل لراحة متصفحي الهواتف الذكية."
+            ]
+        },
+        en: {
+            title: "Bab ELlouq Tech Store & Catalog",
+            price: "Get the same idea: 25,000 EGP - 65,000 EGP",
+            problem: "Tech and hardware stores need an elegant way to display their massive inventory and live prices without deploying complex and expensive e-commerce frameworks.",
+            solution: "Developing a high-speed digital product catalog sorting items in smart categories, featuring a shopping cart that sends orders directly to WhatsApp.",
+            results: "Boosting sales conversions, and drastically reducing client support overhead by listing complete specs and prices online.",
+            features: [
+                "High-performance catalog page with multi-tier category filters.",
+                "Interactive cart consolidating selected items into a formatted WhatsApp text.",
+                "Modern tech-oriented aesthetic suitable for electronics and hardware.",
+                "Fully responsive layouts optimized for fast mobile shopping."
+            ]
+        },
+        demoUrl: "./BabELlouq/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن تطوير متجر أو كتالوج مماثل لمشروع باب اللوق",
+            en: "I want to inquire about developing a catalog store similar to Bab ELlouq"
+        }
+    },
+    "mida": {
+        badge: { ar: "سابقة أعمال", en: "Past Work" },
+        image: "./mida/assets/logo.jpg",
+        techs: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Booking Module"],
+        ar: {
+            title: "موقع صالون ميدا (Mida)",
+            price: "احصل على نفس الفكرة: 12,000 ج.م - 35,000 ج.م",
+            problem: "تحتاج صالونات التجميل الراقية لعرض باقات خدماتها، أسعارها، وأحدث صيحات التجميل مع تنظيم حجوزات العميلات بكفاءة.",
+            solution: "تصميم موقع تعريفي نسائي فاخر يعرض تفاصيل الخدمات والصور ونظام حجز مرن لتفادي الزحام.",
+            results: "تحسين صورة العلامة التجارية، تنظيم مواعيد الصالون وتقليص وقت انتظار العميلات.",
+            features: [
+                "تصميم أنثوي فاخر وجذاب بألوان متناسقة تناسب خدمات التجميل.",
+                "استعراض مصنف للخدمات (عناية بالشعر، بشرة، مكياج) بأسعارها.",
+                "استمارة حجز مواعيد سهلة مع اختيار الخدمة المفضلة.",
+                "معرض صور مدمج لأحدث صيحات وأعمال الصالون."
+            ]
+        },
+        en: {
+            title: "Mida Beauty Salon Portal",
+            price: "Get the same idea: 12,000 EGP - 35,000 EGP",
+            problem: "Premium beauty salons need an online showcase to display their service catalog, packages, pricing, and organize client appointments efficiently.",
+            solution: "Designing a luxury, female-oriented website showcasing services, styling galleries, and containing a smooth booking module.",
+            results: "Elevating brand image, organizing salon timetables, and reducing customer wait times inside the salon.",
+            features: [
+                "Chic and elegant feminine design themed around beauty services.",
+                "Detailed pricing menu categorized by beauty treatments.",
+                "User-friendly appointment reservation form with service selectors.",
+                "Dynamic gallery showcasing latest salon works and trends."
+            ]
+        },
+        demoUrl: "./mida/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن تطوير موقع مماثل لصالون ميدا",
+            en: "I want to inquire about developing a beauty salon portal similar to Mida"
+        }
+    },
+    "zeen": {
+        badge: { ar: "سابقة أعمال", en: "Past Work" },
+        image: "./zeen-main/zeen-main/hero.jpg",
+        techs: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "WhatsApp Direct"],
+        ar: {
+            title: "موقع مركز زين للجنوط (ZEEN)",
+            price: "احصل على نفس الفكرة: 10,000 ج.م - 28,000 ج.م",
+            problem: "تحتاج مراكز صيانة واستعدال جنوط السيارات لإثبات مصداقيتها الفنية وعرض تجهيزاتها الحديثة وطرق اللحام لجذب أصحاب السيارات الفارهة.",
+            solution: "تطوير موقع تعريفي احترافي يركز على إبراز الأجهزة المتطورة وجودة الأعمال وخريطة الوصول للمركز.",
+            results: "زيادة كبيرة في عدد العملاء الجدد للمركز وبناء ثقة قوية بين أصحاب السيارات الرياضية والفخمة.",
+            features: [
+                "تصميم قوي وعملي يناسب مجال خدمات السيارات وجنوطها.",
+                "شرح مصور لأحدث الأجهزة وطرق استعدال ولحام الألمنيوم.",
+                "زر اتصال مباشر وموقع جغرافي تفاعلي على خرائط جوجل.",
+                "تجاوب وسرعة فائقة في شاشات الجوال."
+            ]
+        },
+        en: {
+            title: "ZEEN Center for Rims & Wheels Showcase",
+            price: "Get the same idea: 10,000 EGP - 28,000 EGP",
+            problem: "Auto rim repair and aluminum welding workshops need a professional website to highlight their advanced machinery and build trust with luxury car owners.",
+            solution: "Developing a solid landing page focusing on high-tech equipment, showcase galleries, and direct contact options.",
+            results: "Drawing a larger volume of high-end vehicle owners and enhancing the workshop's professional reputation.",
+            features: [
+                "Industrial and bold design themed around automotive repair services.",
+                "Visual walkthrough of repair methods, state-of-the-art lathes, and welding.",
+                "Quick-call triggers and embedded interactive Google Map routing.",
+                "Optimized performance and mobile scaling."
+            ]
+        },
+        demoUrl: "./zeen-main/zeen-main/index.html",
+        orderText: {
+            ar: "أريد الاستفسار عن تطوير موقع مماثل لمركز زين لصيانة الجنوط",
+            en: "I want to inquire about developing an auto center site similar to ZEEN"
+        }
+    }
+};
+
+let activeProjectId = null; // Global tracker for open modal project ID
 
 let currentLang = localStorage.getItem('siteLang') || 'ar';
 
@@ -311,6 +971,84 @@ function setLanguage(lang) {
         if (activePage && activePage.id === 'page-portfolio') {
             window.resetAndStartLawMindSimulator();
         }
+    }
+
+    // Update active project details modal if open
+    if (activeProjectId && typeof updateModalContent === 'function') {
+        updateModalContent(activeProjectId, lang);
+    }
+}
+
+// ==========================================
+// Project Details Modal Content Update Function
+// ==========================================
+function updateModalContent(projectId, lang) {
+    const project = projectDetails[projectId];
+    if (!project) return;
+
+    const modalBadge = document.getElementById('modalProjectBadge');
+    const modalTitle = document.getElementById('modalProjectTitle');
+    const modalPrice = document.getElementById('modalProjectPrice');
+    const modalImage = document.getElementById('modalProjectImage');
+    const modalTechs = document.getElementById('modalProjectTechs');
+    const modalProblem = document.getElementById('modalProjectProblem');
+    const modalSolution = document.getElementById('modalProjectSolution');
+    const modalResults = document.getElementById('modalProjectResults');
+    const modalFeatures = document.getElementById('modalProjectFeatures');
+    const modalDemoBtn = document.getElementById('modalProjectDemoBtn');
+    const modalOrderBtn = document.getElementById('modalProjectOrderBtn');
+
+    // Badge
+    if (modalBadge) modalBadge.textContent = project.badge[lang];
+    // Title
+    if (modalTitle) modalTitle.textContent = project[lang].title;
+    // Price
+    if (modalPrice) modalPrice.textContent = project[lang].price;
+    // Image
+    if (modalImage) modalImage.src = project.image;
+
+    // Tech Tags
+    if (modalTechs) {
+        modalTechs.innerHTML = '';
+        project.techs.forEach(tech => {
+            const tagSpan = document.createElement('span');
+            tagSpan.className = 'tag';
+            tagSpan.textContent = tech;
+            modalTechs.appendChild(tagSpan);
+        });
+    }
+
+    // Problem
+    if (modalProblem) modalProblem.textContent = project[lang].problem;
+    // Solution
+    if (modalSolution) modalSolution.textContent = project[lang].solution;
+    // Results
+    if (modalResults) modalResults.textContent = project[lang].results;
+
+    // Features
+    if (modalFeatures) {
+        modalFeatures.innerHTML = '';
+        project[lang].features.forEach(feat => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-check-circle"></i> <span>${feat}</span>`;
+            modalFeatures.appendChild(li);
+        });
+    }
+
+    // Demo Button
+    if (modalDemoBtn) {
+        if (project.demoUrl && project.demoUrl !== '#' && project.demoUrl !== '#contact') {
+            modalDemoBtn.href = project.demoUrl;
+            modalDemoBtn.style.display = 'inline-block';
+        } else {
+            modalDemoBtn.style.display = 'none';
+        }
+    }
+
+    // Order Button
+    if (modalOrderBtn) {
+        const orderText = encodeURIComponent(project.orderText[lang]);
+        modalOrderBtn.href = `https://wa.me/201128007078?text=${orderText}`;
     }
 }
 
@@ -826,4 +1564,63 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialActivePage && initialActivePage.id === 'page-portfolio') {
         resetAndStartLawMindSimulator();
     }
+
+    // ==========================================
+    // Project Details Modal Handling
+    // ==========================================
+    const detailsModal = document.getElementById('projectDetailsModal');
+    const closeDetailsModalBtn = document.getElementById('closeDetailsModal');
+    const modalBackdrop = detailsModal ? detailsModal.querySelector('.modal-backdrop') : null;
+
+    function openDetailsModal(projectId) {
+        if (!detailsModal) return;
+        activeProjectId = projectId;
+        updateModalContent(projectId, currentLang);
+        detailsModal.style.display = 'flex';
+        // Trigger reflow for animation
+        detailsModal.offsetHeight;
+        detailsModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetailsModal() {
+        if (!detailsModal) return;
+        detailsModal.classList.remove('active');
+        activeProjectId = null;
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            if (!detailsModal.classList.contains('active')) {
+                detailsModal.style.display = 'none';
+            }
+        }, 400); // Wait for transition to finish
+    }
+
+    // Attach click listeners to show details buttons
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.show-details-btn');
+        if (btn) {
+            e.preventDefault();
+            const projectId = btn.getAttribute('data-project');
+            if (projectId) {
+                openDetailsModal(projectId);
+            }
+        }
+    });
+
+    // Close button click listener
+    if (closeDetailsModalBtn) {
+        closeDetailsModalBtn.addEventListener('click', closeDetailsModal);
+    }
+
+    // Backdrop click listener
+    if (modalBackdrop) {
+        modalBackdrop.addEventListener('click', closeDetailsModal);
+    }
+
+    // Escape key listener to close modal
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && detailsModal && detailsModal.classList.contains('active')) {
+            closeDetailsModal();
+        }
+    });
 });
