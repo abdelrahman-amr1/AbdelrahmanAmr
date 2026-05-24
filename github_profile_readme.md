@@ -49,8 +49,8 @@
 ### 📊 GitHub Stats / إحصائيات جيتهاب
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=abdelrahman-amr1&show_icons=true&theme=tokyonight&count_private=true" alt="GitHub Stats" height="180px" style="margin-right: 10px;" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abdelrahman-amr1&layout=compact&theme=tokyonight&langs_count=6" alt="Top Languages" height="180px" />
+  <img src="https://github-readme-stats.vercel.app/api?username=abdelrahman-amr1&show_icons=true&theme=tokyonight&count_private=true&cache_seconds=86400" alt="GitHub Stats" height="180px" style="margin-right: 10px;" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abdelrahman-amr1&layout=compact&theme=tokyonight&langs_count=6&cache_seconds=86400" alt="Top Languages" height="180px" />
 </div>
 
 <br>
@@ -72,5 +72,5 @@
 </div>
 
 <div align="center">
-  <img src="https://profile-counter.glitch.me/abdelrahman-amr1/count.svg" alt="Visitor Counter" />
+  <img src="https://komarev.com/ghpvc/?username=abdelrahman-amr1&color=06b6d4&style=flat-square" alt="Visitor Counter" />
 </div>
