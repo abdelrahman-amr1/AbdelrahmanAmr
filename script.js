@@ -1832,19 +1832,19 @@ function runLawMindModalSimulator(lang) {
 
 function startModalSimulator(projectId, lang) {
     clearModalSimulators();
-    if (projectId === 'prod-1') {
+    if (projectId === 'cipt') {
         runCiptSimulator(lang);
-    } else if (projectId === 'prod-2') {
+    } else if (projectId === 'carbon') {
         runCarbonSimulator(lang);
-    } else if (projectId === 'prod-3') {
+    } else if (projectId === 'results') {
         runResultsSimulator(lang);
-    } else if (projectId === 'prod-4') {
+    } else if (projectId === 'flashcards') {
         runFlashcardsSimulator(lang);
-    } else if (projectId === 'prod-5') {
+    } else if (projectId === 'medical') {
         runMedicalSimulator(lang);
-    } else if (projectId === 'prod-6') {
+    } else if (projectId === 'ris') {
         runRisSimulator(lang);
-    } else if (projectId === 'prod-7') {
+    } else if (projectId === 'wedding') {
         runWeddingSimulator(lang);
     } else if (projectId === 'lawmind') {
         runLawMindModalSimulator(lang);
@@ -1878,7 +1878,7 @@ function updateModalContent(projectId, lang) {
     if (modalImage) modalImage.src = project.image;
 
     // Toggle Simulator or Image
-    const interactiveProjectIds = ['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6', 'prod-7', 'lawmind'];
+    const interactiveProjectIds = ['cipt', 'carbon', 'results', 'flashcards', 'medical', 'ris', 'wedding', 'lawmind'];
     const hasSimulator = interactiveProjectIds.includes(projectId);
     
     const modalImageWrapper = document.getElementById('modalImageWrapper');
