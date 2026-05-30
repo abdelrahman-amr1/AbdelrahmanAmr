@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { supabase as normalSupabase } from '@/lib/supabase'; // to verify requester token
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ychlfrrmtmvoqgsimlfq.supabase.co';
-const serviceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljaGxmcnJtdG12b3Fnc2ltbGZxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODg4MjgzNiwiZXhwIjoyMDk0NDU4ODM2fQ.XBWUlL8IgwYJrt0mQ9VCXTtHuLIrnvauqs76rRq9RB0';
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 // Admin-level Supabase client
 const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey, {
