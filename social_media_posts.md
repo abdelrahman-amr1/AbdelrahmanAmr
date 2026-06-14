@@ -317,19 +317,22 @@ A luxury, interactive single-page application built to replace traditional, expe
 
 ### 🇸🇦 منشور السوشيال ميديا (باللغة العربية)
 ```text
-⚖️ الذكاء الاصطناعي في خدمة القانون - منصة سَنَد للمحاماة الذكية ⚖️
+⚖️ الذكاء الاصطناعي في خدمة القانون - منصة سَنَد للمحاماة الذكية وإدارة المكاتب ⚖️
 
-يسعدني أن أقدم لكم منصة "سَنَد"، المساعد القانوني الأقوى والأسرع للمحامين وصناع القرار، المصمم خصيصاً لقراءة ملفات القضايا الضخمة وصياغة مذكرات الدفاع بدقة متناهية وبما يتوافق بالكامل مع مواد القانون المصري ومراجع محكمة النقض!
+يسعدني أن أقدم لكم منصة "سَنَد"، المساعد القانوني الأقوى والأسرع للمحامين وصناع القرار، ونظام إدارة المكاتب المتكامل (Legal CRM/SaaS) المصمم لتنظيم القضايا، ورقمنة تواصل الموكلين، وصياغة مذكرات الدفاع بدقة متناهية متوافقة مع القانون المصري!
 
-💡 المشكلة: دراسة القضايا تأخذ أياماً طويلة ومئات الصفحات، مع خطورة إغفال ثغرة قانونية هامة، وضيق الوقت المتاح لصياغة العرائض القانونية المعقدة.
-💡 الحل: منصة ذكاء اصطناعي تستخدم محرك Gemini + تقنية RAG لقراءة مستندات القضية، استخراج ثغرات الدفاع القانونية، وصياغة مذكرات دفاع احترافية وجاهزة للتقديم للمحكمة.
+💡 المشكلة: يضيع المحامون مئات الساعات في البحث وصياغة المذكرات ومتابعة تحديثات قضايا الموكلين عبر الهاتف، مع صعوبة إدارة حجوزات الاستشارات القانونية وبناء هوية رقمية مستقلة.
+💡 الحل: منصة SaaS متكاملة تمنح المحامي موقعاً خاصاً، وتوفر للموكلين إمكانية حجز استشارات وتتبع قضاياهم ذاتياً، بينما يتولى مساعد الذكاء الاصطناعي صياغة المذكرات القانونية بدقة النقض.
 
 🌟 مميزات منصة سَنَد:
 1. 🧠 قراءة مستندات القضايا الضخمة والملفات القانونية فورياً باستخدام ميزة Context Caching المتطورة لتسريع الرد وخفض التكلفة.
 2. ✍️ صياغة مذكرات دفاع وصور عقود متكاملة متوافقة مع مواد القانون المصري وأحدث أحكام محكمة النقض.
 3. 💬 مستشار قانوني ذكي تفاعلي لمناقشة تفاصيل القضية واستخراج الثغرات دون الخروج عن سياق القضية المفتوحة.
 4. 📄 ميزة طباعة المذكرات بضغطة زر واحدة بتنسيق المحاكم المصرية الرسمي (خط أميري Amiri، هوامش دقيقة، حجم A4) وجاهزة للتوقيع الفوري.
-5. 📂 تخزين سحابي آمن للمستندات والمراجع على Supabase Storage مع حماية الخصوصية بالكامل.
+5. 🌐 صفحة عامة مستقلة للمحامي (Public Profile Directory): تمنح المحامي مساحة تعريفية خاصة ودومين فرعي يعرض خبراته وخدماته.
+6. 🗓️ حجز استشارات قانونية متكامل: يتيح للموكلين حجز مواعيد للاستشارات القانونية (حضورياً أو افتراضياً) مباشرة عبر جدول مواعيد المحامي المحدث.
+7. 📊 بوابة تتبع القضايا للموكلين (Client Portal): تمكن الموكل من الدخول لمشاهدة مسار قضيته والاطلاع على "الورقة الإلكترونية" التي توضح تطورات القضية ومواعيد الجلسات وما تم فيها أولاً بأول دون الحاجة للاتصال بالمكتب.
+8. 📂 تخزين سحابي آمن للمستندات والمراجع على Supabase Storage مع حماية الخصوصية بالكامل.
 
 🔗 جرب المنصة الآن مباشرة عبر الرابط في التعليقات!
 📞 للاستفسار وتخصيص محرك ذكاء اصطناعي لشركتك أو مكتبك القانوني: 201128007078+
@@ -337,21 +340,24 @@ A luxury, interactive single-page application built to replace traditional, expe
 
 ### 🇬🇧 LinkedIn & Upwork Portfolio Copy (English)
 ```text
-⚖️ SANAD AI - Custom AI-Powered Legal Assistant & Document Analysis (Next.js & Supabase)
+⚖️ SANAD AI - Custom AI Legal Assistant, Lawyer CRM, & Client Tracking SaaS (Next.js & Supabase)
 
-Empowering legal firms with automated case file analysis, defense brief drafting, and statutory lookup using LLMs + RAG.
+Empowering legal firms with automated case file analysis, defense brief drafting, statutory lookup, client portal management, and automated booking scheduler.
 
-💡 The Problem: Attorneys spend massive portions of their billable hours analyzing court documents and drafting lawsuits, risking missing key legal defenses buried in pages of text.
-💡 The Solution: An AI legal portal leveraging Gemini AI and context retrieval models to read files, extract legal loopholes, and compile court-ready defense briefs based on local laws.
+💡 The Problem: Attorneys spend up to 70% of their billable hours analyzing court documents, scheduling consults, and fielding client phone calls asking about case updates.
+💡 The Solution: A complete legal SaaS portal featuring lawyer profiles, automated online consultation booking, client-side case milestone trackers, and LLMs + RAG for defense brief composition.
 
 🛠️ Technical Highlights:
 - Gemini LLM & RAG Engine: Scans case files (PDF, Word) and matches legal arguments with active Egyptian law articles.
 - Context Caching Integration: Optimized to handle massive case files cost-efficiently without losing conversation context by caching file URIs.
+- Dynamic Lawyer Profile Pages: Generates custom public layouts to exhibit credentials, pricing, and capture business leads.
+- Interactive Case Progress Tracker (Client Portal): A secure client dashboard where users log in to check their case's electronic sheets, including court status, judge directives, and next session dates.
+- Automated Consultation Scheduling: Built-in calendar sync allowing clients to reserve physical or digital consult windows.
 - Print-Ready Document Export: Generate and download beautifully structured, formal PDF legal documents formatted with traditional Amiri font, margins, and A4 alignment.
 - Secure Auth & Logs: Built on Supabase for secure lawyer session logs and encrypted document storage.
 
 👉 Try the live Next.js application! Link in comments.
-📩 Need custom AI or RAG tools built? Connect with me. WhatsApp: +201128007078
+📩 Need custom AI, CRM, or RAG tools built? Connect with me. WhatsApp: +201128007078
 ```
 
 ---
