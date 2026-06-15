@@ -106,11 +106,11 @@ const translations = {
         "port-zeen-title": "مركز زين (ZEEN)",
         "port-zeen-desc": "موقع تعريفي احترافي لمركز صيانة واستعدال جنوط السيارات ولحام الألمنيوم باستخدام أحدث المعدات.",
         "port-btn-view": 'استعرض المشروع <i class="fas fa-arrow-left"></i>',
-        "prod-lawmind-title": "منصة LawMind AI للمحاماة الذكية",
-        "prod-lawmind-desc": "منصة المساعد القانوني وإدارة القضايا بالذكاء الاصطناعي، صياغة مذكرات الدفاع وتحليل القضية وفق القانون المصري.",
+        "prod-lawmind-title": "منصة سَنَد للمحاماة الذكية وإدارة المكاتب",
+        "prod-lawmind-desc": "منصة المساعد القانوني الذكي وتتبع القضايا وحجز الاستشارات بالذكاء الاصطناعي وفق القانون المصري.",
         "featured-badge-text": "مشروع مميز (Masterpiece)",
-        "featured-title": "منصة LawMind AI للمحاماة الذكية",
-        "featured-tagline": "المساعد القانوني الذكي صائد الدفوع وصائغ مذكرات الدفاع وفق القانون المصري",
+        "featured-title": "منصة سَنَد للمحاماة الذكية وإدارة المكاتب",
+        "featured-tagline": "المساعد القانوني الذكي وتتبع القضايا وحجز الاستشارات بالذكاء الاصطناعي وفق القانون المصري",
         "simulator-title": "المستشار القانوني الذكي",
         "simulator-status": "متصل - محرك الذكاء الاصطناعي نشط",
         "simulator-pdf-card-title": "نتيجة.pdf",
@@ -258,11 +258,11 @@ const translations = {
         "port-zeen-title": "ZEEN Center for Rims & Wheels",
         "port-zeen-desc": "A professional landing page for a car rim repair, straightening, and aluminum welding center using state-of-the-art equipment.",
         "port-btn-view": 'View Project <i class="fas fa-arrow-right"></i>',
-        "prod-lawmind-title": "LawMind AI - Smart Law Platform",
-        "prod-lawmind-desc": "AI Legal Assistant & Case Management Platform, drafting defense briefs and analyzing cases under Egyptian Law.",
+        "prod-lawmind-title": "SANAD AI - Smart Law Platform & CRM",
+        "prod-lawmind-desc": "AI Legal Assistant, CRM & Case Tracking Platform, drafting defense briefs under Egyptian Law.",
         "featured-badge-text": "Featured Project (Masterpiece)",
-        "featured-title": "LawMind AI Legal Platform",
-        "featured-tagline": "Smart Legal AI Assistant finding defenses & drafting memos under Egyptian Law",
+        "featured-title": "SANAD AI Legal Platform & CRM",
+        "featured-tagline": "Smart Legal AI Assistant, CRM & Client Case Tracking under Egyptian Law",
         "simulator-title": "Smart AI Legal Advisor",
         "simulator-status": "Connected - AI Engine Active",
         "simulator-pdf-card-title": "Result.pdf",
@@ -677,35 +677,35 @@ const projectDetails = {
         image: "./assets/screenshots/lawmind-dashboard.png",
         techs: ["Gemini AI", "RAG Engine", "Next.js", "Supabase", "Context Caching"],
         ar: {
-            title: "منصة LawMind AI للمحاماة الذكية",
+            title: "منصة سَنَد للمحاماة الذكية وإدارة المكاتب",
             price: "احصل على نفس الفكرة: 80,000 ج.م - 500,000 ج.م",
-            problem: "تستغرق دراسة القضايا مئات الصفحات وصياغة مذكرات الدفاع القانوني ساعات طويلة من المحامي، مع مخاطرة تفويت ثغرة قانونية حاسمة.",
-            solution: "منصة ذكاء اصطناعي تستخدم محرك Gemini + RAG لقراءة ملفات القضايا وصياغة مذكرات دفاع واستخراج ثغرات الدفاع القانوني وفق القانون المصري.",
-            results: "تسريع صياغة المذكرات والعرائض بنسبة 85%، دقة استقصاء الثغرات وتوليد ملفات PDF مطبوعة جاهزة مباشرة لتقديمها للمحكمة.",
+            problem: "تستغرق دراسة القضايا ومتابعة مواعيد الجلسات وتنسيق حجوزات الموكلين جهداً ووقتاً هائلاً من المحامين ومكاتب المحاماة.",
+            solution: "منصة ذكاء اصطناعي ونظام إدارة متكامل (SaaS) يمنح كل محامٍ صفحة تعريفية بدومين فرعي، وبوابة تتبع قضايا للموكلين (الورقة الإلكترونية)، ومساعد ذكاء اصطناعي لصياغة المذكرات والدفوع.",
+            results: "تسريع صياغة المذكرات بنسبة 85%، وتسهيل تتبع مسار القضايا للموكلين ذاتياً بدون مكالمات هاتفية، وتنظيم الحجوزات مع طباعة PDF منسقة للمحاكم.",
             features: [
-                "مستشار قانوني ذكي تفاعلي لمناقشة سياق القضية.",
-                "صياغة مذكرات دفاع وعرائض دعاوى متوافقة مع مواد القانون المصري.",
-                "قراءة واستيعاب ملفات قضايا ضخمة فورياً بفضل ميزة Context Caching.",
-                "تصدير العقود والعرائض بصيغة PDF منسقة بدقة وجاهزة للطباعة."
+                "إنشاء صفحة بروفايل عامة ودومين فرعي مخصص للمحامي لعرض خدماته وحجز استشارات.",
+                "بوابة الموكلين (Client Portal) لتتبع مسار القضايا والورقة الإلكترونية والجلسات تلقائياً.",
+                "مساعد قانوني ذكي تفاعلي لمناقشة وقائع القضية وصياغة مذكرات دفاع مطابقة للقضاء المصري.",
+                "قراءة مستندات القضايا الضخمة والملفات السحابية فورياً وتخزينها بأمان بفضل ميزة Context Caching."
             ]
         },
         en: {
-            title: "LawMind AI - Smart Law Platform",
+            title: "SANAD AI - Smart Law Platform & CRM",
             price: "Get the same idea: 80,000 EGP - 500,000 EGP",
-            problem: "Lawyers spend countless hours analyzing voluminous case files and drafting defense briefs, risking missing key legal arguments or defenses.",
-            solution: "An AI legal assistant platform using Gemini AI + RAG to process massive case files, extract defenses, and draft complete legal briefs tailored to Egyptian Law.",
-            results: "Accelerating legal brief drafting by 85%, locating legal loopholes, and exporting court-ready PDF documents instantly.",
+            problem: "Lawyers struggle with manual case tracking, back-and-forth client calls, booking coordination, and spending hours drafting dense court briefs.",
+            solution: "A complete Legal SaaS enabling custom lawyer profile pages with subdomains, consultation schedulers, secure client-side case milestone trackers, and RAG-based AI defense briefs drafting.",
+            results: "Speeding up brief compilation by 85%, reducing client support calls, organizing bookings, and instant A4 PDF document printing.",
             features: [
-                "Interactive AI legal advisor capable of answering complex case-specific questions.",
-                "Automated drafting of lawsuits and briefs backed by active Egyptian law articles.",
-                "Instant parsing of massive legal files using Gemini's advanced Context Caching.",
-                "Direct export to professionally formatted, print-ready PDF documents."
+                "Custom lawyer profiles and subdomains to capture client leads and booking schedules.",
+                "Secure Client Case Tracking Portal (electronic progress boards for case milestones).",
+                "Interactive AI legal advisor capable of drafting lawsuits and briefs backed by Egyptian Law.",
+                "Instant parsing of massive legal files and cloud storage via Gemini Context Caching."
             ]
         },
         demoUrl: "https://lawsamarsamier.vercel.app/",
         orderText: {
-            ar: "أريد الاستفسار عن شراء منصة LawMind AI للمحاماة الذكية",
-            en: "I want to inquire about purchasing the LawMind AI Legal Platform"
+            ar: "أريد الاستفسار عن شراء منصة سَنَد للمحاماة الذكية وإدارة المكاتب",
+            en: "I want to inquire about purchasing the SANAD AI Legal Platform & CRM"
         }
     },
     "medhat": {
@@ -1043,7 +1043,7 @@ const simTranslations = {
         "lawmind": {
             input: "أريد رفع دعوى طلاق للضرر بسبب الهجر الطويل وإثبات الواقعة.",
             loading: "جاري تحليل بنود قانون الأحوال الشخصية وصياغة العريضة...",
-            title: "الرد القانوني الذكي (LawMind AI)",
+            title: "الرد القانوني الذكي (منصة سَنَد)",
             resp: [
                 "القضية: دعوى طلاق للضرر بسبب الهجر",
                 "",
@@ -1117,7 +1117,7 @@ const simTranslations = {
         "lawmind": {
             input: "I want to file a fault divorce claim due to desertion and prove it.",
             loading: "Analyzing Personal Status Law and drafting lawsuit memo...",
-            title: "Smart AI Legal Response (LawMind AI)",
+            title: "Smart AI Legal Response (SANAD AI)",
             resp: [
                 "Case: Divorce claim due to desertion",
                 "",

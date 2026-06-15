@@ -10,12 +10,12 @@
 ### 💫 About Me / عني
 
 * 💻 **Software Engineer** specializing in building high-performance web applications and custom software solutions.
-* 🤖 **AI Enthusiast** focused on integrating large language models (LLMs) and building smart systems (like LawMind AI).
+* 🤖 **AI Enthusiast** focused on integrating large language models (LLMs) and building smart SaaS systems (like SANAD AI).
 * 📱 **Mobile Developer** designing smooth cross-platform applications.
 * 🌍 **Based in Egypt**, open to remote collaborations and freelance projects worldwide.
 
 * 💻 **مهندس برمجيات** متخصص في بناء تطبيقات الويب عالية الأداء والأنظمة البرمجية المخصصة.
-* 🤖 **مطور ذكاء اصطناعي** أركز على دمج النماذج اللغوية الضخمة وبناء الأنظمة الذكية (مثل منصة LawMind AI).
+* 🤖 **مطور ذكاء اصطناعي** أركز على دمج النماذج اللغوية الضخمة وبناء الأنظمة الذكية والـ SaaS (مثل منصة سَنَد الذكية).
 * 📱 **مطور تطبيقات هواتف** أصمم تطبيقات هجينة متجاوبة وسلسة.
 * 🌍 **مقيم في مصر**، ومتاح للمشاريع الحرة والتعاون البرمجي عن بعد عالمياً.
 
@@ -38,7 +38,7 @@
 
 ### 🏆 Featured Projects / مشاريع مميزة
 
-* ⚖️ **[LawMind AI](https://github.com/abdelrahman-amr1/AbdelrahmanAmr)** - Smart AI Legal Advisor for Egyptian fault divorce and lawsuit drafting.
+* ⚖️ **[SANAD AI (سَنَد)](https://github.com/abdelrahman-amr1/AbdelrahmanAmr)** - Smart AI Legal CRM & Case Management SaaS for Egyptian lawyers and clients.
 * 🏥 **Radiance RIS** - Radiology Information System designed for medical centers and scan management.
 * 🛍️ **Bab-ELlouq** - Dynamic product catalog and ordering system integrated with WhatsApp.
 * 💈 **Mida Hair Style** - Luxury styling salon booking portal.
