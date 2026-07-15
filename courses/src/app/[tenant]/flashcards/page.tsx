@@ -24,7 +24,7 @@ export default function TenantFlashcardsPage({
         </p>
       </div>
 
-      <FlashcardGame cards={mockCards} />
+      <FlashcardGame initialCards={mockCards} />
     </div>
   );
 }
