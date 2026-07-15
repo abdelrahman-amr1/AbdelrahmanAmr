@@ -742,9 +742,43 @@
                 </div>
             </div>
             <div class="copyrights">
-                <p>&copy; <span id="year"></span> <span data-i18n="copyright">م. عبدالرحمن عمرو. جميع الحقوق محفوظة.</span></p>
+                <p>&copy; <span id="year"></span> <span data-i18n="copyright">م. عبدالرحمن عمرو. جميع الحقوق محفوظة.</span> | <a href="#refund-policy" data-i18n="nav-refund" style="text-decoration: underline; margin-inline-start: 10px;">سياسة الاسترداد</a> | <a href="./refund-policy.html" target="_blank" data-i18n="nav-refund-page" style="text-decoration: underline; margin-inline-start: 10px;">صفحة السياسة</a> | <a href="#" id="openRefundModal" data-i18n="nav-refund-modal" style="text-decoration: underline; margin-inline-start: 10px;">عرض كـ Modal</a></p>
             </div>
         </footer>
+    </div>
+
+    <!-- Page 7: Refund Policy Section -->
+    <div id="page-refund" class="page-view">
+        <section class="section" style="background: var(--clr-bg-alt); padding: 120px 0 80px;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="refund-sec-title">سياسة الاسترداد والإلغاء</h2>
+                    <div class="divider"></div>
+                    <p class="subtitle" data-i18n="refund-sec-subtitle">الشروط والأحكام المتعلقة بإلغاء الخدمات واسترداد الأموال للمشاريع والأنظمة البرمجية.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                    <div class="honor-card" style="text-align: start; padding: 30px;">
+                        <h3 data-i18n="refund-sec-item1-title" style="color: var(--clr-secondary); margin-bottom: 15px;"><i class="fas fa-laptop-code"></i> 1. الخدمات البرمجية المخصصة</h3>
+                        <p data-i18n="refund-sec-item1-desc" style="color: var(--clr-text-muted); line-height: 1.8; font-size: 0.95rem;">
+                            - قبل بدء العمل: يحق للعميل استرداد الدفعة المقدمة بالكامل في حال إلغاء الطلب قبل البدء الفعلي في مرحلة التخطيط أو التصميم.<br>
+                            - بعد بدء العمل: بمجرد البدء في العمل (التخطيط، البرمجة، أو التصميم)، تكون الدفعة المقدمة غير قابلة للاسترداد لتغطية الموارد والجهد المبذول.
+                        </p>
+                    </div>
+                    <div class="honor-card" style="text-align: start; padding: 30px;">
+                        <h3 data-i18n="refund-sec-item2-title" style="color: var(--clr-secondary); margin-bottom: 15px;"><i class="fas fa-box-open"></i> 2. الأنظمة والمنتجات الجاهزة (SaaS)</h3>
+                        <p data-i18n="refund-sec-item2-desc" style="color: var(--clr-text-muted); line-height: 1.8; font-size: 0.95rem;">
+                            تعتبر جميع مبيعات الأنظمة الجاهزة نهائية وغير قابلة للاسترجاع أو الاسترداد بعد تسليم الكود المصدري أو تثبيت النظام على خوادم العميل. نحن نوفر نسخة تجريبية حية (Demo) لمعاينة النظام قبل الشراء.
+                        </p>
+                    </div>
+                    <div class="honor-card" style="text-align: start; padding: 30px;">
+                        <h3 data-i18n="refund-sec-item3-title" style="color: var(--clr-secondary); margin-bottom: 15px;"><i class="fas fa-server"></i> 3. الاستضافة والدومينات والدعم</h3>
+                        <p data-i18n="refund-sec-item3-desc" style="color: var(--clr-text-muted); line-height: 1.8; font-size: 0.95rem;">
+                            رسوم حجز أسماء النطاق (Domain) والاستضافة غير قابلة للاسترداد نهائياً لتسجيلها باسم العميل لدى جهات عالمية خارجية. كما أن عقود الدعم الفني والصيانة غير قابلة للاسترداد بعد بدء فترة التعاقد.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Lightbox Modal -->
@@ -753,6 +787,35 @@
         <div class="lightbox-content-container">
             <img class="lightbox-content" id="lightboxImg">
             <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundPolicyModal" class="project-details-modal">
+        <div class="modal-backdrop" id="refundModalBackdrop"></div>
+        <div class="modal-wrapper" style="max-width: 800px;">
+            <button class="modal-close-btn" id="closeRefundModal" aria-label="Close Modal">&times;</button>
+            <div class="modal-container" style="padding: 40px;">
+                <div class="modal-header-section">
+                    <span class="modal-badge" data-i18n="refund-modal-badge">سياسة الاسترداد</span>
+                    <h2 class="modal-title" data-i18n="refund-modal-title">سياسة الاسترداد والإلغاء</h2>
+                    <div class="divider" style="margin: 15px 0;"></div>
+                </div>
+                <div class="modal-body-content" style="display: block; max-height: 60vh; overflow-y: auto;">
+                    <div style="margin-bottom: 20px;">
+                        <h4 data-i18n="refund-modal-item1-title" style="color: var(--clr-secondary); margin-bottom: 8px;">1. الخدمات البرمجية المخصصة</h4>
+                        <p data-i18n="refund-modal-item1-desc" style="color: var(--clr-text-muted); line-height: 1.6; font-size: 0.95rem;"></p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 data-i18n="refund-modal-item2-title" style="color: var(--clr-secondary); margin-bottom: 8px;">2. الأنظمة والمنتجات الجاهزة (SaaS)</h4>
+                        <p data-i18n="refund-modal-item2-desc" style="color: var(--clr-text-muted); line-height: 1.6; font-size: 0.95rem;"></p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 data-i18n="refund-modal-item3-title" style="color: var(--clr-secondary); margin-bottom: 8px;">3. الاستضافة واسم النطاق والدعم الفني</h4>
+                        <p data-i18n="refund-modal-item3-desc" style="color: var(--clr-text-muted); line-height: 1.6; font-size: 0.95rem;"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

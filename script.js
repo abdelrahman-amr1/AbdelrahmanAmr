@@ -152,7 +152,26 @@ const translations = {
         "prod-medical-price": "احصل على نفس الفكرة: 35,000 ج.م - 90,000 ج.م",
         "prod-ris-price": "احصل على نفس الفكرة: 60,000 ج.م - 180,000 ج.م",
         "prod-wedding-price": "احصل على نفس الفكرة: 3,500 ج.م - 12,000 ج.م",
-        "prod-lawmind-price": "احصل على نفس الفكرة: 80,000 ج.م - 500,000 ج.م"
+        "prod-lawmind-price": "احصل على نفس الفكرة: 80,000 ج.م - 500,000 ج.م",
+        "nav-refund": "سياسة الاسترداد",
+        "nav-refund-page": "صفحة السياسة",
+        "nav-refund-modal": "عرض كـ Modal",
+        "refund-sec-title": "سياسة الاسترداد والإلغاء",
+        "refund-sec-subtitle": "الشروط والأحكام المتعلقة بإلغاء الخدمات واسترداد الأموال للمشاريع والأنظمة البرمجية.",
+        "refund-sec-item1-title": "<i class=\"fas fa-laptop-code\"></i> 1. الخدمات البرمجية المخصصة",
+        "refund-sec-item1-desc": "- قبل بدء العمل: يحق للعميل استرداد الدفعة المقدمة بالكامل في حال إلغاء الطلب قبل البدء الفعلي في مرحلة التخطيط أو التصميم.<br>- بعد بدء العمل: بمجرد البدء في العمل (التخطيط، البرمجة، أو التصميم)، تكون الدفعة المقدمة غير قابلة للاسترداد لتغطية الموارد والجهد المبذول.",
+        "refund-sec-item2-title": "<i class=\"fas fa-box-open\"></i> 2. الأنظمة والمنتجات الجاهزة (SaaS)",
+        "refund-sec-item2-desc": "تعتبر جميع مبيعات الأنظمة الجاهزة نهائية وغير قابلة للاسترجاع أو الاسترداد بعد تسليم الكود المصدري أو تثبيت النظام على خوادم العميل. نحن نوفر نسخة تجريبية حية (Demo) لمعاينة النظام قبل الشراء.",
+        "refund-sec-item3-title": "<i class=\"fas fa-server\"></i> 3. الاستضافة والدومينات والدعم",
+        "refund-sec-item3-desc": "رسوم حجز أسماء النطاق (Domain) والاستضافة غير قابلة للاسترداد نهائياً لتسجيلها باسم العميل لدى جهات عالمية خارجية. كما أن عقود الدعم الفني والصيانة غير قابلة للاسترداد بعد بدء فترة التعاقد.",
+        "refund-modal-badge": "سياسة الاسترداد",
+        "refund-modal-title": "سياسة الاسترداد والإلغاء",
+        "refund-modal-item1-title": "1. الخدمات البرمجية المخصصة",
+        "refund-modal-item1-desc": "- قبل بدء العمل: يحق للعميل استرداد الدفعة المقدمة بالكامل في حال إلغاء الطلب قبل البدء الفعلي في مرحلة التخطيط أو التصميم.<br>- بعد بدء العمل: بمجرد البدء في العمل (التخطيط، البرمجة، أو التصميم)، تكون الدفعة المقدمة غير قابلة للاسترداد لتغطية الموارد والجهد المبذول.",
+        "refund-modal-item2-title": "2. الأنظمة والمنتجات الجاهزة (SaaS)",
+        "refund-modal-item2-desc": "تعتبر جميع مبيعات الأنظمة الجاهزة نهائية وغير قابلة للاسترجاع أو الاسترداد بعد تسليم الكود المصدري أو تثبيت النظام على خوادم العميل. نحن نوفر نسخة تجريبية حية (Demo) لمعاينة النظام قبل الشراء.",
+        "refund-modal-item3-title": "3. الاستضافة واسم النطاق والدعم الفني",
+        "refund-modal-item3-desc": "رسوم حجز أسماء النطاق (Domain) والاستضافة غير قابلة للاسترداد نهائياً لتسجيلها باسم العميل لدى جهات عالمية خارجية. كما أن عقود الدعم الفني والصيانة غير قابلة للاسترداد بعد بدء فترة التعاقد."
     },
     en: {
         "nav-about": "About",
@@ -304,7 +323,26 @@ const translations = {
         "prod-medical-price": "Get the same idea: 35,000 EGP - 90,000 EGP",
         "prod-ris-price": "Get the same idea: 60,000 EGP - 180,000 EGP",
         "prod-wedding-price": "Get the same idea: 3,500 EGP - 12,000 EGP",
-        "prod-lawmind-price": "Get the same idea: 80,000 EGP - 500,000 EGP"
+        "prod-lawmind-price": "Get the same idea: 80,000 EGP - 500,000 EGP",
+        "nav-refund": "Refund Policy",
+        "nav-refund-page": "Policy Page",
+        "nav-refund-modal": "View as Modal",
+        "refund-sec-title": "Refund & Cancellation Policy",
+        "refund-sec-subtitle": "Terms and conditions regarding service cancellations and refunds for software projects and SaaS.",
+        "refund-sec-item1-title": "<i class=\"fas fa-laptop-code\"></i> 1. Custom Software Development",
+        "refund-sec-item1-desc": "- Before Work Starts: The client is eligible for a full refund of the downpayment if cancelled before planning or design starts.<br>- After Work Starts: Once work has commenced (planning, UI/UX design, or coding), the deposit is non-refundable to cover elapsed labor hours and reserved resources.",
+        "refund-sec-item2-title": "<i class=\"fas fa-box-open\"></i> 2. Ready-Made Systems (SaaS)",
+        "refund-sec-item2-desc": "All sales of SaaS and ready-made systems are final and non-refundable once delivery of source code or system installation is complete. We provide live demos for system evaluation prior to purchase.",
+        "refund-sec-item3-title": "<i class=\"fas fa-server\"></i> 3. Domain, Hosting & Support",
+        "refund-sec-item3-desc": "Domain registration and hosting fees are strictly non-refundable, as they are registered under the client's name with external providers. Monthly/annual support and maintenance plans are non-refundable once activated.",
+        "refund-modal-badge": "Refund Policy",
+        "refund-modal-title": "Refund & Cancellation Policy",
+        "refund-modal-item1-title": "1. Custom Software & Web Development",
+        "refund-modal-item1-desc": "- Before Work Starts: The client is eligible for a full refund of the downpayment if cancelled before planning or design starts.<br>- After Work Starts: Once work has commenced (planning, UI/UX design, or coding), the deposit is non-refundable to cover elapsed labor hours and reserved resources.",
+        "refund-modal-item2-title": "2. Ready-Made Systems (SaaS) & Code",
+        "refund-modal-item2-desc": "All sales of SaaS and ready-made systems are final and non-refundable once delivery of source code or system installation is complete. We provide live demos for system evaluation prior to purchase.",
+        "refund-modal-item3-title": "3. Domain, Hosting & Support Services",
+        "refund-modal-item3-desc": "Domain registration and hosting fees are strictly non-refundable, as they are registered under the client's name with external providers. Monthly/annual support and maintenance plans are non-refundable once activated."
     }
 };
 
@@ -2015,6 +2053,8 @@ document.addEventListener('DOMContentLoaded', () => {
             pageId = 'page-portfolio';
         } else if (hash === '#contact') {
             pageId = 'page-contact';
+        } else if (hash === '#refund-policy' || hash === '#refund') {
+            pageId = 'page-refund';
         }
 
         document.querySelectorAll('.page-view').forEach(view => {
@@ -2515,6 +2555,48 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && detailsModal && detailsModal.classList.contains('active')) {
             closeDetailsModal();
+        }
+    });
+
+    // ==========================================
+    // Refund Policy Modal Handling
+    // ==========================================
+    const refundModal = document.getElementById('refundPolicyModal');
+    const openRefundModalBtn = document.getElementById('openRefundModal');
+    const closeRefundModalBtn = document.getElementById('closeRefundModal');
+    const refundModalBackdrop = document.getElementById('refundModalBackdrop');
+
+    if (openRefundModalBtn && refundModal) {
+        openRefundModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            refundModal.style.display = 'flex';
+            refundModal.offsetHeight;
+            refundModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    function closeRefundModal() {
+        if (!refundModal) return;
+        refundModal.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            if (!refundModal.classList.contains('active')) {
+                refundModal.style.display = 'none';
+            }
+        }, 400);
+    }
+
+    if (closeRefundModalBtn) {
+        closeRefundModalBtn.addEventListener('click', closeRefundModal);
+    }
+    if (refundModalBackdrop) {
+        refundModalBackdrop.addEventListener('click', closeRefundModal);
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && refundModal && refundModal.classList.contains('active')) {
+            closeRefundModal();
         }
     });
 });
